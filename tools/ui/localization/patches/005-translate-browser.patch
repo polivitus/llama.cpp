@@ -1,0 +1,11 @@
+--- a/b/src/lib/constants/ui.constants.ts	2026-09-12 19:38:35.699399067 +0000
++++ b/src/lib/constants/ui.constants.ts	2026-09-12 19:43:15.721575315 +0000
+@@ -17,7 +17,7 @@
+ } as const;
+ 
+ export const TOOL_GROUP_LABELS = {
+-	[ToolSource.BROWSER]: 'Browser',
++	[ToolSource.BROWSER]: 'Браузер',
+ 	[ToolSource.CUSTOM]: 'JSON Schema',
+ 	[ToolSource.SERVER]: 'Server'
+ } as const;

@@ -1,0 +1,11 @@
+--- a/b/src/lib/components/app/chat/ChatForm/ChatFormActions/ChatFormActionAdd/ChatFormActionAddSheet.svelte	2026-09-12 20:30:27.575079286 +0000
++++ b/src/lib/components/app/chat/ChatForm/ChatFormActions/ChatFormActionAdd/ChatFormActionAddSheet.svelte	2026-09-12 20:33:49.288775521 +0000
+@@ -207,7 +207,7 @@
+ 
+ 							<PencilRuler class="inline {ICON_CLASS_DEFAULT} shrink-0" />
+ 
+-							<span class="flex-1">Tools</span>
++							<span class="flex-1">Инструменты</span>
+ 
+ 							<span class="text-xs text-muted-foreground">
+ 								{toolsPanel.totalToolCount} tool{toolsPanel.totalToolCount !== 1 ? 's' : ''}
