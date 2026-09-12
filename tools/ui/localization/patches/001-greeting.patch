@@ -1,0 +1,11 @@
+--- a/b/src/lib/components/app/chat/ChatScreen/ChatScreenGreeting.svelte	2026-09-12 16:29:12.820514246 +0000
++++ b/src/lib/components/app/chat/ChatScreen/ChatScreenGreeting.svelte	2026-09-12 16:31:39.886094627 +0000
+@@ -14,7 +14,7 @@
+ 		isEmpty && 'mb-[calc(50dvh-8rem)] md:mb-8 pointer-events-auto block!'
+ 	]}
+ >
+-	<h1 class="mb-2 text-2xl font-semibold tracking-tight md:text-3xl">Hello there</h1>
++		<h1 class="mb-2 text-2xl font-semibold tracking-tight md:text-3xl">Здравствуйте</h1>
+ 
+ 	<p class="text-muted-foreground md:text-lg">
+ 		{serverStore.props?.modalities?.audio ? 'Запишите аудио или введите сообщение' : 'Введите сообщение'} или загрузите файлы, чтобы начать

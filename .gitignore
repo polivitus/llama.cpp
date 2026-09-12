@@ -1,0 +1,6 @@
+build/
+dist/
+.svelte-kit/
+node_modules/
+tools/ui/localization/patches/*.orig
+tools/ui/localization/patches/*.rej
