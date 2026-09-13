@@ -1,0 +1,11 @@
+--- a/b/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigation.svelte	2026-09-12 22:13:37.475471764 +0000
++++ b/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigation.svelte	2026-09-12 22:18:51.974284046 +0000
+@@ -274,7 +274,7 @@
+ 		if (!conversation) return;
+ 
+ 		const confirmed = window.confirm(
+-			`Delete "${conversation.name}"? This action cannot be undone.`
++			`Удалить "${conversation.name}"? Это действие нельзя отменить.`
+ 		);
+ 
+ 		if (!confirmed) return;

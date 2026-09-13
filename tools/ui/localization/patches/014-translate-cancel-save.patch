@@ -1,0 +1,113 @@
+--- a/b/src/lib/components/app/mcp/McpResourceTemplateForm.svelte	2026-09-12 23:58:50.885072022 +0000
++++ b/src/lib/components/app/mcp/McpResourceTemplateForm.svelte	2026-09-12 23:59:15.617788706 +0000
+@@ -164,7 +164,7 @@
+ 	{/if}
+ 
+ 	<div class="flex justify-end gap-2 pt-1">
+-		<Button onclick={onCancel} size="sm" type="button" variant="secondary">Cancel</Button>
++		<Button onclick={onCancel} size="sm" type="button" variant="secondary">Отмена</Button>
+ 
+ 		<Button disabled={!isComplete} size="sm" type="submit">Read Resource</Button>
+ 	</div>
+--- a/b/src/lib/components/app/mcp/McpServerCard/McpServerCardDeleteDialog.svelte	2026-09-12 23:58:50.899544554 +0000
++++ b/src/lib/components/app/mcp/McpServerCard/McpServerCardDeleteDialog.svelte	2026-09-12 23:59:15.624692469 +0000
+@@ -23,7 +23,7 @@
+ 		</AlertDialog.Header>
+ 
+ 		<AlertDialog.Footer>
+-			<AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
++			<AlertDialog.Cancel>Отмена</AlertDialog.Cancel>
+ 
+ 			<AlertDialog.Action
+ 				class="text-destructive-foreground bg-destructive hover:bg-destructive/90"
+--- a/b/src/lib/components/app/mcp/McpServerCard/McpServerCardEditForm.svelte	2026-09-12 23:58:50.913628582 +0000
++++ b/src/lib/components/app/mcp/McpServerCard/McpServerCardEditForm.svelte	2026-09-12 23:59:15.639890712 +0000
+@@ -85,7 +85,7 @@
+ 		/>
+ 
+ 		<div class="flex items-center justify-end gap-2">
+-			<Button onclick={onCancel} size="sm" variant="secondary">Cancel</Button>
++			<Button onclick={onCancel} size="sm" variant="secondary">Отмена</Button>
+ 
+ 			<Button disabled={!canSave} size="sm" type="submit">
+ 				{serverUrl.trim() ? 'Update' : 'Add'}
+--- a/b/src/lib/components/app/dialogs/DialogConversationRename.svelte	2026-09-12 23:58:50.927540023 +0000
++++ b/src/lib/components/app/dialogs/DialogConversationRename.svelte	2026-09-12 23:59:15.703767153 +0000
+@@ -79,9 +79,9 @@
+ 		</form>
+ 
+ 		<AlertDialog.Footer>
+-			<AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
++			<AlertDialog.Cancel>Отмена</AlertDialog.Cancel>
+ 
+-			<Button disabled={!canSubmit} onclick={handleSubmit} type="button">Save</Button>
++			<Button disabled={!canSubmit} onclick={handleSubmit} type="button">Сохранить</Button>
+ 		</AlertDialog.Footer>
+ 	</AlertDialog.Content>
+ </AlertDialog.Root>
+--- a/b/src/lib/components/app/dialogs/DialogExportSettings.svelte	2026-09-12 23:58:50.941406204 +0000
++++ b/src/lib/components/app/dialogs/DialogExportSettings.svelte	2026-09-12 23:59:15.712891990 +0000
+@@ -67,7 +67,7 @@
+ 		</div>
+ 
+ 		<AlertDialog.Footer>
+-			<AlertDialog.Cancel onclick={onCancel}>Cancel</AlertDialog.Cancel>
++			<AlertDialog.Cancel onclick={onCancel}>Отмена</AlertDialog.Cancel>
+ 
+ 			<AlertDialog.Action
+ 				class="bg-destructive text-white hover:bg-destructive/80"
+--- a/b/src/lib/components/app/dialogs/DialogMcpResourcesBrowser.svelte	2026-09-12 23:58:50.955141748 +0000
++++ b/src/lib/components/app/dialogs/DialogMcpResourcesBrowser.svelte	2026-09-12 23:59:15.735892393 +0000
+@@ -362,7 +362,7 @@
+ 		</div>
+ 
+ 		<Dialog.Footer class="border-t border-border/30 px-6 py-4">
+-			<Button onclick={() => handleOpenChange(false)} variant="outline">Cancel</Button>
++			<Button onclick={() => handleOpenChange(false)} variant="outline">Отмена</Button>
+ 
+ 			{#if hasTemplateResult}
+ 				<Button disabled={isAttaching} onclick={handleAttachTemplateResource}>
+--- a/b/src/lib/components/app/dialogs/DialogModelNotAvailable.svelte	2026-09-12 23:58:50.968694528 +0000
++++ b/src/lib/components/app/dialogs/DialogModelNotAvailable.svelte	2026-09-12 23:59:15.740177648 +0000
+@@ -74,7 +74,7 @@
+ 		</div>
+ 
+ 		<AlertDialog.Footer>
+-			<AlertDialog.Action onclick={() => handleOpenChange(false)}>Cancel</AlertDialog.Action>
++			<AlertDialog.Action onclick={() => handleOpenChange(false)}>Отмена</AlertDialog.Action>
+ 		</AlertDialog.Footer>
+ 	</AlertDialog.Content>
+ </AlertDialog.Root>
+--- a/b/src/lib/components/app/chat/ChatForm/ChatFormPickers/ChatFormPickerMcpPrompts/ChatFormPromptPickerArgumentForm.svelte	2026-09-12 23:58:50.982207069 +0000
++++ b/src/lib/components/app/chat/ChatForm/ChatFormPickers/ChatFormPickerMcpPrompts/ChatFormPromptPickerArgumentForm.svelte	2026-09-12 23:59:16.059139974 +0000
+@@ -67,7 +67,7 @@
+ 	{/if}
+ 
+ 	<div class="mt-8 flex justify-end gap-2">
+-		<Button onclick={onCancel} size="sm" type="button" variant="secondary">Cancel</Button>
++		<Button onclick={onCancel} size="sm" type="button" variant="secondary">Отмена</Button>
+ 
+ 		<Button size="sm" type="submit">Use Prompt</Button>
+ 	</div>
+--- a/b/src/lib/components/app/settings/SettingsFooter.svelte	2026-09-12 23:58:50.995922835 +0000
++++ b/src/lib/components/app/settings/SettingsFooter.svelte	2026-09-12 23:59:16.162899871 +0000
+@@ -54,7 +54,7 @@
+ 		</AlertDialog.Header>
+ 
+ 		<AlertDialog.Footer>
+-			<AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
++			<AlertDialog.Cancel>Отмена</AlertDialog.Cancel>
+ 
+ 			<AlertDialog.Action onclick={handleConfirmReset}>Reset to Default</AlertDialog.Action>
+ 		</AlertDialog.Footer>
+--- a/b/src/lib/components/app/misc/ConversationSelection.svelte	2026-09-12 23:58:51.009976136 +0000
++++ b/src/lib/components/app/misc/ConversationSelection.svelte	2026-09-12 23:59:16.194900431 +0000
+@@ -172,7 +172,7 @@
+ 	</div>
+ 
+ 	<div class="flex justify-end gap-2">
+-		<Button onclick={handleCancel} variant="outline">Cancel</Button>
++		<Button onclick={handleCancel} variant="outline">Отмена</Button>
+ 
+ 		<Button disabled={selectedIds.size === 0} onclick={handleConfirm}>
+ 			{mode === 'export' ? 'Export' : 'Import'} ({selectedIds.size})

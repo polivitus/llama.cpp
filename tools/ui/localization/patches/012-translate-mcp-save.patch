@@ -1,0 +1,11 @@
+--- a/b/src/lib/components/app/dialogs/DialogMcpServerAddNew.svelte	2026-09-12 23:35:52.701864590 +0000
++++ b/src/lib/components/app/dialogs/DialogMcpServerAddNew.svelte	2026-09-12 23:39:27.286177971 +0000
+@@ -295,7 +295,7 @@
+ 					Cancel
+ 				</Button>
+ 
+-				<Button aria-label="Save" disabled={!canSave} size="sm" type="submit" variant="default">
++				<Button aria-label="Сохранить" disabled={!canSave} size="sm" type="submit" variant="default">
+ 					Add
+ 				</Button>
+ 			</Dialog.Footer>

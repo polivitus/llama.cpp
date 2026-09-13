@@ -1,0 +1,20 @@
+--- a/b/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageSystem/ChatMessageSystem.svelte	2026-09-13 00:07:30.097156735 +0000
++++ b/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageSystem/ChatMessageSystem.svelte	2026-09-13 00:09:18.063742405 +0000
+@@ -99,7 +99,7 @@
+ 				<Button class="h-8 px-3" onclick={editCtx.cancel} size="sm" variant="outline">
+ 					<X class="mr-1 h-3 w-3" />
+ 
+-					Cancel
++					Отмена
+ 				</Button>
+ 
+ 				<Button
+@@ -110,7 +110,7 @@
+ 				>
+ 					<Check class="mr-1 h-3 w-3" />
+ 
+-					Save
++					Сохранить
+ 				</Button>
+ 			</div>
+ 		</div>

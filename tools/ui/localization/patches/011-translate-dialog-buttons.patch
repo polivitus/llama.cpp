@@ -1,0 +1,14 @@
+--- a/b/src/lib/components/app/dialogs/DialogConfirmation.svelte	2026-09-12 23:35:52.687330189 +0000
++++ b/src/lib/components/app/dialogs/DialogConfirmation.svelte	2026-09-12 23:37:22.313859875 +0000
+@@ -18,9 +18,9 @@
+ 	}
+ 
+ 	let {
+-		cancelText = 'Cancel',
++		cancelText = 'Отмена',
+ 		children,
+-		confirmText = 'Confirm',
++		confirmText = 'Подтвердить',
+ 		description,
+ 		icon,
+ 		onCancel,

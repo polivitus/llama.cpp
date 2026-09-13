@@ -17,7 +17,7 @@
   "Reload": "Перезагрузить",
   "Reload app": "Перезагрузить приложение",
   "Add files, prompts, tools or MCP Servers": "Добавить файлы, промпты, инструменты или MCP-серверы",
-  "Hello there": "Здравствуйте",
+  "Hello there": "Здравствуйте!",
   "Type a message...": "Введите сообщение...",
   "Regenerate": "Перегенерировать",
   "Thinking": "Думаю",
@@ -54,7 +54,6 @@
   "Duplicate": "Дублировать",
   "Download": "Скачать",
   "Upload": "Загрузить",
-  "Retry": "Повторить",
   "Refresh": "Обновить",
   "Back": "Назад",
   "Next": "Далее",
@@ -120,6 +119,24 @@
   "Settings": "Настройки",
   "Skip reasoning": "Пропустить рассуждения",
   "Stop": "Остановить",
-  "Search": "Поиск"
-  
+  "Search": "Поиск",
+  "No conversations yet": "Пока нет бесед",
+  "No results found": "Ничего не найдено",
+  "Start typing to see results": "Начните вводить для поиска",
+  "Edit system message...": "Редактировать системное сообщение...",
+  "System message": "Системное сообщение",
+  "Cancel": "Отмена",
+  "Save": "Сохранить",
+  "Add your first MCP server": "Добавьте первый MCP-сервер",
+  "Connect a remote MCP server by URL.": "Подключите удалённый MCP-сервер по URL.",
+  "Add New Server": "Добавить новый сервер",
+  "Pin": "Закрепить",
+  "Edit": "Редактировать",
+  "Select": "Выбрать",
+  "Delete": "Удалить",
+  "Cancel": "Отмена",
+  "Save": "Сохранить",
+  "Delete Message": "Удалить сообщение",
+  "Are you sure you want to delete this message? This action cannot be undone.": "Вы уверены, что хотите удалить это сообщение? Это действие нельзя отменить."
+
 }

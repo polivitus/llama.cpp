@@ -1,0 +1,22 @@
+--- a/b/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte	2026-09-12 23:46:09.462170612 +0000
++++ b/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte	2026-09-12 23:48:47.482916895 +0000
+@@ -110,7 +110,7 @@
+ </div>
+ 
+ <DialogConfirmation
+-	cancelText="Cancel"
++	cancelText="Отмена"
+ 	confirmText={messageActions.deletionInfo && messageActions.deletionInfo.totalCount > 1
+ 		? `Delete ${messageActions.deletionInfo.totalCount} Messages`
+ 		: 'Delete'}
+@@ -127,8 +127,8 @@
+ 
+ <DialogConfirmation
+ 	bind:open={showForkDialog}
+-	cancelText="Cancel"
+-	confirmText="Fork"
++	cancelText="Отмена"
++	confirmText="Разветвить"
+ 	description="Create a new conversation branching from this message."
+ 	icon={GitBranch}
+ 	onCancel={() => (showForkDialog = false)}

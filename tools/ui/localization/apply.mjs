@@ -48,6 +48,8 @@ function escapeHtml(s) {
 
 function replaceAll(text, { dict }) {
   let n = 0;
+   // Специальные случаи: шаблонные строки с ${...}
+      text = text.replace(/`Chat \$\{/g, () => { n++; return '`Беседа ${'; });
 
   for (const [en, ru] of Object.entries(dict)) {
     const escaped = en.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
