@@ -1,0 +1,11 @@
+--- a/b/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte	2026-09-13 10:16:57.371831979 +0000
++++ b/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte	2026-09-13 10:18:13.397436715 +0000
+@@ -50,7 +50,7 @@
+ 	function handleOpenForkDialog() {
+ 		const conv = conversationsStore.activeConversation;
+ 
+-		forkName = `Fork of ${conv?.name ?? 'Conversation'}`;
++		forkName = `Ответвление от ${conv?.name ?? 'Conversation'}`;
+ 		forkIncludeAttachments = true;
+ 		showForkDialog = true;
+ 	}

@@ -1,0 +1,19 @@
+--- a/b/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigationSelectionBar.svelte	2026-09-13 11:28:07.783470011 +0000
++++ b/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigationSelectionBar.svelte	2026-09-13 11:31:07.195933375 +0000
+@@ -149,12 +149,10 @@
+ <DialogConfirmation
+ 	bind:open={showDeleteDialog}
+ 	cancelText="Cancel"
+-	confirmText={selectedCount === 1 ? 'Delete' : `Delete ${selectedCount}`}
+-	description="This action cannot be undone. The selected conversation{selectedCount === 1
+-		? ''
+-		: 's'} and {selectedCount === 1
+-		? 'its'
+-		: 'their'} messages will be permanently removed, including any forks."
++	confirmText={selectedCount === 1 ? 'Удалить' : `Удалить ${selectedCount}`}
++		description="Это действие нельзя отменить. Выбранн{selectedCount === 1
++			? 'ая беседа и её сообщения будут'
++			: 'ые беседы и их сообщения будут'} безвозвратно удалены, включая ответвления."
+ 	icon={Trash2}
+ 	onCancel={handleDeleteCancel}
+ 	onConfirm={handleDeleteConfirm}

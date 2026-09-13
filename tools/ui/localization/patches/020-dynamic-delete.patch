@@ -1,0 +1,22 @@
+--- a/b/src/lib/stores/conversations/index.svelte.ts	2026-09-13 10:32:55.169989875 +0000
++++ b/src/lib/stores/conversations/index.svelte.ts	2026-09-13 10:39:45.588082489 +0000
+@@ -163,8 +163,8 @@
+ 
+ 			toast.success(
+ 				idsToRemove.size === 1
+-					? 'Conversation deleted'
+-					: `${idsToRemove.size} conversations deleted`
++					? 'Беседа удалена'
++					: `${idsToRemove.size} ${idsToRemove.size < 5 ? 'беседы' : 'бесед'} удалено`
+ 			);
+ 		} catch (error) {
+ 			console.error('Failed to bulk delete conversations:', error);
+@@ -301,7 +301,7 @@
+ 			tabsStore.clear();
+ 			this.notifyConversationsDeleted(allIds);
+ 
+-			toast.success('All conversations deleted');
++				toast.success('Все беседы удалены');
+ 
+ 			await goto(ROUTES.START);
+ 		} catch (error) {
