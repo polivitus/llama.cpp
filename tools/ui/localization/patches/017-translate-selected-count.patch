@@ -1,0 +1,11 @@
+--- a/b/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigationSelectionBar.svelte	2026-09-13 01:18:01.979462593 +0000
++++ b/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigationSelectionBar.svelte	2026-09-13 01:19:38.909154375 +0000
+@@ -84,7 +84,7 @@
+ 		/>
+ 
+ 		<span class="truncate text-xs font-medium text-muted-foreground">
+-			{selectedCount} / {visibleCount} selected
++			{selectedCount} / {visibleCount} выбрано
+ 		</span>
+ 	</label>
+ 

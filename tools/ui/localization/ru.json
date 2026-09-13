@@ -125,8 +125,6 @@
   "Start typing to see results": "Начните вводить для поиска",
   "Edit system message...": "Редактировать системное сообщение...",
   "System message": "Системное сообщение",
-  "Cancel": "Отмена",
-  "Save": "Сохранить",
   "Add your first MCP server": "Добавьте первый MCP-сервер",
   "Connect a remote MCP server by URL.": "Подключите удалённый MCP-сервер по URL.",
   "Add New Server": "Добавить новый сервер",
@@ -134,9 +132,16 @@
   "Edit": "Редактировать",
   "Select": "Выбрать",
   "Delete": "Удалить",
-  "Cancel": "Отмена",
-  "Save": "Сохранить",
   "Delete Message": "Удалить сообщение",
-  "Are you sure you want to delete this message? This action cannot be undone.": "Вы уверены, что хотите удалить это сообщение? Это действие нельзя отменить."
+  "Are you sure you want to delete this message? This action cannot be undone.": "Вы уверены, что хотите удалить это сообщение? Это действие нельзя отменить.",
+  "Rename conversation": "Переименовать беседу",
+  "Choose a new title for this conversation.": "Введите новое название для этой беседы.",
+  "Conversation title": "Название беседы",
+  "Pinned": "Закреплённые",
+  "Unpin": "Открепить",
+  "Delete selected": "Удалить выбранные",
+  "Exit bulk selection mode": "Выйти из режима выбора",
+  "Message copied to clipboard": "Сообщение скопировано в буфер обмена",
+  "Fork conversation": "Разветвить беседу"
 
 }

@@ -1,0 +1,11 @@
+--- a/b/src/lib/components/app/dialogs/DialogConversationRename.svelte	2026-09-13 01:26:17.182630716 +0000
++++ b/src/lib/components/app/dialogs/DialogConversationRename.svelte	2026-09-13 01:27:29.468917883 +0000
+@@ -55,7 +55,7 @@
+ 		<AlertDialog.Header>
+ 			<AlertDialog.Title class="flex items-center gap-2">
+ 				<Pencil class="h-5 w-5" />
+-				Rename conversation
++				Переименовать беседу
+ 			</AlertDialog.Title>
+ 
+ 			<AlertDialog.Description>Choose a new title for this conversation.</AlertDialog.Description>

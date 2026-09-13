@@ -1,0 +1,42 @@
+--- a/b/src/lib/hooks/use-processing-state.svelte.ts	2026-09-13 01:06:04.988410099 +0000
++++ b/src/lib/hooks/use-processing-state.svelte.ts	2026-09-13 01:06:18.955291275 +0000
+@@ -96,7 +96,7 @@
+ 
+ 	function getProcessingMessage(): string {
+ 		if (!processingState) {
+-			return 'Processing...';
++			return 'Обработка...';
+ 		}
+ 
+ 		switch (processingState.status) {
+@@ -111,7 +111,7 @@
+ 			case 'generating':
+ 				return '';
+ 			default:
+-				return 'Processing...';
++				return 'Обработка...';
+ 		}
+ 	}
+ 
+--- a/b/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistantProcessingInfo.svelte	2026-09-13 01:06:05.003892313 +0000
++++ b/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistantProcessingInfo.svelte	2026-09-13 01:06:18.971472206 +0000
+@@ -19,7 +19,7 @@
+ 			{modelLoadingText ??
+ 				processingState.getPromptProgressText() ??
+ 				processingState.getProcessingMessage() ??
+-				'Processing...'}
++				'Обработка...'}
+ 		</span>
+ 	</div>
+ </div>
+--- a/b/src/lib/components/app/chat/ChatMessages/ChatMessageStatistics/ChatMessageStatistics.svelte	2026-09-13 01:06:05.018573251 +0000
++++ b/src/lib/components/app/chat/ChatMessages/ChatMessageStatistics/ChatMessageStatistics.svelte	2026-09-13 01:06:18.982989246 +0000
+@@ -170,7 +170,7 @@
+ 				{@render viewButton({
+ 					icon: BookOpenText,
+ 					label: 'Reading',
+-					tooltipText: 'Processing',
++					tooltipText: 'Обработка',
+ 					view: ChatMessageStatsView.READING
+ 				})}
+ 			{/if}
