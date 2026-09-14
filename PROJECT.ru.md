@@ -39,7 +39,7 @@
 - [x] ru.json — черновик (~120 фраз)
 - [x] Патч 001-greeting
 - [x] Патч 005-translate-browser
-- [ ] Патч 006-translate-tools-submenu
+- [x] Патч 006-translate-tools-submenu
 - [ ] npm install / npm run build
 - [ ] cmake build llama-server
 
@@ -52,7 +52,7 @@
 |---|---|---|
 | 001 | ChatScreenGreeting.svelte | DONE |
 | 005 | ui.constants.ts (TOOL_GROUP_LABELS) | DONE |
-| 006 | ChatFormActionAddToolsSubmenu.svelte | TODO |
+| 006 | ChatFormActionAddToolsSubmenu.svelte | DONE |
 | 007 | ChatFormActionAddSheet.svelte | TODO |
 | 011 | DialogConfirmation.svelte | TODO |
 | 013 | ChatMessageActionIcons.svelte | TODO |
