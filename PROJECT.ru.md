@@ -61,7 +61,7 @@
 | processing-state.patch | use-processing-state + ... | DONE |
 | selection-count.patch | SidebarNavigationSelectionBar.svelte | DONE |
 | rename-conversation.patch | DialogConversationRename.svelte | DONE |
-| fork-of-name.patch | ChatMessageActionIcons.svelte (forkName) | TODO |
+| fork-of-name.patch | ChatMessageActionIcons.svelte (forkName) | DONE |
 | delete-toast-pluralize.patch | stores/conversations/index.svelte.ts | TODO |
 | delete-desc-pluralize.patch | SidebarNavigationSelectionBar.svelte | TODO |
 
