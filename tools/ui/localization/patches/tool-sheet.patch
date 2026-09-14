@@ -1,3 +1,9 @@
+commit a85316cf3f019fc3f8949b6a1928c90ecb5fb31e
+Author: PoliVitus <polivitus@gmail.com>
+Date:   Mon Sep 14 14:39:02 2026 +0000
+
+    feat(localization): tool-sheet — все UI-строки (RU)
+
 diff --git a/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormActions/ChatFormActionAdd/ChatFormActionAddSheet.svelte b/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormActions/ChatFormActionAdd/ChatFormActionAddSheet.svelte
 index acd0f4d21..0357cc9da 100644
 --- a/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormActions/ChatFormActionAdd/ChatFormActionAddSheet.svelte
