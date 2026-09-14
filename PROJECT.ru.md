@@ -53,7 +53,7 @@
 | tool-sheet.patch | ChatFormActionAddSheet.svelte | DONE |
 | delete-search.patch | routes/search/+page.svelte | DONE |
 | delete-sidebar.patch | SidebarNavigation.svelte | DONE |
-| dialog-confirmation.patch | DialogConfirmation.svelte | TODO |
+| dialog-confirmation.patch | DialogConfirmation.svelte | DONE |
 | mcp-save-label.patch | DialogMcpServerAddNew.svelte | TODO |
 | message-actions.patch | ChatMessageActionIcons.svelte | TODO |
 | cancel-save-buttons.patch | MCP/диалоги (много файлов) | TODO |
