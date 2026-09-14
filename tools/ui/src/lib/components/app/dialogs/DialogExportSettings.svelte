@@ -67,7 +67,7 @@
 		</div>
 
 		<AlertDialog.Footer>
-			<AlertDialog.Cancel onclick={onCancel}>Cancel</AlertDialog.Cancel>
+			<AlertDialog.Cancel onclick={onCancel}>Отмена</AlertDialog.Cancel>
 
 			<AlertDialog.Action
 				class="bg-destructive text-white hover:bg-destructive/80"

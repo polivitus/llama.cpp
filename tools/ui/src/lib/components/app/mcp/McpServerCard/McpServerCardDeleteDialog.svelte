@@ -23,7 +23,7 @@
 		</AlertDialog.Header>
 
 		<AlertDialog.Footer>
-			<AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
+			<AlertDialog.Cancel>Отмена</AlertDialog.Cancel>
 
 			<AlertDialog.Action
 				class="text-destructive-foreground bg-destructive hover:bg-destructive/90"

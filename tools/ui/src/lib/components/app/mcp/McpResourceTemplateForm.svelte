@@ -164,8 +164,8 @@
 	{/if}
 
 	<div class="flex justify-end gap-2 pt-1">
-		<Button onclick={onCancel} size="sm" type="button" variant="secondary">Cancel</Button>
+		<Button onclick={onCancel} size="sm" type="button" variant="secondary">Отмена</Button>
 
-		<Button disabled={!isComplete} size="sm" type="submit">Read Resource</Button>
+		<Button disabled={!isComplete} size="sm" type="submit">Прочитать ресурс</Button>
 	</div>
 </form>

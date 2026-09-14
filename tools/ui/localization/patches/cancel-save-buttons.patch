@@ -1,0 +1,125 @@
+diff --git a/tools/ui/src/lib/components/app/dialogs/DialogConversationRename.svelte b/tools/ui/src/lib/components/app/dialogs/DialogConversationRename.svelte
+index d83c5f0fe..c6217182e 100644
+--- a/tools/ui/src/lib/components/app/dialogs/DialogConversationRename.svelte
++++ b/tools/ui/src/lib/components/app/dialogs/DialogConversationRename.svelte
+@@ -79,9 +79,9 @@
+ 		</form>
+ 
+ 		<AlertDialog.Footer>
+-			<AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
++			<AlertDialog.Cancel>Отмена</AlertDialog.Cancel>
+ 
+-			<Button disabled={!canSubmit} onclick={handleSubmit} type="button">Save</Button>
++			<Button disabled={!canSubmit} onclick={handleSubmit} type="button">Сохранить</Button>
+ 		</AlertDialog.Footer>
+ 	</AlertDialog.Content>
+ </AlertDialog.Root>
+diff --git a/tools/ui/src/lib/components/app/dialogs/DialogExportSettings.svelte b/tools/ui/src/lib/components/app/dialogs/DialogExportSettings.svelte
+index 79bfc1ee0..73c62a1d0 100644
+--- a/tools/ui/src/lib/components/app/dialogs/DialogExportSettings.svelte
++++ b/tools/ui/src/lib/components/app/dialogs/DialogExportSettings.svelte
+@@ -67,7 +67,7 @@
+ 		</div>
+ 
+ 		<AlertDialog.Footer>
+-			<AlertDialog.Cancel onclick={onCancel}>Cancel</AlertDialog.Cancel>
++			<AlertDialog.Cancel onclick={onCancel}>Отмена</AlertDialog.Cancel>
+ 
+ 			<AlertDialog.Action
+ 				class="bg-destructive text-white hover:bg-destructive/80"
+diff --git a/tools/ui/src/lib/components/app/dialogs/DialogMcpResourcesBrowser.svelte b/tools/ui/src/lib/components/app/dialogs/DialogMcpResourcesBrowser.svelte
+index 82a07477d..2c5882fcc 100644
+--- a/tools/ui/src/lib/components/app/dialogs/DialogMcpResourcesBrowser.svelte
++++ b/tools/ui/src/lib/components/app/dialogs/DialogMcpResourcesBrowser.svelte
+@@ -362,7 +362,7 @@
+ 		</div>
+ 
+ 		<Dialog.Footer class="border-t border-border/30 px-6 py-4">
+-			<Button onclick={() => handleOpenChange(false)} variant="outline">Cancel</Button>
++			<Button onclick={() => handleOpenChange(false)} variant="outline">Отмена</Button>
+ 
+ 			{#if hasTemplateResult}
+ 				<Button disabled={isAttaching} onclick={handleAttachTemplateResource}>
+diff --git a/tools/ui/src/lib/components/app/dialogs/DialogModelNotAvailable.svelte b/tools/ui/src/lib/components/app/dialogs/DialogModelNotAvailable.svelte
+index 5bbef2923..c3143dc92 100644
+--- a/tools/ui/src/lib/components/app/dialogs/DialogModelNotAvailable.svelte
++++ b/tools/ui/src/lib/components/app/dialogs/DialogModelNotAvailable.svelte
+@@ -74,7 +74,7 @@
+ 		</div>
+ 
+ 		<AlertDialog.Footer>
+-			<AlertDialog.Action onclick={() => handleOpenChange(false)}>Cancel</AlertDialog.Action>
++			<AlertDialog.Action onclick={() => handleOpenChange(false)}>Отмена</AlertDialog.Action>
+ 		</AlertDialog.Footer>
+ 	</AlertDialog.Content>
+ </AlertDialog.Root>
+diff --git a/tools/ui/src/lib/components/app/mcp/McpResourceTemplateForm.svelte b/tools/ui/src/lib/components/app/mcp/McpResourceTemplateForm.svelte
+index d471ae338..3c2a5fce5 100644
+--- a/tools/ui/src/lib/components/app/mcp/McpResourceTemplateForm.svelte
++++ b/tools/ui/src/lib/components/app/mcp/McpResourceTemplateForm.svelte
+@@ -164,8 +164,8 @@
+ 	{/if}
+ 
+ 	<div class="flex justify-end gap-2 pt-1">
+-		<Button onclick={onCancel} size="sm" type="button" variant="secondary">Cancel</Button>
++		<Button onclick={onCancel} size="sm" type="button" variant="secondary">Отмена</Button>
+ 
+-		<Button disabled={!isComplete} size="sm" type="submit">Read Resource</Button>
++		<Button disabled={!isComplete} size="sm" type="submit">Прочитать ресурс</Button>
+ 	</div>
+ </form>
+diff --git a/tools/ui/src/lib/components/app/mcp/McpServerCard/McpServerCardDeleteDialog.svelte b/tools/ui/src/lib/components/app/mcp/McpServerCard/McpServerCardDeleteDialog.svelte
+index 0b3d3d00e..08e80b2f7 100644
+--- a/tools/ui/src/lib/components/app/mcp/McpServerCard/McpServerCardDeleteDialog.svelte
++++ b/tools/ui/src/lib/components/app/mcp/McpServerCard/McpServerCardDeleteDialog.svelte
+@@ -23,7 +23,7 @@
+ 		</AlertDialog.Header>
+ 
+ 		<AlertDialog.Footer>
+-			<AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
++			<AlertDialog.Cancel>Отмена</AlertDialog.Cancel>
+ 
+ 			<AlertDialog.Action
+ 				class="text-destructive-foreground bg-destructive hover:bg-destructive/90"
+diff --git a/tools/ui/src/lib/components/app/mcp/McpServerCard/McpServerCardEditForm.svelte b/tools/ui/src/lib/components/app/mcp/McpServerCard/McpServerCardEditForm.svelte
+index 88cd5e02d..413273cac 100644
+--- a/tools/ui/src/lib/components/app/mcp/McpServerCard/McpServerCardEditForm.svelte
++++ b/tools/ui/src/lib/components/app/mcp/McpServerCard/McpServerCardEditForm.svelte
+@@ -85,7 +85,7 @@
+ 		/>
+ 
+ 		<div class="flex items-center justify-end gap-2">
+-			<Button onclick={onCancel} size="sm" variant="secondary">Cancel</Button>
++			<Button onclick={onCancel} size="sm" variant="secondary">Отмена</Button>
+ 
+ 			<Button disabled={!canSave} size="sm" type="submit">
+ 				{serverUrl.trim() ? 'Update' : 'Add'}
+diff --git a/tools/ui/src/lib/components/app/misc/ConversationSelection.svelte b/tools/ui/src/lib/components/app/misc/ConversationSelection.svelte
+index e8f173c09..b6b7f14a5 100644
+--- a/tools/ui/src/lib/components/app/misc/ConversationSelection.svelte
++++ b/tools/ui/src/lib/components/app/misc/ConversationSelection.svelte
+@@ -172,7 +172,7 @@
+ 	</div>
+ 
+ 	<div class="flex justify-end gap-2">
+-		<Button onclick={handleCancel} variant="outline">Cancel</Button>
++		<Button onclick={handleCancel} variant="outline">Отмена</Button>
+ 
+ 		<Button disabled={selectedIds.size === 0} onclick={handleConfirm}>
+ 			{mode === 'export' ? 'Export' : 'Import'} ({selectedIds.size})
+diff --git a/tools/ui/src/lib/components/app/settings/SettingsFooter.svelte b/tools/ui/src/lib/components/app/settings/SettingsFooter.svelte
+index 04efde9df..b20699465 100644
+--- a/tools/ui/src/lib/components/app/settings/SettingsFooter.svelte
++++ b/tools/ui/src/lib/components/app/settings/SettingsFooter.svelte
+@@ -54,9 +54,9 @@
+ 		</AlertDialog.Header>
+ 
+ 		<AlertDialog.Footer>
+-			<AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
++			<AlertDialog.Cancel>Отмена</AlertDialog.Cancel>
+ 
+-			<AlertDialog.Action onclick={handleConfirmReset}>Reset to Default</AlertDialog.Action>
++			<AlertDialog.Action onclick={handleConfirmReset}>Сбросить к настройкам по умолчанию</AlertDialog.Action>
+ 		</AlertDialog.Footer>
+ 	</AlertDialog.Content>
+ </AlertDialog.Root>

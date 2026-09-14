@@ -362,7 +362,7 @@
 		</div>
 
 		<Dialog.Footer class="border-t border-border/30 px-6 py-4">
-			<Button onclick={() => handleOpenChange(false)} variant="outline">Cancel</Button>
+			<Button onclick={() => handleOpenChange(false)} variant="outline">Отмена</Button>
 
 			{#if hasTemplateResult}
 				<Button disabled={isAttaching} onclick={handleAttachTemplateResource}>

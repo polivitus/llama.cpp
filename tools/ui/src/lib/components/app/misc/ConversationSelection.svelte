@@ -172,7 +172,7 @@
 	</div>
 
 	<div class="flex justify-end gap-2">
-		<Button onclick={handleCancel} variant="outline">Cancel</Button>
+		<Button onclick={handleCancel} variant="outline">Отмена</Button>
 
 		<Button disabled={selectedIds.size === 0} onclick={handleConfirm}>
 			{mode === 'export' ? 'Export' : 'Import'} ({selectedIds.size})
