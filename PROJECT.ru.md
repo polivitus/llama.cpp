@@ -34,24 +34,22 @@
 ### Сделано
 - [x] Чистый клон upstream
 - [x] Локаль UTF-8
-- [x] Скелет localization/
-- [ ] Патчи (0 из ~17)
-- [x] ru.json — черновик
-- [ ] Сборка llama-server
-- [ ] npm install в tools/ui
-- [ ] npm run build
+- [x] Журналы (PROJECT, CHANGELOG, NOTES)
+- [x] Скелет localization/ + скрипты
+- [x] ru.json — черновик (~120 фраз)
+- [x] Патч 001-greeting — DONE
+- [ ] Патч 005-translate-browser
+- [ ] npm install / npm run build
 - [ ] cmake build llama-server
 
 ### Следующий шаг
-Создать первый патч: 001-greeting.patch
-Файл: tools/ui/src/lib/components/app/chat/ChatScreen/ChatScreenGreeting.svelte
-Переводы: Hello there → Здравствуйте, Type a message → Введите сообщение
+Патч 005: ui.constants.ts — TOOL_GROUP_LABELS.BROWSER 'Browser' → 'Браузер'
 
 ## Список патчей (чек-лист)
 
 | # | Файл | Статус |
 |---|---|---|
-| 001 | ChatScreenGreeting.svelte | TODO |
+| 001 | ChatScreenGreeting.svelte | DONE |
 | 005 | ui.constants.ts (TOOL_GROUP_LABELS) | TODO |
 | 006 | ChatFormActionAddToolsSubmenu.svelte | TODO |
 | 007 | ChatFormActionAddSheet.svelte | TODO |
