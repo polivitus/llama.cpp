@@ -96,22 +96,22 @@ export function useProcessingState(): UseProcessingStateReturn {
 
 	function getProcessingMessage(): string {
 		if (!processingState) {
-			return 'Processing...';
+			return 'Обработка...';
 		}
 
 		switch (processingState.status) {
 			case 'initializing':
-				return 'Initializing...';
+				return 'Инициализация...';
 			case 'preparing':
 				if (processingState.progressPercent !== undefined) {
-					return `Processing (${processingState.progressPercent}%)`;
+					return `Обработка (${processingState.progressPercent}%)`;
 				}
 
-				return 'Preparing response...';
+				return 'Подготовка ответа...';
 			case 'generating':
 				return '';
 			default:
-				return 'Processing...';
+				return 'Обработка...';
 		}
 	}
 

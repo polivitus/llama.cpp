@@ -169,8 +169,8 @@
 			{#if hasPromptStats || isLive}
 				{@render viewButton({
 					icon: BookOpenText,
-					label: 'Reading',
-					tooltipText: 'Processing',
+					label: 'Чтение',
+					tooltipText: 'Обработка',
 					view: ChatMessageStatsView.READING
 				})}
 			{/if}
@@ -178,24 +178,24 @@
 			{@render viewButton({
 				disabled: isGenerationDisabled,
 				icon: Sparkles,
-				label: 'Generation',
-				tooltipText: isGenerationDisabled ? 'Waiting for tokens...' : 'Generation',
+				label: 'Генерация',
+				tooltipText: isGenerationDisabled ? 'Ожидание токенов...' : 'Генерация',
 				view: ChatMessageStatsView.GENERATION
 			})}
 
 			{#if hasAgenticStats}
 				{@render viewButton({
 					icon: Wrench,
-					label: 'Tools',
-					tooltipText: 'Tool calls',
+					label: 'Инструменты',
+					tooltipText: 'Вызовы инструментов',
 					view: ChatMessageStatsView.TOOLS
 				})}
 
 				{#if !hideSummary}
 					{@render viewButton({
 						icon: Layers,
-						label: 'Summary',
-						tooltipText: 'Agentic summary',
+						label: 'Сводка',
+						tooltipText: 'Сводка агента',
 						view: ChatMessageStatsView.SUMMARY
 					})}
 				{/if}
@@ -208,84 +208,84 @@
 			<ChatMessageStatisticsBadge
 				class="bg-transparent"
 				icon={WholeWord}
-				tooltipLabel="Generated tokens"
+				tooltipLabel="Сгенерировано токенов"
 				value="{predictedTokens?.toLocaleString()} tokens"
 			/>
 
 			<ChatMessageStatisticsBadge
 				class="bg-transparent"
 				icon={Clock}
-				tooltipLabel="Generation time"
+				tooltipLabel="Время генерации"
 				value={formattedTime}
 			/>
 
 			<ChatMessageStatisticsBadge
 				class="bg-transparent"
 				icon={Gauge}
-				tooltipLabel="Generation speed"
+				tooltipLabel="Скорость генерации"
 				value="{tokensPerSecond.toFixed(2)} t/s"
 			/>
 		{:else if activeView === ChatMessageStatsView.TOOLS && hasAgenticStats}
 			<ChatMessageStatisticsBadge
 				class="bg-transparent"
 				icon={Wrench}
-				tooltipLabel="Tool calls executed"
+				tooltipLabel="Выполнено вызовов инструментов"
 				value="{agenticTimings!.toolCallsCount} calls"
 			/>
 
 			<ChatMessageStatisticsBadge
 				class="bg-transparent"
 				icon={Clock}
-				tooltipLabel="Tool execution time"
+				tooltipLabel="Время выполнения инструментов"
 				value={formattedAgenticToolsTime}
 			/>
 
 			<ChatMessageStatisticsBadge
 				class="bg-transparent"
 				icon={Gauge}
-				tooltipLabel="Tool execution rate"
+				tooltipLabel="Скорость выполнения инструментов"
 				value="{agenticToolsPerSecond.toFixed(2)} calls/s"
 			/>
 		{:else if activeView === ChatMessageStatsView.SUMMARY && hasAgenticStats}
 			<ChatMessageStatisticsBadge
 				class="bg-transparent"
 				icon={Layers}
-				tooltipLabel="Agentic turns (LLM calls)"
+				tooltipLabel="Шаги агента (вызовы LLM)"
 				value="{agenticTimings!.turns} turns"
 			/>
 
 			<ChatMessageStatisticsBadge
 				class="bg-transparent"
 				icon={WholeWord}
-				tooltipLabel="Total tokens generated"
+				tooltipLabel="Всего сгенерировано токенов"
 				value="{agenticTimings!.llm.predicted_n.toLocaleString()} tokens"
 			/>
 
 			<ChatMessageStatisticsBadge
 				class="bg-transparent"
 				icon={Clock}
-				tooltipLabel="Total time (LLM + tools)"
+				tooltipLabel="Общее время (LLM + инструменты)"
 				value={formattedAgenticTotalTime}
 			/>
 		{:else if hasPromptStats && (mode === ChatMessageStatisticsMode.READING || isSwitchable)}
 			<ChatMessageStatisticsBadge
 				class="bg-transparent"
 				icon={WholeWord}
-				tooltipLabel="Prompt tokens"
+				tooltipLabel="Токенов в запросе"
 				value="{promptTokens} tokens"
 			/>
 
 			<ChatMessageStatisticsBadge
 				class="bg-transparent"
 				icon={Clock}
-				tooltipLabel="Prompt processing time"
+				tooltipLabel="Время обработки запроса"
 				value={formattedPromptTime ?? '0s'}
 			/>
 
 			<ChatMessageStatisticsBadge
 				class="bg-transparent"
 				icon={Gauge}
-				tooltipLabel="Prompt processing speed"
+				tooltipLabel="Скорость обработки запроса"
 				value="{promptTokensPerSecond!.toFixed(2)} tokens/s"
 			/>
 		{/if}

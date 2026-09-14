@@ -19,7 +19,7 @@
 			{modelLoadingText ??
 				processingState.getPromptProgressText() ??
 				processingState.getProcessingMessage() ??
-				'Processing...'}
+				'Обработка...'}
 		</span>
 	</div>
 </div>
