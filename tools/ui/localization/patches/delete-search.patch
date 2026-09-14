@@ -1,0 +1,14 @@
+diff --git a/tools/ui/src/routes/search/+page.svelte b/tools/ui/src/routes/search/+page.svelte
+index 5b68d267f..15cc00ae9 100644
+--- a/tools/ui/src/routes/search/+page.svelte
++++ b/tools/ui/src/routes/search/+page.svelte
+@@ -50,7 +50,8 @@
+ 		if (!conversation) return;
+ 
+ 		const confirmed = window.confirm(
+-			`Delete "${conversation.name}"? This action cannot be undone.`
++			`Удалить "${conversation.name}"? Это действие нельзя отменить.`
++
+ 		);
+ 
+ 		if (!confirmed) return;
