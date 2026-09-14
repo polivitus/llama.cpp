@@ -274,7 +274,7 @@
 		if (!conversation) return;
 
 		const confirmed = window.confirm(
-			`Delete "${conversation.name}"? This action cannot be undone.`
+			`Удалить "${conversation.name}"? Это действие нельзя отменить.`
 		);
 
 		if (!confirmed) return;

@@ -1,0 +1,13 @@
+diff --git a/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigation.svelte b/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigation.svelte
+index 8bf12279e..387a2d9ab 100644
+--- a/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigation.svelte
++++ b/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigation.svelte
+@@ -274,7 +274,7 @@
+ 		if (!conversation) return;
+ 
+ 		const confirmed = window.confirm(
+-			`Delete "${conversation.name}"? This action cannot be undone.`
++			`Удалить "${conversation.name}"? Это действие нельзя отменить.`
+ 		);
+ 
+ 		if (!confirmed) return;
