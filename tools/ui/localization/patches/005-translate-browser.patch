@@ -1,0 +1,59 @@
+diff --git a/tools/ui/src/lib/constants/ui.constants.ts b/tools/ui/src/lib/constants/ui.constants.ts
+index f40cecfb6..712812da1 100644
+--- a/tools/ui/src/lib/constants/ui.constants.ts
++++ b/tools/ui/src/lib/constants/ui.constants.ts
+@@ -3,7 +3,7 @@ import { SidebarAction, ToolSource } from '$lib/enums';
+ import type { DesktopIconStripItem } from '$lib/types';
+ 
+ export const FORK_TREE_DEPTH_PADDING = 8;
+-export const SYSTEM_MESSAGE_PLACEHOLDER = 'System message';
++export const SYSTEM_MESSAGE_PLACEHOLDER = 'Системное сообщение';
+ 
+ /** Data attributes for app-level DOM contracts. */
+ export const UI_DATA_ATTRS = {
+@@ -17,15 +17,15 @@ export const UI_DATA_ATTRS = {
+ } as const;
+ 
+ export const TOOL_GROUP_LABELS = {
+-	[ToolSource.BROWSER]: 'Browser',
++	[ToolSource.BROWSER]: 'Браузер',
+ 	[ToolSource.CUSTOM]: 'JSON Schema',
+-	[ToolSource.SERVER]: 'Server'
++	[ToolSource.SERVER]: 'Сервер'
+ } as const;
+ 
+ export const TOOL_SERVER_LABELS = {
+-	[ToolSource.BROWSER]: 'Browser Tools',
+-	[ToolSource.CUSTOM]: 'Custom Tools',
+-	[ToolSource.SERVER]: 'Server Tools'
++	[ToolSource.BROWSER]: 'Инструменты браузера',
++	[ToolSource.CUSTOM]: 'Пользовательские инструменты',
++	[ToolSource.SERVER]: 'Инструменты сервера'
+ } as const;
+ 
+ export const TOOLTIP_DELAY_DURATION = 500;
+@@ -39,7 +39,7 @@ export const PROCESSING_INFO_TIMEOUT = 2000;
+  * Statistics units labels
+  */
+ export const STATS_UNITS = {
+-	TOKENS_PER_SECOND: 't/s'
++	TOKENS_PER_SECOND: 'т/с'
+ } as const;
+ 
+ export const DEFAULT_MOBILE_BREAKPOINT = 768;
+@@ -58,12 +58,12 @@ export const SIDEBAR_ACTIONS_ITEMS: DesktopIconStripItem[] = [
+ 		action: SidebarAction.NEW_CHAT,
+ 		icon: SquarePen,
+ 		keys: ['shift', 'cmd', 'o'],
+-		tooltip: 'New chat'
++		tooltip: 'Новый чат'
+ 	},
+-	{ icon: Search, keys: ['cmd', 'k'], tooltip: 'Search' },
++	{ icon: Search, keys: ['cmd', 'k'], tooltip: 'Поиск' },
+ 	{
+ 		action: SidebarAction.SETTINGS,
+ 		icon: Settings,
+-		tooltip: 'Settings'
++		tooltip: 'Настройки'
+ 	}
+ ];
