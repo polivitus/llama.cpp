@@ -246,7 +246,7 @@
 <Dialog.Root onOpenChange={handleOpenChange} {open}>
 	<Dialog.Content class="max-w-2xl!">
 		<Dialog.Header>
-			<Dialog.Title class="select-none">Add New MCP Server</Dialog.Title>
+			<Dialog.Title class="select-none">Добавить новый MCP-сервер</Dialog.Title>
 		</Dialog.Header>
 
 		{#if recommendationsToShow.length > 0}
@@ -292,11 +292,11 @@
 
 			<Dialog.Footer>
 				<Button onclick={() => handleOpenChange(false)} size="sm" variant="secondary">
-					Cancel
+					Отмена
 				</Button>
 
-				<Button aria-label="Save" disabled={!canSave} size="sm" type="submit" variant="default">
-					Add
+				<Button aria-label="Сохранить" disabled={!canSave} size="sm" type="submit" variant="default">
+					Добавить
 				</Button>
 			</Dialog.Footer>
 		</form>
