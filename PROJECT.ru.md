@@ -37,8 +37,9 @@
 - [x] Журналы (PROJECT, CHANGELOG, NOTES)
 - [x] Скелет localization/ + скрипты
 - [x] ru.json — черновик (~120 фраз)
-- [x] Патч 001-greeting — DONE
-- [ ] Патч 005-translate-browser
+- [x] Патч 001-greeting
+- [x] Патч 005-translate-browser
+- [ ] Патч 006-translate-tools-submenu
 - [ ] npm install / npm run build
 - [ ] cmake build llama-server
 
@@ -50,7 +51,7 @@
 | # | Файл | Статус |
 |---|---|---|
 | 001 | ChatScreenGreeting.svelte | DONE |
-| 005 | ui.constants.ts (TOOL_GROUP_LABELS) | TODO |
+| 005 | ui.constants.ts (TOOL_GROUP_LABELS) | DONE |
 | 006 | ChatFormActionAddToolsSubmenu.svelte | TODO |
 | 007 | ChatFormActionAddSheet.svelte | TODO |
 | 011 | DialogConfirmation.svelte | TODO |
