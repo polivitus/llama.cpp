@@ -137,13 +137,13 @@
 >
 	<div class="flex flex-col gap-4 py-2">
 		<div class="flex flex-col gap-2">
-			<Label for="fork-name">Title</Label>
+			<Label for="fork-name">Название</Label>
 
 			<Input
 				bind:value={forkName}
 				class="text-foreground"
 				id="fork-name"
-				placeholder="Enter fork name"
+				placeholder="Введите название ветки"
 				type="text"
 			/>
 		</div>
@@ -158,7 +158,7 @@
 			/>
 
 			<Label class="cursor-pointer text-sm font-normal" for="fork-attachments">
-				Include all attachments
+				Включить все вложения
 			</Label>
 		</div>
 	</div>
