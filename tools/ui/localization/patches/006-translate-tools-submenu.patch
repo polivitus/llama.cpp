@@ -1,0 +1,13 @@
+diff --git a/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormActions/ChatFormActionAdd/ChatFormActionAddToolsSubmenu.svelte b/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormActions/ChatFormActionAdd/ChatFormActionAddToolsSubmenu.svelte
+index f49544171..f36f4903e 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormActions/ChatFormActionAdd/ChatFormActionAddToolsSubmenu.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormActions/ChatFormActionAdd/ChatFormActionAddToolsSubmenu.svelte
+@@ -17,7 +17,7 @@
+ 	<DropdownMenu.SubTrigger class="flex cursor-pointer items-center gap-2">
+ 		<PencilRuler class={ICON_CLASS_DEFAULT} />
+ 
+-		<span>Tools</span>
++		<span>Инструменты</span>
+ 	</DropdownMenu.SubTrigger>
+ 
+ 	<DropdownMenu.SubContent class="w-72 p-0">
