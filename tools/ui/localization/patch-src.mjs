@@ -6,6 +6,9 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
+const GIT_ROOT = execSync('git rev-parse --show-toplevel', {
+  cwd: ROOT, encoding: 'utf-8',
+}).trim();
 const PATCHES = path.join(__dirname, 'patches');
 const REVERT = process.argv.includes('--revert');
 
@@ -31,10 +34,10 @@ for (const f of files) {
 
   const applyFlag = REVERT ? '--reverse ' : '';
   try {
-    execSync(`git apply --check ${applyFlag}"${patchPath}"`, { cwd: ROOT, stdio: 'pipe' });
+    execSync(`git apply --check ${applyFlag}"${patchPath}"`, { cwd: GIT_ROOT, stdio: 'pipe' });
   } catch {
     try {
-      execSync(`git apply --check --reverse "${patchPath}"`, { cwd: ROOT, stdio: 'pipe' });
+      execSync(`git apply --check --reverse "${patchPath}"`, { cwd: GIT_ROOT, stdio: 'pipe' });
       log(`= уже применён: ${f}`);
       continue;
     } catch {
@@ -45,7 +48,7 @@ for (const f of files) {
   }
 
   try {
-    execSync(`git apply ${applyFlag}"${patchPath}"`, { cwd: ROOT, stdio: 'pipe' });
+    execSync(`git apply ${applyFlag}"${patchPath}"`, { cwd: GIT_ROOT, stdio: 'pipe' });
     log(`${REVERT ? '↩ откачен' : '✓ применён'}: ${f}`);
   } catch (e) {
     log(`✗ ошибка: ${f}`);

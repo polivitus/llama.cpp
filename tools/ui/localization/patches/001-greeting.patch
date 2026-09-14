@@ -1,0 +1,17 @@
+diff --git a/tools/ui/src/lib/components/app/chat/ChatScreen/ChatScreenGreeting.svelte b/tools/ui/src/lib/components/app/chat/ChatScreen/ChatScreenGreeting.svelte
+index 5af00ebb4..7b45959e0 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatScreen/ChatScreenGreeting.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatScreen/ChatScreenGreeting.svelte
+@@ -14,10 +14,9 @@
+ 		isEmpty && 'mb-[calc(50dvh-8rem)] md:mb-8 pointer-events-auto block!'
+ 	]}
+ >
+-	<h1 class="mb-2 text-2xl font-semibold tracking-tight md:text-3xl">Hello there</h1>
++	<h1 class="mb-2 text-2xl font-semibold tracking-tight md:text-3xl">Здравствуйте!</h1>
+ 
+ 	<p class="text-muted-foreground md:text-lg">
+-		{serverStore.props?.modalities?.audio ? 'Record audio, type a message ' : 'Type a message'} or upload
+-		files to get started
++		{serverStore.props?.modalities?.audio ? 'Запишите аудио или введите сообщение ' : 'Введите сообщение'} или загрузите файлы, чтобы начать
+ 	</p>
+ </div>
