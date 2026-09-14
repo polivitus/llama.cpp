@@ -59,7 +59,7 @@
 | cancel-save-buttons.patch | MCP/диалоги (много файлов) | DONE |
 | system-message-editor.patch | ChatMessageSystem.svelte | DONE |
 | processing-state.patch | use-processing-state + ... | DONE |
-| selection-count.patch | SidebarNavigationSelectionBar.svelte | TODO |
+| selection-count.patch | SidebarNavigationSelectionBar.svelte | DONE |
 | rename-conversation.patch | DialogConversationRename.svelte | TODO |
 | fork-of-name.patch | ChatMessageActionIcons.svelte (forkName) | TODO |
 | delete-toast-pluralize.patch | stores/conversations/index.svelte.ts | TODO |
