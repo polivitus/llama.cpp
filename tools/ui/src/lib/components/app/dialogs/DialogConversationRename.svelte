@@ -55,15 +55,15 @@
 		<AlertDialog.Header>
 			<AlertDialog.Title class="flex items-center gap-2">
 				<Pencil class="h-5 w-5" />
-				Rename conversation
+				Переименовать беседу
 			</AlertDialog.Title>
 
-			<AlertDialog.Description>Choose a new title for this conversation.</AlertDialog.Description>
+			<AlertDialog.Description>Введите новое название для этой беседы</AlertDialog.Description>
 		</AlertDialog.Header>
 
 		<form class="space-y-2 pt-2 pb-4" onsubmit={handleSubmit}>
 			<label class="text-sm font-medium text-muted-foreground" for="conversation-rename-input">
-				Conversation title
+				Название беседы
 			</label>
 
 			<Input
@@ -73,7 +73,7 @@
 				autocorrect="off"
 				id="conversation-rename-input"
 				maxlength={200}
-				placeholder="Conversation title"
+				placeholder="Название беседы"
 				spellcheck={false}
 			/>
 		</form>
