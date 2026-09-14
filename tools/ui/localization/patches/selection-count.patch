@@ -1,0 +1,106 @@
+diff --git a/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigationSelectionBar.svelte b/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigationSelectionBar.svelte
+index e0e547d51..988842bb1 100644
+--- a/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigationSelectionBar.svelte
++++ b/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigationSelectionBar.svelte
+@@ -56,35 +56,35 @@
+ 	const pinTooltip = $derived(
+ 		hasSelection
+ 			? pinStateIsMixed
+-				? 'Unavailable for mixed state selection'
++				? 'Недоступно для смешанного выбора'
+ 				: someSelectedPinned
+ 					? selectedCount === 1
+-						? 'Unpin'
+-						: 'Unpin all'
++						? 'Открепить'
++						: 'Открепить все'
+ 					: selectedCount === 1
+-						? 'Pin'
+-						: 'Pin all'
+-			: 'Pin'
++						? 'Закрепить'
++						: 'Закрепить все'
++			: 'Закрепить'
+ 	);
+ 
+ 	const pinDisabled = $derived(!hasSelection || pinStateIsMixed);
+ </script>
+ 
+ <div
+-	aria-label="Bulk actions for selected conversations"
++	aria-label="Массовые действия для выбранных бесед"
+ 	class="flex items-center gap-1.5 rounded-xl border border-border/50 bg-background/50 px-2 py-1.5 shadow-sm backdrop-blur-xl {className}"
+ 	role="toolbar"
+ >
+ 	<label class="flex min-w-0 cursor-pointer items-center gap-2">
+ 		<Checkbox
+-			aria-label={isMasterChecked ? 'Deselect all' : 'Select all'}
++			aria-label={isMasterChecked ? 'Снять выделение' : 'Выделить всё'}
+ 			checked={isMasterChecked}
+ 			indeterminate={isMasterIndeterminate}
+ 			onCheckedChange={onSelectAllToggle}
+ 		/>
+ 
+ 		<span class="truncate text-xs font-medium text-muted-foreground">
+-			{selectedCount} / {visibleCount} selected
++			{selectedCount} / {visibleCount} выбрано
+ 		</span>
+ 	</label>
+ 
+@@ -104,7 +104,7 @@
+ 		/>
+ 
+ 		<ActionIcon
+-			ariaLabel="Export selected"
++			ariaLabel="Экспортировать выбранные"
+ 			class="h-7 w-7 rounded-md bg-transparent backdrop-blur-none hover:bg-accent! {hasSelection
+ 				? 'opacity-100'
+ 				: 'opacity-40'}"
+@@ -113,12 +113,12 @@
+ 			iconSize="h-3.5 w-3.5"
+ 			onclick={onBulkExport}
+ 			size="sm"
+-			tooltip={hasSelection ? 'Export' : 'Export'}
++			tooltip={hasSelection ? 'Экспорт' : 'Экспорт'}
+ 			tooltipSide={TooltipSide.TOP}
+ 		/>
+ 
+ 		<ActionIcon
+-			ariaLabel="Delete selected"
++			ariaLabel="Удалить выбранные"
+ 			class="h-7 w-7 rounded-md bg-transparent backdrop-blur-none hover:bg-destructive/10! dark:hover:bg-destructive/20! disabled:hover:bg-transparent {hasSelection
+ 				? 'opacity-100'
+ 				: 'opacity-40'}"
+@@ -127,20 +127,20 @@
+ 			iconSize="h-3.5 w-3.5 text-destructive"
+ 			onclick={handleDeleteClick}
+ 			size="sm"
+-			tooltip="Delete selected"
++			tooltip="Удалить выбранные"
+ 			tooltipSide={TooltipSide.TOP}
+ 		/>
+ 
+ 		<div aria-hidden="true" class="mx-1 h-4 w-px bg-border"></div>
+ 
+ 		<ActionIcon
+-			ariaLabel="Exit bulk selection mode"
++			ariaLabel="Выйти из режима массового выбора"
+ 			class="h-7 w-7 rounded-md bg-transparent backdrop-blur-none hover:bg-accent!"
+ 			icon={X}
+ 			iconSize="h-3.5 w-3.5"
+ 			onclick={onClose}
+ 			size="sm"
+-			tooltip="Exit bulk selection mode"
++			tooltip="Выйти из режима массового выбора"
+ 			tooltipSide={TooltipSide.TOP}
+ 		/>
+ 	</div>
+@@ -148,7 +148,7 @@
+ 
+ <DialogConfirmation
+ 	bind:open={showDeleteDialog}
+-	cancelText="Cancel"
++	cancelText="Отмена"
+ 	confirmText={selectedCount === 1 ? 'Delete' : `Delete ${selectedCount}`}
+ 	description="This action cannot be undone. The selected conversation{selectedCount === 1
+ 		? ''
