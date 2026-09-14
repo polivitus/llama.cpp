@@ -76,7 +76,7 @@
 </script>
 
 <div
-	aria-label="System message with actions"
+	aria-label="Системное сообщение с действиями"
 	class="group flex flex-col items-end gap-3 md:gap-2 {className}"
 	role="group"
 >
@@ -99,7 +99,7 @@
 				<Button class="h-8 px-3" onclick={editCtx.cancel} size="sm" variant="outline">
 					<X class="mr-1 h-3 w-3" />
 
-					Cancel
+					Отмена
 				</Button>
 
 				<Button
@@ -110,7 +110,7 @@
 				>
 					<Check class="mr-1 h-3 w-3" />
 
-					Save
+					Сохранить
 				</Button>
 			</div>
 		</div>
