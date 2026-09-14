@@ -56,7 +56,7 @@
 | dialog-confirmation.patch | DialogConfirmation.svelte | DONE |
 | mcp-save-label.patch | DialogMcpServerAddNew.svelte | DONE |
 | message-actions.patch | ChatMessageActionIcons.svelte | DONE |
-| cancel-save-buttons.patch | MCP/диалоги (много файлов) | TODO |
+| cancel-save-buttons.patch | MCP/диалоги (много файлов) | DONE |
 | system-message-editor.patch | ChatMessageSystem.svelte | TODO |
 | processing-state.patch | use-processing-state + ... | TODO |
 | selection-count.patch | SidebarNavigationSelectionBar.svelte | TODO |
