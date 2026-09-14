@@ -36,9 +36,11 @@
 - [x] Локаль UTF-8
 - [x] Скелет localization/
 - [ ] Патчи (0 из ~17)
-- [ ] ru.json — черновик
+- [x] ru.json — черновик
 - [ ] Сборка llama-server
 - [ ] npm install в tools/ui
+- [ ] npm run build
+- [ ] cmake build llama-server
 
 ### Следующий шаг
 Создать первый патч: 001-greeting.patch
