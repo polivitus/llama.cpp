@@ -54,7 +54,7 @@
 | ui-constants.patch | ui.constants.ts | DONE |
 | tool-submenu.patch | ChatFormActionAddToolsSubmenu.svelte | DONE |
 | tool-sheet.patch | ChatFormActionAddSheet.svelte | DONE |
-| delete-search.patch | routes/search/+page.svelte | TODO |
+| delete-search.patch | routes/search/+page.svelte | DONE |
 | delete-sidebar.patch | SidebarNavigation.svelte | TODO |
 | dialog-confirmation.patch | DialogConfirmation.svelte | TODO |
 | mcp-save-label.patch | DialogMcpServerAddNew.svelte | TODO |
