@@ -48,15 +48,25 @@
 
 ## Список патчей (чек-лист)
 
-| # | Файл | Статус |
+| Имя | Файл | Статус |
 |---|---|---|
-| 001 | ChatScreenGreeting.svelte | DONE |
-| 005 | ui.constants.ts (TOOL_GROUP_LABELS) | DONE |
-| 006 | ChatFormActionAddToolsSubmenu.svelte | DONE |
-| 007 | ChatFormActionAddSheet.svelte | TODO |
-| 011 | DialogConfirmation.svelte | TODO |
-| 013 | ChatMessageActionIcons.svelte | TODO |
-| ... | ... | ... |
+| chat-greeting.patch | ChatScreenGreeting.svelte | DONE |
+| ui-constants.patch | ui.constants.ts | DONE |
+| tool-submenu.patch | ChatFormActionAddToolsSubmenu.svelte | DONE |
+| tool-sheet.patch | ChatFormActionAddSheet.svelte | DONE |
+| delete-search.patch | routes/search/+page.svelte | TODO |
+| delete-sidebar.patch | SidebarNavigation.svelte | TODO |
+| dialog-confirmation.patch | DialogConfirmation.svelte | TODO |
+| mcp-save-label.patch | DialogMcpServerAddNew.svelte | TODO |
+| message-actions.patch | ChatMessageActionIcons.svelte | TODO |
+| cancel-save-buttons.patch | MCP/диалоги (много файлов) | TODO |
+| system-message-editor.patch | ChatMessageSystem.svelte | TODO |
+| processing-state.patch | use-processing-state + ... | TODO |
+| selection-count.patch | SidebarNavigationSelectionBar.svelte | TODO |
+| rename-conversation.patch | DialogConversationRename.svelte | TODO |
+| fork-of-name.patch | ChatMessageActionIcons.svelte (forkName) | TODO |
+| delete-toast-pluralize.patch | stores/conversations/index.svelte.ts | TODO |
+| delete-desc-pluralize.patch | SidebarNavigationSelectionBar.svelte | TODO |
 
 ## Известные проблемы (из прошлой сессии)
 - 007 и 020 были битые по кодировке (cp1251 / тайский) — пересоздать в UTF-8
