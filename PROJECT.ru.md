@@ -37,14 +37,11 @@
 - [x] Журналы (PROJECT, CHANGELOG, NOTES)
 - [x] Скелет localization/ + скрипты
 - [x] ru.json — черновик (~120 фраз)
-- [x] Патч 001-greeting
-- [x] Патч 005-translate-browser
-- [x] Патч 006-translate-tools-submenu
+- [ ] патчи
 - [ ] npm install / npm run build
 - [ ] cmake build llama-server
 
 ### Следующий шаг
-Патч 005: ui.constants.ts — TOOL_GROUP_LABELS.BROWSER 'Browser' → 'Браузер'
 
 ## Список патчей (чек-лист)
 
@@ -55,7 +52,7 @@
 | tool-submenu.patch | ChatFormActionAddToolsSubmenu.svelte | DONE |
 | tool-sheet.patch | ChatFormActionAddSheet.svelte | DONE |
 | delete-search.patch | routes/search/+page.svelte | DONE |
-| delete-sidebar.patch | SidebarNavigation.svelte | TODO |
+| delete-sidebar.patch | SidebarNavigation.svelte | DONE |
 | dialog-confirmation.patch | DialogConfirmation.svelte | TODO |
 | mcp-save-label.patch | DialogMcpServerAddNew.svelte | TODO |
 | message-actions.patch | ChatMessageActionIcons.svelte | TODO |
