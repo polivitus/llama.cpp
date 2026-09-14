@@ -60,7 +60,7 @@
 | system-message-editor.patch | ChatMessageSystem.svelte | DONE |
 | processing-state.patch | use-processing-state + ... | DONE |
 | selection-count.patch | SidebarNavigationSelectionBar.svelte | DONE |
-| rename-conversation.patch | DialogConversationRename.svelte | TODO |
+| rename-conversation.patch | DialogConversationRename.svelte | DONE |
 | fork-of-name.patch | ChatMessageActionIcons.svelte (forkName) | TODO |
 | delete-toast-pluralize.patch | stores/conversations/index.svelte.ts | TODO |
 | delete-desc-pluralize.patch | SidebarNavigationSelectionBar.svelte | TODO |
