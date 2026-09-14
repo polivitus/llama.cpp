@@ -1,0 +1,16 @@
+diff --git a/tools/ui/src/lib/components/app/dialogs/DialogConfirmation.svelte b/tools/ui/src/lib/components/app/dialogs/DialogConfirmation.svelte
+index 8a503208f..80bac456c 100644
+--- a/tools/ui/src/lib/components/app/dialogs/DialogConfirmation.svelte
++++ b/tools/ui/src/lib/components/app/dialogs/DialogConfirmation.svelte
+@@ -18,9 +18,9 @@
+ 	}
+ 
+ 	let {
+-		cancelText = 'Cancel',
++		cancelText = 'Отмена',
+ 		children,
+-		confirmText = 'Confirm',
++		confirmText = 'Подтвердить',
+ 		description,
+ 		icon,
+ 		onCancel,
