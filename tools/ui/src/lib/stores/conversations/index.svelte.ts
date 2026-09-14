@@ -7,6 +7,13 @@
  * composed as {@link ConversationsStore.preferences}.
  */
 
+function pluralRu(n: number, one: string, few: string, many: string): string {
+	const n10 = n % 10;
+	const n100 = n % 100;
+	if (n10 === 1 && n100 !== 11) return one;
+	if (n10 >= 2 && n10 <= 4 && (n100 < 12 || n100 > 14)) return few;
+	return many;
+}
 import { browser } from '$app/environment';
 import { goto } from '$app/navigation';
 import { ROUTES } from '$lib/constants';
@@ -163,12 +170,12 @@ class ConversationsStore implements ConversationsPreferencesHost {
 
 			toast.success(
 				idsToRemove.size === 1
-					? 'Conversation deleted'
-					: `${idsToRemove.size} conversations deleted`
+					? 'Беседа удалена'
+					: `Удалено ${idsToRemove.size} ${pluralRu(idsToRemove.size, 'беседа', 'беседы', 'бесед')}`
 			);
 		} catch (error) {
 			console.error('Failed to bulk delete conversations:', error);
-			toast.error('Failed to delete conversations');
+			toast.error('Не удалось удалить беседы');
 		}
 	}
 
@@ -184,7 +191,7 @@ class ConversationsStore implements ConversationsPreferencesHost {
 			const exported = await this.getConversationsForExport(convIds);
 
 			if (exported.length === 0) {
-				toast.error('No conversations to export');
+				toast.error('Нет бесед для экспорта');
 
 				return;
 			}
@@ -193,12 +200,12 @@ class ConversationsStore implements ConversationsPreferencesHost {
 
 			toast.success(
 				exported.length === 1
-					? 'Conversation exported'
-					: `${exported.length} conversations exported`
+					? 'Беседа экспортирована'
+					: `Экспортировано ${exported.length} ${pluralRu(exported.length, 'беседа', 'беседы', 'бесед')}`
 			);
 		} catch (error) {
 			console.error('Failed to bulk export conversations:', error);
-			toast.error('Failed to export conversations');
+			toast.error('Не удалось экспортировать беседы');
 		}
 	}
 
@@ -227,12 +234,12 @@ class ConversationsStore implements ConversationsPreferencesHost {
 
 			toast.success(
 				convIds.length === 1
-					? 'Conversation pin toggled'
-					: `Updated pin state for ${convIds.length} conversations`
+					? 'Статус закрепления беседы изменён'
+					: `Обновлён статус закрепления для ${convIds.length} ${pluralRu(convIds.length, 'беседа', 'бесед', 'бесед')}`
 			);
 		} catch (error) {
 			console.error('Failed to bulk toggle pin:', error);
-			toast.error('Failed to update pin state');
+			toast.error('Не удалось обновить статус закрепления');
 		}
 	}
 
@@ -301,12 +308,12 @@ class ConversationsStore implements ConversationsPreferencesHost {
 			tabsStore.clear();
 			this.notifyConversationsDeleted(allIds);
 
-			toast.success('All conversations deleted');
+			toast.success('Все беседы удалены');
 
 			await goto(ROUTES.START);
 		} catch (error) {
 			console.error('Failed to delete all conversations:', error);
-			toast.error('Failed to delete conversations');
+			toast.error('Не удалось удалить все беседы');
 		}
 	}
 
@@ -441,12 +448,12 @@ class ConversationsStore implements ConversationsPreferencesHost {
 
 			await goto(RouterService.chat(newConv.id));
 
-			toast.success('Conversation forked');
+			toast.success('Беседа разветвлена');
 
 			return newConv.id;
 		} catch (error) {
 			console.error('Failed to fork conversation:', error);
-			toast.error('Failed to fork conversation');
+			toast.error('Не удалось разветвить беседу');
 
 			return null;
 		}
