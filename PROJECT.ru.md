@@ -62,7 +62,7 @@
 | selection-count.patch | SidebarNavigationSelectionBar.svelte | DONE |
 | rename-conversation.patch | DialogConversationRename.svelte | DONE |
 | fork-of-name.patch | ChatMessageActionIcons.svelte (forkName) | DONE |
-| delete-toast-pluralize.patch | stores/conversations/index.svelte.ts | TODO |
+| delete-toast-pluralize.patch | stores/conversations/index.svelte.ts | DONE |
 | delete-desc-pluralize.patch | SidebarNavigationSelectionBar.svelte | TODO |
 
 ## Известные проблемы (из прошлой сессии)
