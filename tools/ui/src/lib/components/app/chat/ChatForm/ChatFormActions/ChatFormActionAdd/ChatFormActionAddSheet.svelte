@@ -72,7 +72,7 @@
 
 		<Sheet.Content class="max-h-[85vh] gap-0 overflow-y-auto" side="bottom">
 			<Sheet.Header>
-				<Sheet.Title>Add to chat</Sheet.Title>
+				<Sheet.Title>Добавить в чат</Sheet.Title>
 
 				<Sheet.Description class="sr-only">
 					Add files, system prompt or configure MCP servers
@@ -100,7 +100,7 @@
 								<Lightbulb class="{ICON_CLASS_DEFAULT} shrink-0 text-muted-foreground" />
 							{/if}
 
-							<span class="flex-1">Reasoning</span>
+							<span class="flex-1">Рассуждения</span>
 
 							<span class="text-xs capitalize text-muted-foreground">
 								{reasoning.currentEffort}
@@ -149,7 +149,7 @@
 
 						<File class="{ICON_CLASS_DEFAULT} shrink-0" />
 
-						<span class="flex-1">Add files</span>
+						<span class="flex-1">Добавить файлы</span>
 					</Collapsible.Trigger>
 
 					<Collapsible.Content>
@@ -193,7 +193,7 @@
 				>
 					<MessageSquare class="{ICON_CLASS_DEFAULT} shrink-0" />
 
-					<span>System Message</span>
+					<span>Системное сообщение</span>
 				</button>
 
 				{#if toolsPanel.totalToolCount > 0}
@@ -207,7 +207,7 @@
 
 							<PencilRuler class="inline {ICON_CLASS_DEFAULT} shrink-0" />
 
-							<span class="flex-1">Tools</span>
+							<span class="flex-1">Инструменты</span>
 
 							<span class="text-xs text-muted-foreground">
 								{toolsPanel.totalToolCount} tool{toolsPanel.totalToolCount !== 1 ? 's' : ''}
@@ -238,7 +238,7 @@
 				>
 					<McpLogo class="inline {ICON_CLASS_DEFAULT} shrink-0" />
 
-					<span>MCP Servers</span>
+					<span>MCP-серверы</span>
 				</button>
 			</div>
 		</Sheet.Content>
