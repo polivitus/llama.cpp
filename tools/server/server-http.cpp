@@ -339,17 +339,12 @@ bool server_http_context::init(const common_params & params) {
         } else {
 #if defined(LLAMA_UI_HAS_ASSETS)
             static auto handle_gzip_header = [](const httplib::Request & req, httplib::Response & res) {
-                if (!llama_ui_use_gzip()) {
-                    // no gzip build, skip
-                    return true;
-                }
                 if (req.get_header_value("Accept-Encoding").find("gzip") == std::string::npos) {
                     res.status = 415; // unsupported media type
                     res.set_content("Error: gzip is not supported by this browser", "text/plain");
                     return false;
-                } else {
-                    res.set_header("Content-Encoding", "gzip");
                 }
+                res.set_header("Content-Encoding", "gzip");
                 return true;
             };
 
