@@ -1,0 +1,22 @@
+diff --git a/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigation.svelte b/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigation.svelte
+index 387a2d9ab..cbfd69ab0 100644
+--- a/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigation.svelte
++++ b/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigation.svelte
+@@ -349,7 +349,7 @@
+ 					iconSize="h-4.5 w-4.5 md:h-4 md:w-4"
+ 					onclick={uiStore.isSidebarExpanded ? undefined : toggleExpandedMode}
+ 					size="lg"
+-					tooltip={uiStore.isSidebarExpanded ? undefined : 'Open Sidebar'}
++					tooltip={uiStore.isSidebarExpanded ? undefined : 'Открыть боковую панель'}
+ 					tooltipSide={TooltipSide.RIGHT}
+ 				/>
+ 			</div>
+@@ -370,7 +370,7 @@
+ 						iconSize="h-4.5 w-4.5 md:h-4 md:w-4"
+ 						onclick={toggleExpandedMode}
+ 						size="lg"
+-						tooltip="Close Sidebar"
++						tooltip="Закрыть боковую панель"
+ 						tooltipSide={TooltipSide.LEFT}
+ 					/>
+ 				</div>

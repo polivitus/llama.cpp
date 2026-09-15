@@ -41,7 +41,7 @@
 	const hasQuery = $derived(searchQuery.trim().length > 0);
 	const showHeader = $derived(hasQuery && filteredConversations.length > 0);
 
-	const emptyMessage = $derived(hasQuery ? 'No results found' : 'Start typing to see results');
+	const emptyMessage = $derived(hasQuery ? 'Ничего не найдено' : 'Начните вводить для поиска');
 </script>
 
 <div class="flex min-h-0 flex-1 flex-col gap-2 whitespace-nowrap {className}">

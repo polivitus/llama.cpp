@@ -258,7 +258,7 @@
 				class="bg-transparent"
 				icon={WholeWord}
 				tooltipLabel="Всего сгенерировано токенов"
-				value="{agenticTimings!.llm.predicted_n.toLocaleString()} tokens"
+				value="{agenticTimings!.llm.predicted_n.toLocaleString()} токенов"
 			/>
 
 			<ChatMessageStatisticsBadge
