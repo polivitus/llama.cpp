@@ -1,0 +1,27 @@
+diff --git a/tools/ui/src/lib/components/pwa/PwaRefreshAlert.svelte b/tools/ui/src/lib/components/pwa/PwaRefreshAlert.svelte
+index 56a71406f..de86f8a04 100644
+--- a/tools/ui/src/lib/components/pwa/PwaRefreshAlert.svelte
++++ b/tools/ui/src/lib/components/pwa/PwaRefreshAlert.svelte
+@@ -9,11 +9,11 @@
+ {#if needRefresh}
+ 	<Card.Root class="overflow-hidden gap-1 py-5">
+ 		<Card.Header class="px-5">
+-			<Card.Title class="text-sm font-medium">Update available</Card.Title>
++			<Card.Title class="text-sm font-medium">Доступно обновление</Card.Title>
+ 		</Card.Header>
+ 
+ 		<Card.Content class="gap-6 grid px-5">
+-			<p class="text-xs text-muted-foreground">A new version is available. Reload to update.</p>
++			<p class="text-xs text-muted-foreground">Доступна новая версия. Перезагрузите для обновления</p>
+ 
+ 			<Button
+ 				class="justify-self-end-safe"
+@@ -28,7 +28,7 @@
+ 				}}
+ 				size="sm"
+ 			>
+-				Reload
++				Перезагрузить
+ 			</Button>
+ 		</Card.Content>
+ 	</Card.Root>

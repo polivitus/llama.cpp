@@ -186,3 +186,16 @@ index 8a6f332f3..08e386bf7 100644
  		}
  	}
  
+diff --git a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageStatistics/ChatMessageStatistics.svelte b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageStatistics/ChatMessageStatistics.svelte
+index 80d6710e3..4f26671be 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageStatistics/ChatMessageStatistics.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageStatistics/ChatMessageStatistics.svelte
+@@ -286,7 +286,7 @@
+ 				class="bg-transparent"
+ 				icon={Gauge}
+ 				tooltipLabel="Скорость обработки запроса"
+-				value="{promptTokensPerSecond!.toFixed(2)} tokens/s"
++				value="{promptTokensPerSecond!.toFixed(2)} ток/с"
+ 			/>
+ 		{/if}
+ 	</div>
