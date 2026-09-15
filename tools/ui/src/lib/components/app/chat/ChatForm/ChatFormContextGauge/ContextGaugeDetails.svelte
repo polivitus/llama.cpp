@@ -39,7 +39,7 @@
 	<Collapsible.Trigger
 		class="flex w-full cursor-pointer items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
 	>
-		<span>Token usage details</span>
+		<span>Детали использования токенов</span>
 
 		<ChevronDown
 			class={'ml-auto h-3 w-3 transition-transform' + (gaugePopup.detailsOpen ? ' rotate-180' : '')}
@@ -50,24 +50,24 @@
 		{#if hasCumulative}
 			<div>
 				<h3 class="text-[11px] font-medium uppercase tracking-wide text-muted-foreground/70 mb-2">
-					Across all turns
+					За все ходы
 				</h3>
 
 				<div class="flex flex-col gap-2">
 					{#if cumulativeRead > 0}
 						<ContextGaugeDetailRow
-							label="Prompt tokens evaluated"
+							label="Токенов промпта обработано"
 							subtitle={cumulativeCacheTotal > 0
-								? `${cumulativeCacheTotal.toLocaleString()} reused from KV cache`
+								? `${cumulativeCacheTotal.toLocaleString()} переиспользовано из KV-кеша`
 								: undefined}
-							value={`${cumulativeRead.toLocaleString()} tok`}
+							value={`${cumulativeRead.toLocaleString()} ток`}
 						/>
 					{/if}
 
 					{#if cumulativeOutput > 0}
 						<ContextGaugeDetailRow
-							label="Tokens generated"
-							value={`${cumulativeOutput.toLocaleString()} tok`}
+							label="Сгенерировано токенов"
+							value={`${cumulativeOutput.toLocaleString()} ток`}
 						/>
 					{/if}
 				</div>
@@ -77,32 +77,32 @@
 		{#if hasCurrent}
 			<div>
 				<h3 class="text-[11px] font-medium uppercase tracking-wide text-muted-foreground/70 mb-2">
-					This turn · KV cache
+					Этот ход · KV-кеш
 				</h3>
 
 				<div class="flex flex-col gap-2">
 					{#if currentRead > 0}
 						<ContextGaugeDetailRow
-							label="Prompt"
+							label="Промпт"
 							subtitle={currentCache > 0
-								? `${currentFresh.toLocaleString()} fresh + ${currentCache.toLocaleString()} cached`
+								? `${currentFresh.toLocaleString()} новых + ${currentCache.toLocaleString()} из кеша`
 								: undefined}
-							value={`${currentRead.toLocaleString()} tok`}
+							value={`${currentRead.toLocaleString()} ток`}
 						/>
 					{/if}
 
 					{#if currentOutput > 0}
 						<ContextGaugeDetailRow
-							label="Generated"
-							value={`${currentOutput.toLocaleString()} tok`}
+							label="Сгенерировано"
+							value={`${currentOutput.toLocaleString()} ток`}
 						/>
 					{/if}
 
 					<div class="pt-1 mt-0.5 border-t border-border/30">
 						<div class="flex justify-between">
-							<span class="text-muted-foreground">KV cache total</span>
+							<span class="text-muted-foreground">Всего в KV-кеше</span>
 
-							<span class="font-mono font-medium">{kvTotal.toLocaleString()} tok</span>
+							<span class="font-mono font-medium">{kvTotal.toLocaleString()} ток</span>
 						</div>
 					</div>
 				</div>
@@ -112,7 +112,7 @@
 		{#if averageTokensPerSecond !== null}
 			<div class="pt-1.5 mt-1 border-t border-border/30">
 				<ContextGaugeDetailRow
-					label="Avg speed"
+					label="Средняя скорость"
 					value={`${averageTokensPerSecond.toFixed(1)}${STATS_UNITS.TOKENS_PER_SECOND}`}
 				/>
 			</div>

@@ -209,7 +209,7 @@
 				class="bg-transparent"
 				icon={WholeWord}
 				tooltipLabel="Сгенерировано токенов"
-				value="{predictedTokens?.toLocaleString()} tokens"
+				value="{predictedTokens?.toLocaleString()} токенов"
 			/>
 
 			<ChatMessageStatisticsBadge
@@ -223,7 +223,7 @@
 				class="bg-transparent"
 				icon={Gauge}
 				tooltipLabel="Скорость генерации"
-				value="{tokensPerSecond.toFixed(2)} t/s"
+				value="{tokensPerSecond.toFixed(2)} ток/с"
 			/>
 		{:else if activeView === ChatMessageStatsView.TOOLS && hasAgenticStats}
 			<ChatMessageStatisticsBadge
@@ -272,7 +272,7 @@
 				class="bg-transparent"
 				icon={WholeWord}
 				tooltipLabel="Токенов в запросе"
-				value="{promptTokens} tokens"
+				value="{promptTokens} токенов"
 			/>
 
 			<ChatMessageStatisticsBadge

@@ -51,7 +51,9 @@
 | cancel-save-buttons.patch | MCP/диалоги (много файлов) | DONE |
 | chat-form-placeholder.patch | ChatForm.svelte (placeholder) | DONE |
 | chat-greeting.patch | ChatScreenGreeting.svelte | DONE |
+| chat-message-statistics.patch | ChatMessageStatistics.svelte (tokens, t/s) | DONE |
 | chat-tabs-new-label.patch | chat-tabs.constants + ChatTabsNewChatButton | DONE |
+| context-gauge.patch | ChatFormContextGauge/* (4 файла) | DONE |
 | delete-search.patch | routes/search/+page.svelte | DONE |
 | delete-sidebar.patch | SidebarNavigation.svelte | DONE |
 | delete-toast-pluralize.patch | stores/conversations/index.svelte.ts | DONE |
@@ -59,7 +61,8 @@
 | fork-of-name.patch | ChatMessageActionIcons.svelte | DONE |
 | mcp-save-label.patch | DialogMcpServerAddNew.svelte | DONE |
 | message-actions.patch | ChatMessageActionIcons.svelte | DONE |
-| processing-state.patch | use-processing-state + 2 файла | DONE |
+| processing-state.patch | use-processing-state + ChatMessageAssistantProcessingInfo | DONE |
+| pwa-refresh-alert.patch | PwaRefreshAlert.svelte | DONE |
 | rename-conversation.patch | DialogConversationRename.svelte | DONE |
 | search-results-empty.patch | SidebarNavigationSearchResults.svelte | DONE |
 | server-splash.patch | ServerErrorSplash + ServerLoadingSplash | DONE |
@@ -67,7 +70,6 @@
 | settings-stats-help.patch | settings.constants.ts (help) | DONE |
 | sidebar-selection.patch | SidebarNavigationSelectionBar.svelte | DONE |
 | sidebar-toggle-tooltip.patch | SidebarNavigation.svelte | DONE |
-| stats-tokens-count.patch | ChatMessageStatistics.svelte | DONE |
 | system-message-editor.patch | ChatMessageSystem.svelte | DONE |
 | tool-sheet.patch | ChatFormActionAddSheet.svelte | DONE |
 | tool-submenu.patch | ChatFormActionAddToolsSubmenu.svelte | DONE |

@@ -1,0 +1,161 @@
+diff --git a/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ChatFormContextGauge.svelte b/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ChatFormContextGauge.svelte
+index d3bf0446c..95b1c5e5e 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ChatFormContextGauge.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ChatFormContextGauge.svelte
+@@ -42,7 +42,7 @@
+ </script>
+ 
+ <div
+-	aria-label="Context usage"
++	aria-label="Использование контекста"
+ 	class="flex h-5 w-5 cursor-default items-center justify-center"
+ 	data-context-gauge-trigger
+ 	onclick={gaugeTriggerClick}
+diff --git a/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ContextGaugeDetails.svelte b/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ContextGaugeDetails.svelte
+index 0de508a61..ecbe73ca3 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ContextGaugeDetails.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ContextGaugeDetails.svelte
+@@ -39,7 +39,7 @@
+ 	<Collapsible.Trigger
+ 		class="flex w-full cursor-pointer items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+ 	>
+-		<span>Token usage details</span>
++		<span>Детали использования токенов</span>
+ 
+ 		<ChevronDown
+ 			class={'ml-auto h-3 w-3 transition-transform' + (gaugePopup.detailsOpen ? ' rotate-180' : '')}
+@@ -50,24 +50,24 @@
+ 		{#if hasCumulative}
+ 			<div>
+ 				<h3 class="text-[11px] font-medium uppercase tracking-wide text-muted-foreground/70 mb-2">
+-					Across all turns
++					За все ходы
+ 				</h3>
+ 
+ 				<div class="flex flex-col gap-2">
+ 					{#if cumulativeRead > 0}
+ 						<ContextGaugeDetailRow
+-							label="Prompt tokens evaluated"
++							label="Токенов промпта обработано"
+ 							subtitle={cumulativeCacheTotal > 0
+-								? `${cumulativeCacheTotal.toLocaleString()} reused from KV cache`
++								? `${cumulativeCacheTotal.toLocaleString()} переиспользовано из KV-кеша`
+ 								: undefined}
+-							value={`${cumulativeRead.toLocaleString()} tok`}
++							value={`${cumulativeRead.toLocaleString()} ток`}
+ 						/>
+ 					{/if}
+ 
+ 					{#if cumulativeOutput > 0}
+ 						<ContextGaugeDetailRow
+-							label="Tokens generated"
+-							value={`${cumulativeOutput.toLocaleString()} tok`}
++							label="Сгенерировано токенов"
++							value={`${cumulativeOutput.toLocaleString()} ток`}
+ 						/>
+ 					{/if}
+ 				</div>
+@@ -77,32 +77,32 @@
+ 		{#if hasCurrent}
+ 			<div>
+ 				<h3 class="text-[11px] font-medium uppercase tracking-wide text-muted-foreground/70 mb-2">
+-					This turn · KV cache
++					Этот ход · KV-кеш
+ 				</h3>
+ 
+ 				<div class="flex flex-col gap-2">
+ 					{#if currentRead > 0}
+ 						<ContextGaugeDetailRow
+-							label="Prompt"
++							label="Промпт"
+ 							subtitle={currentCache > 0
+-								? `${currentFresh.toLocaleString()} fresh + ${currentCache.toLocaleString()} cached`
++								? `${currentFresh.toLocaleString()} новых + ${currentCache.toLocaleString()} из кеша`
+ 								: undefined}
+-							value={`${currentRead.toLocaleString()} tok`}
++							value={`${currentRead.toLocaleString()} ток`}
+ 						/>
+ 					{/if}
+ 
+ 					{#if currentOutput > 0}
+ 						<ContextGaugeDetailRow
+-							label="Generated"
+-							value={`${currentOutput.toLocaleString()} tok`}
++							label="Сгенерировано"
++							value={`${currentOutput.toLocaleString()} ток`}
+ 						/>
+ 					{/if}
+ 
+ 					<div class="pt-1 mt-0.5 border-t border-border/30">
+ 						<div class="flex justify-between">
+-							<span class="text-muted-foreground">KV cache total</span>
++							<span class="text-muted-foreground">Всего в KV-кеше</span>
+ 
+-							<span class="font-mono font-medium">{kvTotal.toLocaleString()} tok</span>
++							<span class="font-mono font-medium">{kvTotal.toLocaleString()} ток</span>
+ 						</div>
+ 					</div>
+ 				</div>
+@@ -112,7 +112,7 @@
+ 		{#if averageTokensPerSecond !== null}
+ 			<div class="pt-1.5 mt-1 border-t border-border/30">
+ 				<ContextGaugeDetailRow
+-					label="Avg speed"
++					label="Средняя скорость"
+ 					value={`${averageTokensPerSecond.toFixed(1)}${STATS_UNITS.TOKENS_PER_SECOND}`}
+ 				/>
+ 			</div>
+diff --git a/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ContextGaugeLoadModel.svelte b/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ContextGaugeLoadModel.svelte
+index 4edc72773..df7bf2fe4 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ContextGaugeLoadModel.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ContextGaugeLoadModel.svelte
+@@ -13,14 +13,14 @@
+ 
+ {#if modelId !== null && !isLoading}
+ 	<div class="flex flex-col gap-2 border-t border-border/50 pt-2 text-xs text-muted-foreground">
+-		<span>Available context size is only visible once the model is loaded.</span>
++		<span>Размер контекста будет доступен после загрузки модели</span>
+ 
+-		<Button class="self-start" onclick={onLoad} size="sm" variant="secondary">Load model</Button>
++		<Button class="self-start" onclick={onLoad} size="sm" variant="secondary">Загрузить модель</Button>
+ 	</div>
+ {:else if isLoading}
+ 	<div class="flex items-center gap-2 border-t border-border/50 pt-2 text-xs text-muted-foreground">
+ 		<Loader2 class="h-3.5 w-3.5 animate-spin" />
+ 
+-		<span>Loading model...</span>
++		<span>Загрузка модели...</span>
+ 	</div>
+ {/if}
+diff --git a/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ContextGaugePopup.svelte b/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ContextGaugePopup.svelte
+index 8fa09cf70..c69f7c7d4 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ContextGaugePopup.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormContextGauge/ContextGaugePopup.svelte
+@@ -63,7 +63,7 @@
+ 	>
+ 		<div class="flex flex-col gap-2">
+ 			<div class="flex items-center gap-2">
+-				<span class="font-medium">Context</span>
++				<span class="font-medium">Контекст</span>
+ 
+ 				<span class="text-muted-foreground">·</span>
+ 
+@@ -91,15 +91,15 @@
+ 
+ 				<div class="flex justify-between text-xs text-muted-foreground">
+ 					<span>
+-						<span class={colorLevelTextClass(gauge.colorLevel)}>{gauge.contextPercent}%</span> used
++						<span class={colorLevelTextClass(gauge.colorLevel)}>{gauge.contextPercent}%</span> использовано
+ 					</span>
+ 
+ 					<span>
+-						{formatParameters(gauge.contextAvailable ?? 0)} remaining
++						{formatParameters(gauge.contextAvailable ?? 0)} осталось
+ 					</span>
+ 				</div>
+ 			{:else}
+-				<div class="text-xs text-muted-foreground">No context info available</div>
++				<div class="text-xs text-muted-foreground">Нет данных о контексте</div>
+ 			{/if}
+ 
+ 			{#if gauge.hasAnyUsage}
