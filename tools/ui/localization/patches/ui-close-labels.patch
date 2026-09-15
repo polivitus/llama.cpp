@@ -1,0 +1,39 @@
+diff --git a/tools/ui/src/lib/components/ui/dialog/dialog-content.svelte b/tools/ui/src/lib/components/ui/dialog/dialog-content.svelte
+index 8a1a5909d..e49ed4c48 100644
+--- a/tools/ui/src/lib/components/ui/dialog/dialog-content.svelte
++++ b/tools/ui/src/lib/components/ui/dialog/dialog-content.svelte
+@@ -40,7 +40,7 @@
+ 			>
+ 				<XIcon />
+ 
+-				<span class="sr-only">Close</span>
++				<span class="sr-only">Закрыть</span>
+ 			</DialogPrimitive.Close>
+ 		{/if}
+ 	</DialogPrimitive.Content>
+diff --git a/tools/ui/src/lib/components/ui/dialog/dialog-header.svelte b/tools/ui/src/lib/components/ui/dialog/dialog-header.svelte
+index fd590e186..adebe36b6 100644
+--- a/tools/ui/src/lib/components/ui/dialog/dialog-header.svelte
++++ b/tools/ui/src/lib/components/ui/dialog/dialog-header.svelte
+@@ -37,7 +37,7 @@
+ 		>
+ 			<XIcon />
+ 
+-			<span class="sr-only">Close</span>
++			<span class="sr-only">Закрыть</span>
+ 		</DialogPrimitive.Close>
+ 	{/if}
+ </div>
+diff --git a/tools/ui/src/lib/components/ui/sheet/sheet-content.svelte b/tools/ui/src/lib/components/ui/sheet/sheet-content.svelte
+index ddb2ddd07..493fdc895 100644
+--- a/tools/ui/src/lib/components/ui/sheet/sheet-content.svelte
++++ b/tools/ui/src/lib/components/ui/sheet/sheet-content.svelte
+@@ -58,7 +58,7 @@
+ 		>
+ 			<XIcon class="size-4" />
+ 
+-			<span class="sr-only">Close</span>
++			<span class="sr-only">Закрыть</span>
+ 		</SheetPrimitive.Close>
+ 	</SheetPrimitive.Content>
+ </SheetPrimitive.Portal>

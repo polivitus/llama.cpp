@@ -58,7 +58,7 @@
 		>
 			<XIcon class="size-4" />
 
-			<span class="sr-only">Close</span>
+			<span class="sr-only">Закрыть</span>
 		</SheetPrimitive.Close>
 	</SheetPrimitive.Content>
 </SheetPrimitive.Portal>
