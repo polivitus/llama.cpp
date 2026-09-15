@@ -247,7 +247,7 @@
 				actions={[
 					{
 						icon: conversation.pinned ? PinOff : Pin,
-						label: conversation.pinned ? 'Unpin' : 'Pin',
+						label: conversation.pinned ? 'Открепить' : 'Закрепить',
 						onclick: (e: Event) => {
 							e.stopPropagation();
 							handleTogglePin();
@@ -255,13 +255,13 @@
 					},
 					{
 						icon: Pencil,
-						label: 'Edit',
+						label: 'Редактировать',
 						onclick: handleEdit,
 						shortcut: ['shift', 'cmd', 'e']
 					},
 					{
 						icon: Download,
-						label: 'Export',
+						label: 'Экспорт',
 						onclick: (e: Event) => {
 							e.stopPropagation();
 							conversationsStore.downloadConversation(conversation.id);
@@ -270,12 +270,12 @@
 					},
 					{
 						icon: ListChecks,
-						label: 'Select',
+						label: 'Выбрать',
 						onclick: handleEnterSelectionMode
 					},
 					{
 						icon: Trash2,
-						label: 'Delete',
+						label: 'Удалить',
 						onclick: handleDelete,
 						separator: true,
 						shortcut: ['shift', 'cmd', 'd'],

@@ -102,7 +102,7 @@
 				>
 					<Pin class="h-3.5 w-3.5" />
 
-					<span>Pinned</span>
+					<span>Закреплённые</span>
 				</div>
 			</div>
 
