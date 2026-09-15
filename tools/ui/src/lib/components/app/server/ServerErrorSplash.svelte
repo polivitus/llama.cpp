@@ -87,9 +87,9 @@
 				apiKeyState = 'error';
 
 				if (response.status === 401 || response.status === 403) {
-					apiKeyError = 'Invalid API key - please check and try again';
+					apiKeyError = 'Неверный ключ API — проверьте и попробуйте ещё раз';
 				} else {
-					apiKeyError = `Authentication failed (${response.status})`;
+					apiKeyError = `Не удалось авторизоваться (${response.status})`;
 				}
 
 				// Reset to idle state after showing error (don't reload UI)
@@ -108,7 +108,7 @@
 					apiKeyError = error.message;
 				}
 			} else {
-				apiKeyError = 'Connection error - please try again';
+				apiKeyError = 'Ошибка подключения — попробуйте ещё раз';
 			}
 
 			// Reset to idle state after showing error (don't reload UI)
@@ -134,7 +134,7 @@
 				<AlertTriangle class="h-8 w-8 text-destructive" />
 			</div>
 
-			<h2 class="mb-2 text-xl font-semibold">Server Connection Error</h2>
+			<h2 class="mb-2 text-xl font-semibold">Ошибка подключения к серверу</h2>
 
 			<p class="mb-4 text-sm text-muted-foreground">
 				{error}
@@ -153,7 +153,7 @@
 		{#if showApiKeyInput}
 			<div in:fly={{ delay: 200, duration: 300, y: 10 }} class="mb-4 space-y-3 text-left">
 				<div class="space-y-2">
-					<Label class="text-sm font-medium" for="api-key-input">API Key</Label>
+					<Label class="text-sm font-medium" for="api-key-input">Ключ API</Label>
 
 					<div class="relative">
 						<Input
@@ -167,7 +167,7 @@
 							disabled={apiKeyState === 'validating'}
 							id="api-key-input"
 							onkeydown={handleApiKeyKeydown}
-							placeholder="Enter your API key..."
+							placeholder="Введите ваш ключ API..."
 							type="password"
 						/>
 
@@ -200,7 +200,7 @@
 
 					{#if apiKeyState === 'success'}
 						<p in:fly={{ duration: 200, y: -10 }} class="text-sm text-green-600">
-							✓ API key validated successfully! Connecting...
+							✓ Ключ API подтверждён! Подключение...
 						</p>
 					{/if}
 				</div>
@@ -219,7 +219,7 @@
 						{:else if apiKeyState === 'success'}
 							Success!
 						{:else}
-							Save & Retry
+							Сохранить и повторить
 						{/if}
 					</Button>
 
@@ -245,11 +245,11 @@
 					{#if isServerLoading}
 						<RefreshCw class="{ICON_CLASS_DEFAULT} animate-spin" />
 
-						Connecting...
+						Подключение...
 					{:else}
 						<RefreshCw class={ICON_CLASS_DEFAULT} />
 
-						Retry Connection
+						Повторить подключение
 					{/if}
 				</Button>
 			</div>
@@ -278,11 +278,11 @@
 						</div>
 
 						<ul class="list-disc space-y-1 pl-4">
-							<li>Check that the server is accessible at the correct URL</li>
+							<li>Проверьте, что сервер доступен по правильному URL</li>
 
-							<li>Verify your network connection</li>
+							<li>Проверьте сетевое подключение</li>
 
-							<li>Check server logs for any error messages</li>
+							<li>Проверьте логи сервера на наличие ошибок</li>
 						</ul>
 					</div>
 				</details>
