@@ -48,7 +48,9 @@
 | Имя | Файл | Статус |
 |---|---|---|
 | cancel-save-buttons.patch | MCP/диалоги (много файлов) | DONE |
+| chat-form-placeholder.patch | ChatForm.svelte (placeholder) | DONE |
 | chat-greeting.patch | ChatScreenGreeting.svelte | DONE |
+| chat-tabs-new-label.patch | chat-tabs.constants + ChatTabsNewChatButton | DONE |
 | delete-search.patch | routes/search/+page.svelte | DONE |
 | delete-sidebar.patch | SidebarNavigation.svelte | DONE |
 | delete-toast-pluralize.patch | stores/conversations/index.svelte.ts | DONE |
@@ -60,7 +62,9 @@
 | rename-conversation.patch | DialogConversationRename.svelte | DONE |
 | server-splash.patch | ServerErrorSplash + ServerLoadingSplash | DONE |
 | server-http-gzip.patch | tools/server/server-http.cpp | DONE |
+| settings-stats-help.patch | settings.constants.ts (help) | DONE |
 | sidebar-selection.patch | SidebarNavigationSelectionBar.svelte | DONE |
+| stats-tokens-per-second.patch | ChatMessageStatistics.svelte | DONE |
 | system-message-editor.patch | ChatMessageSystem.svelte | DONE |
 | tool-sheet.patch | ChatFormActionAddSheet.svelte | DONE |
 | tool-submenu.patch | ChatFormActionAddToolsSubmenu.svelte | DONE |
