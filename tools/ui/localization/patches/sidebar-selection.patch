@@ -1,0 +1,23 @@
+diff --git a/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigationSelectionBar.svelte b/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigationSelectionBar.svelte
+index 988842bb1..12addf805 100644
+--- a/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigationSelectionBar.svelte
++++ b/tools/ui/src/lib/components/app/navigation/SidebarNavigation/SidebarNavigationSelectionBar.svelte
+@@ -149,15 +149,11 @@
+ <DialogConfirmation
+ 	bind:open={showDeleteDialog}
+ 	cancelText="Отмена"
+-	confirmText={selectedCount === 1 ? 'Delete' : `Delete ${selectedCount}`}
+-	description="This action cannot be undone. The selected conversation{selectedCount === 1
+-		? ''
+-		: 's'} and {selectedCount === 1
+-		? 'its'
+-		: 'their'} messages will be permanently removed, including any forks."
++	confirmText={selectedCount === 1 ? 'Удалить' : `Удалить ${selectedCount} ${selectedCount % 10 === 1 && selectedCount % 100 !== 11 ? 'беседу' : (selectedCount % 10 >= 2 && selectedCount % 10 <= 4 && (selectedCount % 100 < 12 || selectedCount % 100 > 14) ? 'беседы' : 'бесед')}`}
++	description="Это действие нельзя отменить. {selectedCount === 1 ? 'Выбранная беседа и её сообщения' : `Выбранные ${selectedCount} ${selectedCount % 10 === 1 && selectedCount % 100 !== 11 ? 'беседа' : (selectedCount % 10 >= 2 && selectedCount % 10 <= 4 && (selectedCount % 100 < 12 || selectedCount % 100 > 14) ? 'беседы' : 'бесед')} и их сообщения`} будут безвозвратно удалены, включая ответвления."
+ 	icon={Trash2}
+ 	onCancel={handleDeleteCancel}
+ 	onConfirm={handleDeleteConfirm}
+-	title="Delete {selectedCount} conversation{selectedCount === 1 ? '' : 's'}"
++	title={selectedCount === 1 ? 'Удалить беседу' : `Удалить ${selectedCount} ${selectedCount % 10 === 1 && selectedCount % 100 !== 11 ? 'беседу' : (selectedCount % 10 >= 2 && selectedCount % 10 <= 4 && (selectedCount % 100 < 12 || selectedCount % 100 > 14) ? 'беседы' : 'бесед')}`}
+ 	variant="destructive"
+ />
