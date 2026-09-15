@@ -101,7 +101,7 @@
 		onUploadedFileRemove,
 		onUploadedFilesChange,
 		onValueChange,
-		placeholder = 'Type a message...',
+		placeholder = 'Введите сообщение...',
 		showAddButton = true,
 		showModelSelector = true,
 		uploadedFiles = $bindable([]),

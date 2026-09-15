@@ -1,0 +1,34 @@
+diff --git a/tools/ui/src/lib/constants/chat-tabs.constants.ts b/tools/ui/src/lib/constants/chat-tabs.constants.ts
+index 1c0bb051a..7d8bea218 100644
+--- a/tools/ui/src/lib/constants/chat-tabs.constants.ts
++++ b/tools/ui/src/lib/constants/chat-tabs.constants.ts
+@@ -2,7 +2,7 @@
+ export const NEW_CHAT_TAB_ID = 'new-chat';
+ 
+ /** Label shown for the new-chat sentinel tab. */
+-export const NEW_CHAT_LABEL = 'New chat';
++export const NEW_CHAT_LABEL = 'Новый чат';
+ 
+ /** Fallback label for conversations without an auto-generated title. */
+ export const UNNAMED_CHAT_LABEL = 'Chat';
+diff --git a/tools/ui/src/lib/components/app/chat/ChatTabs/ChatTabsNewChatButton.svelte b/tools/ui/src/lib/components/app/chat/ChatTabs/ChatTabsNewChatButton.svelte
+index 52b28106f..8c0973ac7 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatTabs/ChatTabsNewChatButton.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatTabs/ChatTabsNewChatButton.svelte
+@@ -15,7 +15,7 @@
+ 		{#snippet child({ props })}
+ 			<button
+ 				{...props}
+-				aria-label="New chat"
++				aria-label="Новый чат"
+ 				class="backdrop-blur-lg flex h-8 w-8 mr-4 shrink-0 cursor-pointer items-center justify-center rounded-md transition-colors hover:bg-foreground/5"
+ 				{onclick}
+ 			>
+@@ -25,6 +25,6 @@
+ 	</Tooltip.Trigger>
+ 
+ 	<Tooltip.Content>
+-		<p>New chat</p>
++		<p>Новый чат</p>
+ 	</Tooltip.Content>
+ </Tooltip.Root>

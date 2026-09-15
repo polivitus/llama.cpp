@@ -1,0 +1,13 @@
+diff --git a/tools/ui/src/lib/components/app/chat/ChatForm/ChatForm.svelte b/tools/ui/src/lib/components/app/chat/ChatForm/ChatForm.svelte
+index 893f8077d..958f5d8ac 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatForm/ChatForm.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatForm/ChatForm.svelte
+@@ -101,7 +101,7 @@
+ 		onUploadedFileRemove,
+ 		onUploadedFilesChange,
+ 		onValueChange,
+-		placeholder = 'Type a message...',
++		placeholder = 'Введите сообщение...',
+ 		showAddButton = true,
+ 		showModelSelector = true,
+ 		uploadedFiles = $bindable([]),

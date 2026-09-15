@@ -286,7 +286,7 @@
 				class="bg-transparent"
 				icon={Gauge}
 				tooltipLabel="Скорость обработки запроса"
-				value="{promptTokensPerSecond!.toFixed(2)} tokens/s"
+				value="{promptTokensPerSecond!.toFixed(2)} ток/с"
 			/>
 		{/if}
 	</div>

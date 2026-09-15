@@ -192,7 +192,7 @@ export const SETTINGS_REGISTRY: SettingsSectionEntry[] = [
 		settings: [
 			{
 				defaultValue: true,
-				help: 'Display generation statistics (tokens/second, token count, duration) below each assistant message.',
+				help: 'Показывать статистику генерации (токенов/сек, количество токенов, длительность) под каждым сообщением ассистента.',
 				key: SETTINGS_KEYS.SHOW_MESSAGE_STATS,
 				label: 'Show message generation statistics',
 				type: SettingsFieldType.CHECKBOX

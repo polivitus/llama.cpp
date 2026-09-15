@@ -1,0 +1,13 @@
+diff --git a/tools/ui/src/lib/constants/settings.constants.ts b/tools/ui/src/lib/constants/settings.constants.ts
+index 7140bbcc4..61915818d 100644
+--- a/tools/ui/src/lib/constants/settings.constants.ts
++++ b/tools/ui/src/lib/constants/settings.constants.ts
+@@ -192,7 +192,7 @@ export const SETTINGS_REGISTRY: SettingsSectionEntry[] = [
+ 		settings: [
+ 			{
+ 				defaultValue: true,
+-				help: 'Display generation statistics (tokens/second, token count, duration) below each assistant message.',
++				help: 'Показывать статистику генерации (токенов/сек, количество токенов, длительность) под каждым сообщением ассистента.',
+ 				key: SETTINGS_KEYS.SHOW_MESSAGE_STATS,
+ 				label: 'Show message generation statistics',
+ 				type: SettingsFieldType.CHECKBOX
