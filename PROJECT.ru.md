@@ -64,7 +64,6 @@
 | server-http-gzip.patch | tools/server/server-http.cpp | DONE |
 | settings-stats-help.patch | settings.constants.ts (help) | DONE |
 | sidebar-selection.patch | SidebarNavigationSelectionBar.svelte | DONE |
-| stats-tokens-per-second.patch | ChatMessageStatistics.svelte | DONE |
 | system-message-editor.patch | ChatMessageSystem.svelte | DONE |
 | tool-sheet.patch | ChatFormActionAddSheet.svelte | DONE |
 | tool-submenu.patch | ChatFormActionAddToolsSubmenu.svelte | DONE |
