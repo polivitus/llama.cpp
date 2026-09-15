@@ -48,7 +48,6 @@
 | Имя | Файл | Статус |
 |---|---|---|
 | chat-greeting.patch | ChatScreenGreeting.svelte | DONE |
-| ui-constants.patch | ui.constants.ts | DONE |
 | tool-submenu.patch | ChatFormActionAddToolsSubmenu.svelte | DONE |
 | tool-sheet.patch | ChatFormActionAddSheet.svelte | DONE |
 | delete-search.patch | routes/search/+page.svelte | DONE |
@@ -64,6 +63,8 @@
 | fork-of-name.patch | ChatMessageActionIcons.svelte (forkName) | DONE |
 | delete-toast-pluralize.patch | stores/conversations/index.svelte.ts | DONE |
 | delete-desc-pluralize.patch | SidebarNavigationSelectionBar.svelte | TODO |
+| ui-close-labels.patch | ui/sheet + ui/dialog (sr-only Close) | DONE |
+| ui-constants.patch | ui.constants.ts | DONE |
 
 ## Известные проблемы (из прошлой сессии)
 - 007 и 020 были битые по кодировке (cp1251 / тайский) — пересоздать в UTF-8
