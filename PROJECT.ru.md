@@ -47,22 +47,22 @@
 
 | Имя | Файл | Статус |
 |---|---|---|
+| cancel-save-buttons.patch | MCP/диалоги (много файлов) | DONE |
 | chat-greeting.patch | ChatScreenGreeting.svelte | DONE |
-| tool-submenu.patch | ChatFormActionAddToolsSubmenu.svelte | DONE |
-| tool-sheet.patch | ChatFormActionAddSheet.svelte | DONE |
 | delete-search.patch | routes/search/+page.svelte | DONE |
 | delete-sidebar.patch | SidebarNavigation.svelte | DONE |
+| delete-toast-pluralize.patch | stores/conversations/index.svelte.ts | DONE |
 | dialog-confirmation.patch | DialogConfirmation.svelte | DONE |
+| fork-of-name.patch | ChatMessageActionIcons.svelte | DONE |
 | mcp-save-label.patch | DialogMcpServerAddNew.svelte | DONE |
 | message-actions.patch | ChatMessageActionIcons.svelte | DONE |
-| cancel-save-buttons.patch | MCP/диалоги (много файлов) | DONE |
-| system-message-editor.patch | ChatMessageSystem.svelte | DONE |
-| processing-state.patch | use-processing-state + ... | DONE |
-| selection-count.patch | SidebarNavigationSelectionBar.svelte | DONE |
+| processing-state.patch | use-processing-state + 2 файла | DONE |
 | rename-conversation.patch | DialogConversationRename.svelte | DONE |
-| fork-of-name.patch | ChatMessageActionIcons.svelte (forkName) | DONE |
-| delete-toast-pluralize.patch | stores/conversations/index.svelte.ts | DONE |
-| delete-desc-pluralize.patch | SidebarNavigationSelectionBar.svelte | TODO |
+| server-splash.patch | ServerErrorSplash + ServerLoadingSplash | DONE |
+| sidebar-selection.patch | SidebarNavigationSelectionBar.svelte | DONE |
+| system-message-editor.patch | ChatMessageSystem.svelte | DONE |
+| tool-sheet.patch | ChatFormActionAddSheet.svelte | DONE |
+| tool-submenu.patch | ChatFormActionAddToolsSubmenu.svelte | DONE |
 | ui-close-labels.patch | ui/sheet + ui/dialog (sr-only Close) | DONE |
 | ui-constants.patch | ui.constants.ts | DONE |
 
