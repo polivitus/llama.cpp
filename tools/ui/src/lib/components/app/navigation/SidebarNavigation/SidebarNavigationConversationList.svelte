@@ -72,7 +72,7 @@
 	);
 
 	const recentEmptyMessage = $derived(
-		searchQuery.length > 0 ? 'No results found' : 'No conversations yet'
+		searchQuery.length > 0 ? 'Ничего не найдено' : 'Пока нет бесед'
 	);
 </script>
 
