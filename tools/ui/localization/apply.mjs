@@ -12,7 +12,7 @@ const DRY = process.argv.includes('--dry');
 const REVERT = process.argv.includes('--revert');
 const log = (m) => console.log(`[localize] ${m}`);
 
-const UI_ATTRS = ['label','title','help','placeholder','children','description','aria-label','tooltip','text','alt','content'];
+const UI_ATTRS = ['label','title','help','placeholder','children','description','aria-label','tooltip','triggerTooltip','text','alt','content'];
 const TEMPLATES = [
   [/`Chat \$\{/g, '`Беседа ${'],
   [/`Delete \$\{/g, '`Удалить ${'],
@@ -23,11 +23,16 @@ function replaceAll(text, dict) {
   let n = 0;
   for (const [re, rep] of TEMPLATES) text = text.replace(re, () => { n++; return rep; });
 
-  const attrAlt = UI_ATTRS.map(a => a.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+   const attrAlt = UI_ATTRS.map(a => a.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
   for (const [en, ru] of Object.entries(dict)) {
     const esc = en.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // JS-объект: label:"Text", children:'Text'
     const reAttr = new RegExp(`(\\b(?:${attrAlt})\\s*:\\s*)(["'\`])${esc}\\2`, 'g');
     text = text.replace(reAttr, (_, p, q) => { n++; return `${p}${q}${ru}${q}`; });
+    // HTML-атрибут: placeholder="Text", aria-label='Text'
+    const reHtmlAttr = new RegExp(`(\\b(?:${attrAlt})\\s*=\\s*)(["'])${esc}\\2`, 'g');
+    text = text.replace(reHtmlAttr, (_, p, q) => { n++; return `${p}${q}${ru}${q}`; });
+    // HTML-текст: >Text<
     const reHtml = new RegExp(`>${esc}<`, 'g');
     text = text.replace(reHtml, () => { n++; return `>${ru}<`; });
   }
