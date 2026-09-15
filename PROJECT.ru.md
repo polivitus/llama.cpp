@@ -59,6 +59,7 @@
 | processing-state.patch | use-processing-state + 2 файла | DONE |
 | rename-conversation.patch | DialogConversationRename.svelte | DONE |
 | server-splash.patch | ServerErrorSplash + ServerLoadingSplash | DONE |
+| server-http-gzip.patch | tools/server/server-http.cpp | DONE |
 | sidebar-selection.patch | SidebarNavigationSelectionBar.svelte | DONE |
 | system-message-editor.patch | ChatMessageSystem.svelte | DONE |
 | tool-sheet.patch | ChatFormActionAddSheet.svelte | DONE |
