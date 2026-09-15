@@ -68,6 +68,8 @@
 | server-splash.patch | ServerErrorSplash + ServerLoadingSplash | DONE |
 | server-http-gzip.patch | tools/server/server-http.cpp | DONE |
 | settings-stats-help.patch | settings.constants.ts (help) | DONE |
+| sidebar-conversation-list.patch | SidebarNavigationConversationList.svelte | DONE |
+| sidebar-conversation-menu.patch | SidebarNavigationConversationItem.svelte | DONE |
 | sidebar-selection.patch | SidebarNavigationSelectionBar.svelte | DONE |
 | sidebar-toggle-tooltip.patch | SidebarNavigation.svelte | DONE |
 | system-message-editor.patch | ChatMessageSystem.svelte | DONE |
