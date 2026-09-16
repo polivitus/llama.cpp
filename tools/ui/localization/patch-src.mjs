@@ -21,6 +21,7 @@ const APPLIED_MARKERS = {
   '47-error-dialogs.patch':     ['Запрос не получил ответа', 'Доступ запрещён'],
   '48-model-info.patch':        ['Информация о модели', 'Копировать в буфер', 'Размер эмбеддинга'],
   '49-formatters-units.patch':  ['токенов', 'млрд', 'тыс.'],
+  '50-vocab-type-boolean.patch': ["? 'Да' : 'Нет'"],
 };
 
 function isAlreadyApplied(patchName, gitRoot) {

@@ -207,7 +207,7 @@
 								<Table.Row>
 									<Table.Cell class="align-middle font-medium">Тип словаря</Table.Cell>
 
-									<Table.Cell class="align-middle capitalize">{modelMeta.vocab_type}</Table.Cell>
+									<Table.Cell class="align-middle">{modelMeta.vocab_type ? 'Да' : 'Нет'}</Table.Cell>
 								</Table.Row>
 							{/if}
 
@@ -319,7 +319,7 @@
 						{/if}
 
 						{#if modelMeta?.vocab_type}
-							{@render infoRow('Тип словаря', modelMeta.vocab_type, 'capitalize')}
+							{@render infoRow('Тип словаря', modelMeta.vocab_type ? 'Да' : 'Нет')}
 						{/if}
 
 						{@render infoRow('Параллельные слоты', `${serverProps.total_slots}`)}
