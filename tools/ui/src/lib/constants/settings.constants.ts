@@ -471,7 +471,7 @@ export const SETTINGS_REGISTRY: SettingsSectionEntry[] = [
 				defaultValue: '',
 				help: 'The order at which samplers are applied, in simplified way. Default is "top_k;typ_p;top_p;min_p;temperature": top_k->typ_p->top_p->min_p->temperature',
 				key: SETTINGS_KEYS.SAMPLERS,
-				label: 'Samplers',
+				label: 'Сэмплеры',
 				sync: { paramType: SyncableParameterType.STRING, serverKey: SETTINGS_KEYS.SAMPLERS },
 				type: SettingsFieldType.INPUT
 			},
@@ -622,14 +622,14 @@ export const SETTINGS_REGISTRY: SettingsSectionEntry[] = [
 				defaultValue: '',
 				help: 'Custom JSON parameters to send to the API. Must be valid JSON format.',
 				key: SETTINGS_KEYS.CUSTOM_JSON,
-				label: 'Custom JSON',
+				label: 'Пользовательский JSON',
 				type: SettingsFieldType.TEXTAREA
 			},
 			{
 				defaultValue: '',
 				help: 'CSS injected into the page at runtime. Set it here, or ship it server side via the --ui-config customCss field.',
 				key: SETTINGS_KEYS.CUSTOM_CSS,
-				label: 'Custom CSS',
+				label: 'Пользовательский CSS',
 				type: SettingsFieldType.TEXTAREA
 			}
 		],

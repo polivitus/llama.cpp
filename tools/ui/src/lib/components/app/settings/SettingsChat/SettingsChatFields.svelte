@@ -94,7 +94,7 @@
 						class="w-full {isCustomRealTime ? 'pr-8' : ''}"
 						oninput={(e) => onConfigChange(field.key, e.currentTarget.value)}
 						placeholder={currentModelParams[field.key] != null
-							? `Default: ${normalizeFloatingPoint(currentModelParams[field.key])}`
+							? `По умолчанию: ${normalizeFloatingPoint(currentModelParams[field.key])}`
 							: (field.placeholder ?? '')}
 						value={currentValue}
 					/>

@@ -1,0 +1,13 @@
+diff --git a/tools/ui/src/lib/components/app/settings/SettingsChat/SettingsChatFields.svelte b/tools/ui/src/lib/components/app/settings/SettingsChat/SettingsChatFields.svelte
+index 2c92c37f9..96cab4f36 100644
+--- a/tools/ui/src/lib/components/app/settings/SettingsChat/SettingsChatFields.svelte
++++ b/tools/ui/src/lib/components/app/settings/SettingsChat/SettingsChatFields.svelte
+@@ -94,7 +94,7 @@
+ 						class="w-full {isCustomRealTime ? 'pr-8' : ''}"
+ 						oninput={(e) => onConfigChange(field.key, e.currentTarget.value)}
+ 						placeholder={currentModelParams[field.key] != null
+-							? `Default: ${normalizeFloatingPoint(currentModelParams[field.key])}`
++							? `По умолчанию: ${normalizeFloatingPoint(currentModelParams[field.key])}`
+ 							: (field.placeholder ?? '')}
+ 						value={currentValue}
+ 					/>

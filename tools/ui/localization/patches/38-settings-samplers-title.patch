@@ -1,0 +1,13 @@
+diff --git a/tools/ui/src/lib/constants/settings.constants.ts b/tools/ui/src/lib/constants/settings.constants.ts
+index 97c1844a6..2c57ab8a2 100644
+--- a/tools/ui/src/lib/constants/settings.constants.ts
++++ b/tools/ui/src/lib/constants/settings.constants.ts
+@@ -471,7 +471,7 @@ export const SETTINGS_REGISTRY: SettingsSectionEntry[] = [
+ 				defaultValue: '',
+ 				help: 'The order at which samplers are applied, in simplified way. Default is "top_k;typ_p;top_p;min_p;temperature": top_k->typ_p->top_p->min_p->temperature',
+ 				key: SETTINGS_KEYS.SAMPLERS,
+-				label: 'Samplers',
++				label: 'Сэмплеры',
+ 				sync: { paramType: SyncableParameterType.STRING, serverKey: SETTINGS_KEYS.SAMPLERS },
+ 				type: SettingsFieldType.INPUT
+ 			},
