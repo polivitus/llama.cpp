@@ -32,6 +32,9 @@ function replaceAll(text, dict) {
     // HTML-атрибут: placeholder="Text", aria-label='Text'
     const reHtmlAttr = new RegExp(`(\\b(?:${attrAlt})\\s*=\\s*)(["'])${esc}\\2`, 'g');
     text = text.replace(reHtmlAttr, (_, p, q) => { n++; return `${p}${q}${ru}${q}`; });
+       // Функции-обёртки: pr("Text"), t("Text"), _("Text")
+    const reFn = new RegExp(`(\\b(?:pr|t|_)\\s*\\(\\s*)(["'\`])${esc}\\2`, 'g');
+    text = text.replace(reFn, (_, p, q) => { n++; return `${p}${q}${ru}${q}`; });
     // HTML-текст: >Text<
     const reHtml = new RegExp(`>${esc}<`, 'g');
     text = text.replace(reHtml, () => { n++; return `>${ru}<`; });
