@@ -1,0 +1,30 @@
+diff --git a/tools/ui/src/lib/constants/settings.constants.ts b/tools/ui/src/lib/constants/settings.constants.ts
+index 61915818d..d3074ec82 100644
+--- a/tools/ui/src/lib/constants/settings.constants.ts
++++ b/tools/ui/src/lib/constants/settings.constants.ts
+@@ -27,11 +27,11 @@ import type {
+ 
+ /** Settings sections — slug is the routing identity, title is the display label. */
+ export const SETTINGS_SECTIONS = {
+-	AGENTIC: { slug: 'agentic', title: 'Agentic' },
+-	DEVELOPER: { slug: 'developer', title: 'Developer' },
+-	DISPLAY: { slug: 'display', title: 'Display' },
+-	GENERAL: { slug: 'general', title: 'General' },
+-	IMPORT_EXPORT: { slug: 'import-export', title: 'Import/Export' },
++	AGENTIC: { slug: 'agentic', title: 'Агентные' },
++	DEVELOPER: { slug: 'developer', title: 'Разработчик' },
++	DISPLAY: { slug: 'display', title: 'Отображение' },
++	GENERAL: { slug: 'general', title: 'Общие' },
++	IMPORT_EXPORT: { slug: 'import-export', title: 'Импорт/Экспорт' },
+ 	SAMPLING_PENALTIES: { slug: 'sampling-penalties', title: 'Sampling & Penalties' },
+ 	TOOLS: { slug: 'tools', title: 'Tools' }
+ } as const;
+@@ -65,7 +65,7 @@ export const SETTINGS_REGISTRY: SettingsSectionEntry[] = [
+ 				defaultValue: ColorMode.SYSTEM,
+ 				help: 'Choose the color theme for the interface. You can choose between System (follows your device settings), Light, or Dark.',
+ 				key: SETTINGS_KEYS.THEME,
+-				label: 'Theme',
++				label: 'Тема',
+ 				options: [
+ 					{ icon: Monitor, label: 'System', value: ColorMode.SYSTEM },
+ 					{ icon: Sun, label: 'Light', value: ColorMode.LIGHT },

@@ -164,7 +164,7 @@
 								<div class="flex justify-end">
 									<Button onclick={() => window.location.reload()} variant="outline">
 										<RefreshCw class="h-3 w-3" />
-										Reload app
+										Перезагрузить приложение
 									</Button>
 								</div>
 							{/if}

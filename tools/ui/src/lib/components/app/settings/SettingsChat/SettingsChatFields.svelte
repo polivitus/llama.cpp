@@ -101,7 +101,7 @@
 
 					{#if isCustomRealTime}
 						<button
-							aria-label="Reset to default"
+							aria-label="Сбросить к настройкам по умолчанию"
 							class="absolute top-1/2 right-2 inline-flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded transition-colors hover:bg-muted"
 							onclick={() => {
 								settingsStore.resetParameterToServerDefault(field.key);
@@ -213,7 +213,7 @@
 
 						{#if isCustomRealTime}
 							<button
-								aria-label="Reset to default"
+								aria-label="Сбросить к настройкам по умолчанию"
 								class="absolute top-1/2 right-8 inline-flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded transition-colors hover:bg-muted"
 								onclick={() => {
 									settingsStore.resetParameterToServerDefault(field.key);

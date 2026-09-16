@@ -1,0 +1,48 @@
+diff --git a/tools/ui/src/lib/components/app/settings/SettingsChat/SettingsChat.svelte b/tools/ui/src/lib/components/app/settings/SettingsChat/SettingsChat.svelte
+index 879390075..dbb478cd8 100644
+--- a/tools/ui/src/lib/components/app/settings/SettingsChat/SettingsChat.svelte
++++ b/tools/ui/src/lib/components/app/settings/SettingsChat/SettingsChat.svelte
+@@ -164,7 +164,7 @@
+ 								<div class="flex justify-end">
+ 									<Button onclick={() => window.location.reload()} variant="outline">
+ 										<RefreshCw class="h-3 w-3" />
+-										Reload app
++										Перезагрузить приложение
+ 									</Button>
+ 								</div>
+ 							{/if}
+diff --git a/tools/ui/src/lib/components/app/settings/SettingsChat/SettingsChatFields.svelte b/tools/ui/src/lib/components/app/settings/SettingsChat/SettingsChatFields.svelte
+index e8795d7c5..2c92c37f9 100644
+--- a/tools/ui/src/lib/components/app/settings/SettingsChat/SettingsChatFields.svelte
++++ b/tools/ui/src/lib/components/app/settings/SettingsChat/SettingsChatFields.svelte
+@@ -101,7 +101,7 @@
+ 
+ 					{#if isCustomRealTime}
+ 						<button
+-							aria-label="Reset to default"
++							aria-label="Сбросить к настройкам по умолчанию"
+ 							class="absolute top-1/2 right-2 inline-flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded transition-colors hover:bg-muted"
+ 							onclick={() => {
+ 								settingsStore.resetParameterToServerDefault(field.key);
+@@ -213,7 +213,7 @@
+ 
+ 						{#if isCustomRealTime}
+ 							<button
+-								aria-label="Reset to default"
++								aria-label="Сбросить к настройкам по умолчанию"
+ 								class="absolute top-1/2 right-8 inline-flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded transition-colors hover:bg-muted"
+ 								onclick={() => {
+ 									settingsStore.resetParameterToServerDefault(field.key);
+diff --git a/tools/ui/src/lib/components/app/settings/SettingsFooter.svelte b/tools/ui/src/lib/components/app/settings/SettingsFooter.svelte
+index b20699465..62a9a3539 100644
+--- a/tools/ui/src/lib/components/app/settings/SettingsFooter.svelte
++++ b/tools/ui/src/lib/components/app/settings/SettingsFooter.svelte
+@@ -34,7 +34,7 @@
+ 		<Button onclick={handleResetClick} variant="outline">
+ 			<RotateCcw class="h-3 w-3" />
+ 
+-			Reset to default
++			Сбросить к настройкам по умолчанию
+ 		</Button>
+ 	</div>
+ 

@@ -25,7 +25,7 @@
 			<Dialog.Title class="flex items-center gap-2">
 				<Settings class="h-5 w-5" />
 
-				<span>Settings</span>
+				<span>Настройки</span>
 			</Dialog.Title>
 		</Dialog.Header>
 

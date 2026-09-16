@@ -34,7 +34,7 @@
 		<Button onclick={handleResetClick} variant="outline">
 			<RotateCcw class="h-3 w-3" />
 
-			Reset to default
+			Сбросить к настройкам по умолчанию
 		</Button>
 	</div>
 

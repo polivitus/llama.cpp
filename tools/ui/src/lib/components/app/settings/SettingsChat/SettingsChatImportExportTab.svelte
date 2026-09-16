@@ -289,7 +289,7 @@
 		/>
 	</SettingsGroup>
 
-	<SettingsGroup title="Settings">
+	<SettingsGroup title="Настройки">
 		<SettingsChatImportExportSection
 			IconComponent={Download}
 			buttonText="Export settings"
