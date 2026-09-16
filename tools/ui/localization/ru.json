@@ -239,5 +239,10 @@
   "No tools available": "Инструменты недоступны",
   "Custom JSON": "Пользовательский JSON",
   "Custom CSS": "Пользовательский CSS",
-  "Samplers": "Сэмплеры"
+  "Samplers": "Сэмплеры",
+  "Temperature": "Температура",
+  "Top K": "Top K",
+  "Top P": "Top P",
+  "Min P": "Min P",
+  "Symbolic math (nerdamer)": "Символьная математика (nerdamer)"
 }

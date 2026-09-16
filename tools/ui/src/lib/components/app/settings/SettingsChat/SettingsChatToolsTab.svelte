@@ -69,7 +69,7 @@
 					</span>
 
 					<span class="ml-auto shrink-0 text-xs text-muted-foreground">
-						{group.tools.length} tool{group.tools.length !== 1 ? 's' : ''}
+						{group.tools.length} {group.tools.length === 1 ? 'инструмент' : (group.tools.length < 5 ? 'инструмента' : 'инструментов')}
 					</span>
 				</Collapsible.Trigger>
 

@@ -44,8 +44,8 @@
 - [x] Локаль UTF-8
 - [x] Журналы (PROJECT, CHANGELOG, NOTES)
 - [x] Скелет localization/ + скрипты
-- [x] ru.json — 233 фразы
-- [x] 34 патча — все применены и закоммичены
+- [x] ru.json — 246 фраз
+- [x] 42 патча — все применены и закоммичены
 - [x] npm install / npm run build
 - [x] cmake build llama-server
 - [x] server-http.cpp пропатчен (gzip Content-Encoding fix)
@@ -57,10 +57,12 @@
 - [x] Sidebar: меню беседы, закреплённые, "No conversations yet"
 
 ### Следующий шаг
-Проверить вкладки Display, Tools, Agentic, Developer после последней
-пересборки — остались ли английские строки. Скинуть скриншоты.
+✅ Все 7 вкладок Settings проверены в браузере и русифицированы:
+Общие, Отображение, Инструменты, Агентные, Импорт/Экспорт,
+Сэмплирование и штрафы, Разработчик.
+Осталось: обновление upstream + периодическая проверка после pull.
 
-## Список патчей (34, все DONE)
+## Список патчей (42, все DONE)
 
 | # | Имя | Файл |
 |---|---|---|
@@ -86,7 +88,6 @@
 | 20 | server-http-gzip.patch | tools/server/server-http.cpp |
 | 21 | server-splash.patch | ServerErrorSplash + ServerLoadingSplash |
 | 22 | settings-footer.patch | SettingsFooter + SettingsChat + SettingsChatFields |
-| 23 | settings-header.patch | DialogSettingsChat + SettingsChatImportExportTab |
 | 24 | settings-stats-help.patch | settings.constants.ts (help) |
 | 25 | settings-tabs.patch | settings.constants.ts (табы, тема, API Key help) |
 | 26 | sidebar-conversation-list.patch | SidebarNavigationConversationList.svelte |
@@ -99,6 +100,13 @@
 | 33 | tool-submenu.patch | ChatFormActionAddToolsSubmenu.svelte |
 | 34 | ui-close-labels.patch | ui/sheet + ui/dialog (sr-only Close) |
 | 35 | ui-constants.patch | ui.constants.ts |
+| 36 | settings-default-label.patch | SettingsChatFields.svelte (`Default:` → `По умолчанию:`) |
+| 37 | settings-custom-json-css.patch | settings.constants.ts (Custom JSON/CSS) |
+| 38 | settings-samplers-title.patch | settings.constants.ts (Samplers) |
+| 39 | import-export-buttons.patch | SettingsChatImportExportTab.svelte (5 кнопок) |
+| 40 | tools-table-headers.patch | SettingsChatToolsTab.svelte (Tool/Enabled/Always allow + No tools) |
+| 41 | tools-count-pluralize.patch | SettingsChatToolsTab.svelte (N tools → N инструментов) |
+| 42 | tool-ui-labels.patch | tool-ui.constants.ts (10 label тулов) |
 
 ## Известные проблемы (решены)
 - ~~007/020 битые по кодировке~~ — пересозданы в UTF-8
@@ -111,11 +119,13 @@
 - ~~processing-state + stats-tokens-count конфликт~~ — разделены, оба пересозданы
 
 ## Осталось проверить (на 2026-09-16)
-- [ ] Display tab
-- [ ] Tools tab
-- [ ] Agentic tab
-- [ ] Developer tab
-- [ ] Sброс/сейв настройки
+- [x] Display tab (Отображение) — ✅ проверено
+- [x] Tools tab (Инструменты) — ✅ проверено, плюрализация работает
+- [x] Agentic tab (Агентные) — ✅ проверено
+- [x] Developer tab (Разработчик) — ✅ проверено
+- [x] Сброс/сейв настройки — ✅ проверено
+- [x] Import/Export — ✅ проверено
+- [x] Сэмплирование и штрафы — ✅ проверено (Температура, Макс. токенов)
 
 ## Команды
 

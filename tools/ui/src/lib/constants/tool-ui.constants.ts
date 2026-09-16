@@ -25,36 +25,36 @@ import type { ToolUiEntry } from '$lib/types';
 export const TOOL_UI: Readonly<Record<BuiltInTool, ToolUiEntry>> = {
 	[BuiltInTool.BROWSER_GET_DATETIME]: {
 		icon: Clock,
-		label: 'Current time',
+		label: 'Текущее время',
 		source: ToolSource.BROWSER
 	},
-	[BuiltInTool.BROWSER_READ_MEDIA]: { icon: Eye, label: 'Read media', source: ToolSource.BROWSER },
+	[BuiltInTool.BROWSER_READ_MEDIA]: { icon: Eye, label: 'Чтение медиа', source: ToolSource.BROWSER },
 	[BuiltInTool.BROWSER_RUN_JAVASCRIPT]: {
 		icon: Braces,
-		label: 'Run JavaScript',
+		label: 'Запуск JavaScript',
 		source: ToolSource.BROWSER
 	},
-	[BuiltInTool.SERVER_EDIT_FILE]: { icon: FilePen, label: 'Edit file', source: ToolSource.SERVER },
+	[BuiltInTool.SERVER_EDIT_FILE]: { icon: FilePen, label: 'Редактирование файла', source: ToolSource.SERVER },
 	[BuiltInTool.SERVER_EXEC_SHELL_COMMAND]: {
 		icon: Terminal,
-		label: 'Run command',
+		label: 'Выполнить команду',
 		source: ToolSource.SERVER
 	},
 	[BuiltInTool.SERVER_FILE_GLOB_SEARCH]: {
 		icon: FileSearch,
-		label: 'Search files',
+		label: 'Поиск файлов',
 		source: ToolSource.SERVER
 	},
-	[BuiltInTool.SERVER_GET_INFO]: { icon: Info, label: 'Runtime info', source: ToolSource.SERVER },
+	[BuiltInTool.SERVER_GET_INFO]: { icon: Info, label: 'Информация о среде', source: ToolSource.SERVER },
 	[BuiltInTool.SERVER_GREP_SEARCH]: {
 		icon: SearchCode,
-		label: 'Search in files',
+		label: 'Поиск в файлах',
 		source: ToolSource.SERVER
 	},
-	[BuiltInTool.SERVER_READ_FILE]: { icon: FileText, label: 'Read file', source: ToolSource.SERVER },
+	[BuiltInTool.SERVER_READ_FILE]: { icon: FileText, label: 'Чтение файла', source: ToolSource.SERVER },
 	[BuiltInTool.SERVER_WRITE_FILE]: {
 		icon: FilePlus,
-		label: 'Write file',
+		label: 'Запись файла',
 		source: ToolSource.SERVER
 	}
 } as const;
