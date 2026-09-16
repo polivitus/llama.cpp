@@ -107,7 +107,7 @@
 			<span class="text-xs font-medium select-none">
 				{sectionLabel}
 				{#if sectionLabelOptional}
-					<span class="text-muted-foreground">(optional)</span>
+					<span class="text-muted-foreground">(необязательно)</span>
 				{/if}
 			</span>
 		{/if}

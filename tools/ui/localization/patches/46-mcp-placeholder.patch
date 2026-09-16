@@ -1,0 +1,26 @@
+diff --git a/tools/ui/src/lib/components/app/forms/KeyValuePairs.svelte b/tools/ui/src/lib/components/app/forms/KeyValuePairs.svelte
+index 9bd275611..f9c8b2b91 100644
+--- a/tools/ui/src/lib/components/app/forms/KeyValuePairs.svelte
++++ b/tools/ui/src/lib/components/app/forms/KeyValuePairs.svelte
+@@ -107,7 +107,7 @@
+ 			<span class="text-xs font-medium select-none">
+ 				{sectionLabel}
+ 				{#if sectionLabelOptional}
+-					<span class="text-muted-foreground">(optional)</span>
++					<span class="text-muted-foreground">(необязательно)</span>
+ 				{/if}
+ 			</span>
+ 		{/if}
+diff --git a/tools/ui/src/lib/components/app/mcp/McpServerForm.svelte b/tools/ui/src/lib/components/app/mcp/McpServerForm.svelte
+index d680448d3..952d0fc96 100644
+--- a/tools/ui/src/lib/components/app/mcp/McpServerForm.svelte
++++ b/tools/ui/src/lib/components/app/mcp/McpServerForm.svelte
+@@ -43,7 +43,7 @@
+ 		headers,
+ 		id = 'server',
+ 		name = '',
+-		namePlaceholder = 'Name reported by the server',
++		namePlaceholder = 'Имя, сообщаемое сервером',
+ 		onHeadersChange,
+ 		onNameChange,
+ 		onUrlChange,

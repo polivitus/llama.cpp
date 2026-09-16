@@ -43,7 +43,7 @@
 		headers,
 		id = 'server',
 		name = '',
-		namePlaceholder = 'Name reported by the server',
+		namePlaceholder = 'Имя, сообщаемое сервером',
 		onHeadersChange,
 		onNameChange,
 		onUrlChange,
