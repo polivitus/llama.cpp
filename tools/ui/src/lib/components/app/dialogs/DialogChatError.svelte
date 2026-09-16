@@ -14,7 +14,7 @@
 	let { contextInfo, message, onOpenChange, open = $bindable(), type }: Props = $props();
 
 	const isTimeout = $derived(type === ErrorDialogType.TIMEOUT);
-	const title = $derived(isTimeout ? 'TCP Timeout' : 'Server Error');
+	const title = $derived(isTimeout ? 'Таймаут TCP' : 'Ошибка сервера');
 	const description = $derived(
 		isTimeout
 			? 'The request did not receive a response from the server before timing out.'
