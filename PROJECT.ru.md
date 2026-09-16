@@ -8,7 +8,8 @@
 - Репозиторий:      ~/llama.cpp/
 - WebUI:            tools/ui/
 - Локализация:      tools/ui/localization/
-- Ветка git:        ru-localization
+- Ветка git:        ru-localization (и master — синхронизированы)
+- Форк:             git@github.com:polivitus/llama.cpp.git
 - Модель:           /home/it/models/medgemma-4b-it-Q4_K_M.gguf
 
 ## Архитектура
@@ -28,6 +29,8 @@
 - apply.mjs использует UI_ATTRS (label/children/description/tooltip/triggerTooltip...)
   + HTML-атрибуты (attr="Text") + функции pr()/t()/_()
 - patch-src.mjs падает (exit 1) при FAIL
+- patch-src.mjs идемпотентен через APPLIED_MARKERS (карта маркеров)
+- apply.mjs: UI_ATTRS +cancelText/confirmText/buttonText + TEMPLATES (12 шаблонов)
 
 ## Стратегия (важно!)
 **ru.json-first:** длинные фразы (≥ 2 слов, заглавная + пробел) — в `ru.json`.
@@ -37,15 +40,15 @@
 - строк в JS-объектах внутри HTML-атрибутов (если ru.json не ловит)
 - "pr()/t()/_()" — apply.mjs уже умеет, ru.json работает
 
-## Статус (на 2026-09-16)
+## Статус (на 2026-09-17)
 
 ### Сделано
 - [x] Чистый клон upstream
 - [x] Локаль UTF-8
 - [x] Журналы (PROJECT, CHANGELOG, NOTES)
 - [x] Скелет localization/ + скрипты
-- [x] ru.json — 246 фраз
-- [x] 42 патча — все применены и закоммичены
+- [x] ru.json — 254 фразы
+- [x] 47 патчей — все применены и закоммичены
 - [x] npm install / npm run build
 - [x] cmake build llama-server
 - [x] server-http.cpp пропатчен (gzip Content-Encoding fix)
@@ -62,7 +65,7 @@
 Сэмплирование и штрафы, Разработчик.
 Осталось: обновление upstream + периодическая проверка после pull.
 
-## Список патчей (42, все DONE)
+## Список патчей (47, все DONE)
 
 | # | Имя | Файл |
 |---|---|---|
@@ -107,6 +110,14 @@
 | 40 | tools-table-headers.patch | SettingsChatToolsTab.svelte (Tool/Enabled/Always allow + No tools) |
 | 41 | tools-count-pluralize.patch | SettingsChatToolsTab.svelte (N tools → N инструментов) |
 | 42 | tool-ui-labels.patch | tool-ui.constants.ts (10 label тулов) |
+| 44 | svelte-all.patch | 10 файлов: Cancel/Delete/Clipboard/MCP-форма/Tools |
+| 45 | server-error-mcp.patch | DialogChatError + DialogMcpServerAddNew + recommended-mcp |
+| 46 | mcp-placeholder.patch | McpServerForm + KeyValuePairs ((optional)) |
+| 47 | error-dialogs.patch | DialogChatError + error.constants.ts |
+| 48 | model-info.patch | DialogModelInformation + Copy buttons (4 файла) |
+| 49 | formatters-units.patch | formatters.ts (единицы) + tokens → токенов |
+| 50 | vocab-type-boolean.patch | DialogModelInformation (vocab_type ? Да : Нет) |
+| 51 | copy-tooltip-side.patch | ActionIconCopyToClipboard (tooltipSide=LEFT) |
 
 ## Известные проблемы (решены)
 - ~~007/020 битые по кодировке~~ — пересозданы в UTF-8
@@ -117,8 +128,15 @@
 - ~~apply.mjs не поддерживал triggerTooltip, HTML-атрибуты, pr()/t()~~ — добавлено
 - ~~SidebarNavigationSelectionBar конфликт двух патчей~~ — объединён в sidebar-selection
 - ~~processing-state + stats-tokens-count конфликт~~ — разделены, оба пересозданы
+- ~~settings-header.patch устарел~~ — удалён
+- ~~message-actions.patch устарел~~ — удалён (покрыт #44)
+- ~~pull-request'ов апостроф ломал TS~~ — заменено на "запросов на слияние"
+- ~~patch-src.mjs не находил файлы в tools/ui/src/~~ — fix isAlreadyApplied
+- ~~#44/#47 конфликт контекста~~ — APPLIED_MARKERS
+- ~~#48/#49 конфликт контекста~~ — APPLIED_MARKERS
+- ~~tooltip Copy обрезался~~ — tooltipSide=LEFT
 
-## Осталось проверить (на 2026-09-16)
+## Осталось проверить (на 2026-09-17)
 - [x] Display tab (Отображение) — ✅ проверено
 - [x] Tools tab (Инструменты) — ✅ проверено, плюрализация работает
 - [x] Agentic tab (Агентные) — ✅ проверено
@@ -126,6 +144,10 @@
 - [x] Сброс/сейв настройки — ✅ проверено
 - [x] Import/Export — ✅ проверено
 - [x] Сэмплирование и штрафы — ✅ проверено (Температура, Макс. токенов)
+- [x] Model Information — ✅ проверено (Информация о модели, Гб, млрд, Да/Нет)
+- [x] MCP-форма — ✅ проверено (URL сервера, Отображаемое имя, Свои заголовки)
+- [x] Server Error / TCP Timeout — ✅ проверено
+- [x] Copy buttons — ✅ tooltipSide=LEFT (не обрезается)
 
 ## Команды
 
@@ -142,3 +164,11 @@ LD_LIBRARY_PATH=~/llama.cpp/build/bin \
 ~/llama.cpp/build/bin/llama-server \
   -m /home/it/models/medgemma-4b-it-Q4_K_M.gguf \
   --host 0.0.0.0 --port 8081
+
+# Синхронизация веток + push
+cd ~/llama.cpp
+git checkout ru-localization
+git merge master --ff-only
+git checkout master
+git push origin master
+git push origin ru-localization
