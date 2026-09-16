@@ -12,6 +12,32 @@ const GIT_ROOT = execSync('git rev-parse --show-toplevel', {
 const PATCHES = path.join(__dirname, 'patches');
 const REVERT = process.argv.includes('--revert');
 
+// Карта маркеров: если патч УЖЕ применён (по этим строкам), пропускаем его.
+// Нужно, когда последующие патчи меняют контекст и git apply --reverse не работает.
+const APPLIED_MARKERS = {
+  '44-svelte-all.patch':        ['Удалить ${messageActions', 'инструментов', 'Свои заголовки'],
+  '45-server-error-mcp.patch':  ['Таймаут TCP', 'Рекомендуемые серверы', 'запросов на слияние'],
+  '46-mcp-placeholder.patch':   ['Имя, сообщаемое сервером', 'необязательно'],
+  '47-error-dialogs.patch':     ['Запрос не получил ответа', 'Доступ запрещён'],
+};
+
+function isAlreadyApplied(patchName, gitRoot) {
+  const markers = APPLIED_MARKERS[patchName];
+  if (!markers) return false;
+  try {
+    // Ищем любой маркер в src/
+    for (const m of markers) {
+      const out = execSync(`git grep -l "${m}" -- 'src/**'`, {
+        cwd: gitRoot, encoding: 'utf-8',
+      }).trim();
+      if (out) return true;
+    }
+  } catch {
+    // git grep возвращает exit 1, если не нашёл
+  }
+  return false;
+}
+
 const log = (m) => console.log(`[patch-src] ${m}`);
 
 if (!fs.existsSync(PATCHES)) { log('Нет patches/'); process.exit(0); }
@@ -41,6 +67,11 @@ for (const f of files) {
       log(`= уже применён: ${f}`);
       continue;
     } catch {
+      // Последняя попытка: проверить по маркерам
+      if (isAlreadyApplied(f, GIT_ROOT)) {
+        log(`= уже применён (по маркеру): ${f}`);
+        continue;
+      }
       log(`⚠ НЕ СОВПАДАЕТ: ${f}`);
       failed++;
       continue;
