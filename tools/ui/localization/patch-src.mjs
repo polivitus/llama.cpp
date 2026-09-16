@@ -19,6 +19,8 @@ const APPLIED_MARKERS = {
   '45-server-error-mcp.patch':  ['Таймаут TCP', 'Рекомендуемые серверы', 'запросов на слияние'],
   '46-mcp-placeholder.patch':   ['Имя, сообщаемое сервером', 'необязательно'],
   '47-error-dialogs.patch':     ['Запрос не получил ответа', 'Доступ запрещён'],
+  '48-model-info.patch':        ['Информация о модели', 'Копировать в буфер', 'Размер эмбеддинга'],
+  '49-formatters-units.patch':  ['токенов', 'млрд', 'тыс.'],
 };
 
 function isAlreadyApplied(patchName, gitRoot) {

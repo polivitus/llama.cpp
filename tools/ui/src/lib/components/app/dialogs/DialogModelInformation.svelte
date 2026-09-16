@@ -144,13 +144,13 @@
 									<Table.Cell class="h-10 align-middle font-medium">Размер контекста</Table.Cell>
 
 									<Table.Cell
-										>{formatNumber(serverProps.default_generation_settings.n_ctx)} tokens</Table.Cell
+										>{formatNumber(serverProps.default_generation_settings.n_ctx)} токенов</Table.Cell
 									>
 								</Table.Row>
 							{:else}
 								<Table.Row>
 									<Table.Cell class="h-10 align-middle font-medium text-red-500"
-										>Context Size</Table.Cell
+										>Размер контекста</Table.Cell
 									>
 
 									<Table.Cell class="text-red-500">Недоступно</Table.Cell>
@@ -162,7 +162,7 @@
 								<Table.Row>
 									<Table.Cell class="h-10 align-middle font-medium">Контекст обучения</Table.Cell>
 
-									<Table.Cell>{formatNumber(modelMeta.n_ctx_train)} tokens</Table.Cell>
+									<Table.Cell>{formatNumber(modelMeta.n_ctx_train)} токенов</Table.Cell>
 								</Table.Row>
 							{/if}
 
@@ -198,7 +198,7 @@
 								<Table.Row>
 									<Table.Cell class="align-middle font-medium">Размер словаря</Table.Cell>
 
-									<Table.Cell>{formatNumber(modelMeta.n_vocab)} tokens</Table.Cell>
+									<Table.Cell>{formatNumber(modelMeta.n_vocab)} токенов</Table.Cell>
 								</Table.Row>
 							{/if}
 
@@ -291,15 +291,15 @@
 
 						{#if serverProps?.default_generation_settings?.n_ctx}
 							{@render infoRow(
-								'Context Size',
-								`${formatNumber(serverProps.default_generation_settings.n_ctx)} tokens`
+								'Размер контекста',
+								`${formatNumber(serverProps.default_generation_settings.n_ctx)} токенов`
 							)}
 						{:else}
 							{@render infoRow('Размер контекста', 'Недоступно', 'text-red-500')}
 						{/if}
 
 						{#if modelMeta?.n_ctx_train}
-							{@render infoRow('Контекст обучения', `${formatNumber(modelMeta.n_ctx_train)} tokens`)}
+							{@render infoRow('Контекст обучения', `${formatNumber(modelMeta.n_ctx_train)} токенов`)}
 						{/if}
 
 						{#if modelMeta?.size}
@@ -315,7 +315,7 @@
 						{/if}
 
 						{#if modelMeta?.n_vocab}
-							{@render infoRow('Размер словаря', `${formatNumber(modelMeta.n_vocab)} tokens`)}
+							{@render infoRow('Размер словаря', `${formatNumber(modelMeta.n_vocab)} токенов`)}
 						{/if}
 
 						{#if modelMeta?.vocab_type}

@@ -16,10 +16,10 @@ import {
 export function formatFileSize(bytes: number | unknown): string {
 	if (typeof bytes !== 'number') return 'Unknown';
 
-	if (bytes === 0) return '0 Bytes';
+	if (bytes === 0) return '0 Байт';
 
 	const k = 1024;
-	const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+	const sizes = ['Байт', 'Кб', 'Мб', 'Гб'];
 	const i = Math.floor(Math.log(bytes) / Math.log(k));
 
 	return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
@@ -35,15 +35,15 @@ export function formatParameters(params: number | unknown): string {
 	if (typeof params !== 'number') return 'Unknown';
 
 	if (params >= 1e9) {
-		return `${(params / 1e9).toFixed(2)}B`;
+		return `${(params / 1e9).toFixed(2)} млрд`;
 	}
 
 	if (params >= 1e6) {
-		return `${(params / 1e6).toFixed(2)}M`;
+		return `${(params / 1e6).toFixed(2)} млн`;
 	}
 
 	if (params >= 1e3) {
-		return `${(params / 1e3).toFixed(2)}K`;
+		return `${(params / 1e3).toFixed(2)} тыс.`;
 	}
 
 	return params.toString();
