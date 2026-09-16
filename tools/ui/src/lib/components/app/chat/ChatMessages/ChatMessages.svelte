@@ -38,7 +38,7 @@
 				asPlainText
 			);
 
-			await copyToClipboard(clipboardContent, 'Message copied to clipboard');
+			await copyToClipboard(clipboardContent, 'Сообщение скопировано в буфер обмена');
 		},
 
 		delete: async (message: DatabaseMessage) => {

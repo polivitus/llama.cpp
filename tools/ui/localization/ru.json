@@ -244,5 +244,13 @@
   "Top K": "Top K",
   "Top P": "Top P",
   "Min P": "Min P",
-  "Symbolic math (nerdamer)": "Символьная математика (nerdamer)"
+  "Symbolic math (nerdamer)": "Символьная математика (nerdamer)",
+  "Cancel": "Отмена",
+  "Confirm": "Подтвердить",
+  "Delete": "Удалить",
+  "Save": "Сохранить",
+  "Close": "Закрыть",
+  "Discard": "Отменить",
+  "Discard changes": "Отменить изменения",
+  "Continue editing": "Продолжить редактирование"
 }

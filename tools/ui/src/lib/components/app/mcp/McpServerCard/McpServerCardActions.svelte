@@ -29,7 +29,7 @@
 	</Button>
 
 	<Button
-		aria-label="Delete"
+		aria-label="Удалить"
 		class="hover:text-destructive-foreground h-7 w-7 text-destructive hover:bg-destructive/10"
 		onclick={onDelete}
 		size="icon"

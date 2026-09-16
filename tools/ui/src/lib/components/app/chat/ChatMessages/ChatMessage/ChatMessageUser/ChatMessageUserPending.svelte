@@ -52,7 +52,7 @@
 					>
 						<ActionIcon icon={Edit} onclick={editCtx.handleEdit} tooltip="Edit" />
 
-						<ActionIcon icon={Trash2} onclick={onDelete} tooltip="Delete" />
+						<ActionIcon icon={Trash2} onclick={onDelete} tooltip="Удалить" />
 
 						<ActionIcon icon={ArrowUp} onclick={onSendImmediately} tooltip="Send immediately" />
 					</div>

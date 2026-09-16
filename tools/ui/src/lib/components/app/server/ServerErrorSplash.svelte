@@ -233,7 +233,7 @@
 						}}
 						variant="outline"
 					>
-						Cancel
+						Отмена
 					</Button>
 				</div>
 			</div>

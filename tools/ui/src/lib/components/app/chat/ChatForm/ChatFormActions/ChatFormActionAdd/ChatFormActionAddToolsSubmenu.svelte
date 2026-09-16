@@ -44,7 +44,7 @@
 						<Info class="mt-0.5 {ICON_CLASS_DEFAULT} shrink-0" />
 
 						<span>
-							{hasMcpServersAvailable ? 'Enable' : 'Add'} MCP Server(s) to access
+							{hasMcpServersAvailable ? 'Включить' : 'Добавить'} MCP-сервер(ы)
 
 							<strong>MCP Tools</strong>.
 						</span>
@@ -130,8 +130,8 @@
 
 				<Tooltip.Content side="right">
 					<p>
-						{checkState.checked ? 'Disable' : 'Enable'}
-						{group.tools.length} tool{group.tools.length !== 1 ? 's' : ''}
+						{checkState.checked ? 'Отключить' : 'Включить'}
+						{group.tools.length} {group.tools.length === 1 ? 'инструмент' : (group.tools.length < 5 ? 'инструмента' : 'инструментов')}
 					</p>
 				</Tooltip.Content>
 			</Tooltip.Root>

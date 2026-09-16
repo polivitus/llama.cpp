@@ -112,10 +112,10 @@
 <DialogConfirmation
 	cancelText="Отмена"
 	confirmText={messageActions.deletionInfo && messageActions.deletionInfo.totalCount > 1
-		? `Delete ${messageActions.deletionInfo.totalCount} Messages`
-		: 'Delete'}
+		? `Удалить ${messageActions.deletionInfo.totalCount} сообщений`
+		: 'Удалить'}
 	description={messageActions.deletionInfo && messageActions.deletionInfo.totalCount > 1
-		? `This will delete ${messageActions.deletionInfo.totalCount} messages including: ${messageActions.deletionInfo.userMessages} user message${messageActions.deletionInfo.userMessages > 1 ? 's' : ''} and ${messageActions.deletionInfo.assistantMessages} assistant response${messageActions.deletionInfo.assistantMessages > 1 ? 's' : ''}. All messages in this branch and their responses will be permanently removed. This action cannot be undone.`
+		? `Будет удалено ${messageActions.deletionInfo.totalCount} сообщений: ${messageActions.deletionInfo.userMessages} от пользователя и ${messageActions.deletionInfo.assistantMessages} от ассистента. Все сообщения в этой ветке и их ответы будут безвозвратно удалены. Это действие нельзя отменить.`
 		: 'Вы уверены, что хотите удалить это сообщение? Это действие нельзя отменить.'}
 	icon={Trash2}
 	onCancel={() => messageActions.setShowDeleteDialog(false)}

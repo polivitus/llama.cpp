@@ -141,7 +141,7 @@
 <div class="grid gap-2">
 	<div class="mb-4">
 		<label class="mb-2 block text-xs font-medium select-none" for="server-url-{id}">
-			Server URL <span class="text-destructive">*</span>
+			URL сервера <span class="text-destructive">*</span>
 		</label>
 
 		<Input
@@ -161,7 +161,7 @@
 
 	<div class="mb-4">
 		<label class="mb-2 block text-xs font-medium select-none" for="server-name-{id}">
-			Display name
+			Отображаемое имя
 		</label>
 
 		<Input
@@ -182,7 +182,7 @@
 		/>
 
 		<span class="text-xs text-muted-foreground">
-			Authorization{#if required}
+			Авторизация{#if required}
 				<span class="text-destructive">*</span>{/if}
 		</span>
 	</label>
@@ -195,7 +195,7 @@
 				class="pl-16"
 				id="bearer-token-{id}"
 				oninput={(e) => updateBearerToken(e.currentTarget.value)}
-				placeholder="Paste token here"
+				placeholder="Вставьте токен сюда"
 				type="password"
 				value={bearerToken}
 			/>
@@ -209,19 +209,19 @@
 	{/if}
 
 	<KeyValuePairs
-		addButtonLabel="Add"
+		addButtonLabel="Добавить"
 		class="mt-3"
-		emptyMessage="No custom headers configured."
-		keyPlaceholder="Header name"
+		emptyMessage="Свои заголовки не настроены."
+		keyPlaceholder="Имя заголовка"
 		onPairsChange={(pairs) => {
 			const auth = headerPairs.find(ownedByBearerUi);
 
 			updateHeaderPairs(auth ? [...pairs, auth] : pairs);
 		}}
 		pairs={headerPairs.filter((p) => !ownedByBearerUi(p))}
-		sectionLabel="Custom Headers"
+		sectionLabel="Свои заголовки"
 		sectionLabelOptional
-		valuePlaceholder="Value"
+		valuePlaceholder="Значение"
 	/>
 
 	{#if !isWebSocket && onUseProxyChange}
@@ -241,7 +241,7 @@
 			/>
 
 			<span>
-				<span class="text-xs text-muted-foreground">Use llama-server proxy</span>
+				<span class="text-xs text-muted-foreground">Использовать прокси llama-server</span>
 
 				<br />
 

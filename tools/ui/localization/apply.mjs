@@ -12,11 +12,18 @@ const DRY = process.argv.includes('--dry');
 const REVERT = process.argv.includes('--revert');
 const log = (m) => console.log(`[localize] ${m}`);
 
-const UI_ATTRS = ['label','title','help','placeholder','children','description','aria-label','tooltip','triggerTooltip','text','alt','content'];
+const UI_ATTRS = ['label','title','help','placeholder','children','description','aria-label','tooltip','triggerTooltip','text','alt','content','cancelText','confirmText','buttonText'];
 const TEMPLATES = [
   [/`Chat \$\{/g, '`Беседа ${'],
   [/`Delete \$\{/g, '`Удалить ${'],
   [/`Fork of \$\{/g, '`Ответвление от ${'],
+  // Второй аргумент функции M2(g, "Message copied to clipboard")
+  [/,\s*"Message copied to clipboard"/g, ', "Сообщение скопировано в буфер обмена"'],
+  [/,\s*"Code copied to clipboard"/g, ', "Код скопирован в буфер обмена"'],
+  // Svelte-конструкция: se("<!> Add New Server", 1)
+  [/<!> Add New Server/g, '<!> Добавить новый сервер'],
+  [/<!> Add server/g, '<!> Добавить сервер'],
+  [/<!> No servers yet/g, '<!> Пока нет серверов'],
 ];
 
 function replaceAll(text, dict) {

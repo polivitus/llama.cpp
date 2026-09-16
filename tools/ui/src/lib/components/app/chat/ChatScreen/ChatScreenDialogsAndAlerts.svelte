@@ -27,7 +27,7 @@
 <DialogConfirmation
 	bind:open={showDeleteDialog}
 	cancelText="Cancel"
-	confirmText="Delete"
+	confirmText="Удалить"
 	description="Are you sure you want to delete this conversation? This action cannot be undone and will permanently remove all messages in this conversation."
 	icon={Trash2}
 	onCancel={() => (showDeleteDialog = false)}
