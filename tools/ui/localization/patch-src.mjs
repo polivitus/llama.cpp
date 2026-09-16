@@ -24,16 +24,17 @@ const APPLIED_MARKERS = {
 function isAlreadyApplied(patchName, gitRoot) {
   const markers = APPLIED_MARKERS[patchName];
   if (!markers) return false;
+  // Ищем в tools/ui/src/ (cwd = gitRoot)
+  const srcDir = path.join(gitRoot, 'tools', 'ui', 'src');
   try {
-    // Ищем любой маркер в src/
     for (const m of markers) {
-      const out = execSync(`git grep -l "${m}" -- 'src/**'`, {
-        cwd: gitRoot, encoding: 'utf-8',
+      const out = execSync(`grep -rl -- "${m}" "${srcDir}" 2>/dev/null`, {
+        encoding: 'utf-8',
       }).trim();
       if (out) return true;
     }
   } catch {
-    // git grep возвращает exit 1, если не нашёл
+    // grep возвращает exit 1, если не нашёл
   }
   return false;
 }
