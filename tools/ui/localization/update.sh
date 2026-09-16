@@ -10,8 +10,8 @@ node localization/patch-src.mjs --revert 2>/dev/null || true
 
 echo "===[3/6] Обновление upstream ==="
 cd ../..
-git fetch origin
-git merge origin/master -m "merge: upstream $(date +%Y-%m-%d)" || {
+git fetch upstream
+git merge upstream/master -m "merge: upstream $(date +%Y-%m-%d)" || {
   echo "❌ Конфликт слияния — разрешите вручную"
   exit 1
 }
