@@ -33,7 +33,7 @@ export const SETTINGS_SECTIONS = {
 	GENERAL: { slug: 'general', title: 'Общие' },
 	IMPORT_EXPORT: { slug: 'import-export', title: 'Импорт/Экспорт' },
 	SAMPLING_PENALTIES: { slug: 'sampling-penalties', title: 'Sampling & Penalties' },
-	TOOLS: { slug: 'tools', title: 'Tools' }
+	TOOLS: { slug: 'tools', title: 'Инструменты' }
 } as const;
 
 export const SETTINGS_SECTION_SLUGS = {
@@ -67,15 +67,15 @@ export const SETTINGS_REGISTRY: SettingsSectionEntry[] = [
 				key: SETTINGS_KEYS.THEME,
 				label: 'Тема',
 				options: [
-					{ icon: Monitor, label: 'System', value: ColorMode.SYSTEM },
-					{ icon: Sun, label: 'Light', value: ColorMode.LIGHT },
-					{ icon: Moon, label: 'Dark', value: ColorMode.DARK }
+					{ icon: Monitor, label: 'Системная', value: ColorMode.SYSTEM },
+					{ icon: Sun, label: 'Светлая', value: ColorMode.LIGHT },
+					{ icon: Moon, label: 'Тёмная', value: ColorMode.DARK }
 				],
 				type: SettingsFieldType.SELECT
 			},
 			{
 				defaultValue: '',
-				help: `Set the API Key if you are using <code> ${CLI_FLAGS.API_KEY} </code> option for the server.`,
+				help: `Укажите ключ API если используется опция <code> ${CLI_FLAGS.API_KEY} </code> для сервера`,
 				isPrivate: true,
 				key: SETTINGS_KEYS.API_KEY,
 				label: 'API Key',
