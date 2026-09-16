@@ -17,8 +17,8 @@
 	const title = $derived(isTimeout ? 'Таймаут TCP' : 'Ошибка сервера');
 	const description = $derived(
 		isTimeout
-			? 'The request did not receive a response from the server before timing out.'
-			: 'The server responded with an error message. Review the details below.'
+			? 'Запрос не получил ответа от сервера до истечения таймаута.'
+			: 'Сервер ответил сообщением об ошибке. Подробности ниже.'
 	);
 	const iconClass = $derived(isTimeout ? 'text-destructive' : 'text-amber-500');
 	const badgeClass = $derived(
@@ -57,14 +57,14 @@
 			{#if contextInfo}
 				<div class="mt-2 space-y-1 text-xs opacity-80">
 					<p>
-						<span class="font-medium">Prompt tokens:</span>
+						<span class="font-medium">Токенов промпта:</span>
 
 						{contextInfo.n_prompt_tokens.toLocaleString()}
 					</p>
 
 					{#if contextInfo.n_ctx}
 						<p>
-							<span class="font-medium">Context size:</span>
+							<span class="font-medium">Размер контекста:</span>
 
 							{contextInfo.n_ctx.toLocaleString()}
 						</p>
@@ -74,7 +74,7 @@
 		</div>
 
 		<AlertDialog.Footer>
-			<AlertDialog.Action onclick={() => handleOpenChange(false)}>Close</AlertDialog.Action>
+			<AlertDialog.Action onclick={() => handleOpenChange(false)}>Закрыть</AlertDialog.Action>
 		</AlertDialog.Footer>
 	</AlertDialog.Content>
 </AlertDialog.Root>
