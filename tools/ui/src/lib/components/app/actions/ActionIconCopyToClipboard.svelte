@@ -4,7 +4,7 @@
 	import { ICON_CLASS_DEFAULT } from '$lib/constants';
 	import { copyToClipboard } from '$lib/utils';
 
-	export let ariaLabel: string = 'Copy to clipboard';
+	export let ariaLabel: string = 'Копировать в буфер';
 	export let canCopy: boolean = true;
 	export let text: string;
 </script>

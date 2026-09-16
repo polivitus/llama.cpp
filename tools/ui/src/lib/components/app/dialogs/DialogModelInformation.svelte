@@ -84,14 +84,14 @@
 
 		<div class="min-w-0 space-y-6 md:py-4 -mt-4! md:mt-0 pb-4">
 			<div class="min-w-0 space-y-2">
-				<Dialog.Title>Model Information</Dialog.Title>
+				<Dialog.Title>Информация о модели</Dialog.Title>
 
-				<Dialog.Description>Current model details and capabilities</Dialog.Description>
+				<Dialog.Description>Текущие параметры и возможности модели</Dialog.Description>
 			</div>
 
 			{#if isLoadingModels || isLoadingRouterProps}
 				<div class="flex items-center justify-center py-8">
-					<div class="text-sm text-muted-foreground">Loading model information...</div>
+					<div class="text-sm text-muted-foreground">Загрузка информации о модели...</div>
 				</div>
 			{:else if firstModel}
 				{@const modelMeta = firstModel.meta}
@@ -101,7 +101,7 @@
 					<Table.Root class="hidden table-fixed md:table">
 						<Table.Header>
 							<Table.Row>
-								<Table.Head class="w-[10rem]">Model</Table.Head>
+								<Table.Head class="w-[10rem]">Модель</Table.Head>
 
 								<Table.Head>
 									<div class="flex min-w-0 items-center gap-2">
@@ -110,7 +110,7 @@
 										</span>
 
 										<ActionIconCopyToClipboard
-											ariaLabel="Copy model name to clipboard"
+											ariaLabel="Копировать имя модели"
 											canCopy={!!modelName}
 											text={modelName || ''}
 										/>
@@ -122,7 +122,7 @@
 						<Table.Body>
 							<!-- Model Path -->
 							<Table.Row>
-								<Table.Cell class="h-10 align-middle font-medium">File Path</Table.Cell>
+								<Table.Cell class="h-10 align-middle font-medium">Путь к файлу</Table.Cell>
 
 								<Table.Cell class="h-10 align-middle font-mono text-xs">
 									<div class="flex min-w-0 items-center gap-2">
@@ -131,7 +131,7 @@
 										</span>
 
 										<ActionIconCopyToClipboard
-											ariaLabel="Copy model path to clipboard"
+											ariaLabel="Копировать путь к модели"
 											text={serverProps.model_path}
 										/>
 									</div>
@@ -141,7 +141,7 @@
 							<!-- Context Size -->
 							{#if serverProps?.default_generation_settings?.n_ctx}
 								<Table.Row>
-									<Table.Cell class="h-10 align-middle font-medium">Context Size</Table.Cell>
+									<Table.Cell class="h-10 align-middle font-medium">Размер контекста</Table.Cell>
 
 									<Table.Cell
 										>{formatNumber(serverProps.default_generation_settings.n_ctx)} tokens</Table.Cell
@@ -153,14 +153,14 @@
 										>Context Size</Table.Cell
 									>
 
-									<Table.Cell class="text-red-500">Not available</Table.Cell>
+									<Table.Cell class="text-red-500">Недоступно</Table.Cell>
 								</Table.Row>
 							{/if}
 
 							<!-- Training Context -->
 							{#if modelMeta?.n_ctx_train}
 								<Table.Row>
-									<Table.Cell class="h-10 align-middle font-medium">Training Context</Table.Cell>
+									<Table.Cell class="h-10 align-middle font-medium">Контекст обучения</Table.Cell>
 
 									<Table.Cell>{formatNumber(modelMeta.n_ctx_train)} tokens</Table.Cell>
 								</Table.Row>
@@ -169,7 +169,7 @@
 							<!-- Model Size -->
 							{#if modelMeta?.size}
 								<Table.Row>
-									<Table.Cell class="h-10 align-middle font-medium">Model Size</Table.Cell>
+									<Table.Cell class="h-10 align-middle font-medium">Размер модели</Table.Cell>
 
 									<Table.Cell>{formatFileSize(modelMeta.size)}</Table.Cell>
 								</Table.Row>
@@ -178,7 +178,7 @@
 							<!-- Parameters -->
 							{#if modelMeta?.n_params}
 								<Table.Row>
-									<Table.Cell class="h-10 align-middle font-medium">Parameters</Table.Cell>
+									<Table.Cell class="h-10 align-middle font-medium">Параметры</Table.Cell>
 
 									<Table.Cell>{formatParameters(modelMeta.n_params)}</Table.Cell>
 								</Table.Row>
@@ -187,7 +187,7 @@
 							<!-- Embedding Size -->
 							{#if modelMeta?.n_embd}
 								<Table.Row>
-									<Table.Cell class="align-middle font-medium">Embedding Size</Table.Cell>
+									<Table.Cell class="align-middle font-medium">Размер эмбеддинга</Table.Cell>
 
 									<Table.Cell>{formatNumber(modelMeta.n_embd)}</Table.Cell>
 								</Table.Row>
@@ -196,7 +196,7 @@
 							<!-- Vocabulary Size -->
 							{#if modelMeta?.n_vocab}
 								<Table.Row>
-									<Table.Cell class="align-middle font-medium">Vocabulary Size</Table.Cell>
+									<Table.Cell class="align-middle font-medium">Размер словаря</Table.Cell>
 
 									<Table.Cell>{formatNumber(modelMeta.n_vocab)} tokens</Table.Cell>
 								</Table.Row>
@@ -205,7 +205,7 @@
 							<!-- Vocabulary Type -->
 							{#if modelMeta?.vocab_type}
 								<Table.Row>
-									<Table.Cell class="align-middle font-medium">Vocabulary Type</Table.Cell>
+									<Table.Cell class="align-middle font-medium">Тип словаря</Table.Cell>
 
 									<Table.Cell class="align-middle capitalize">{modelMeta.vocab_type}</Table.Cell>
 								</Table.Row>
@@ -213,7 +213,7 @@
 
 							<!-- Total Slots -->
 							<Table.Row>
-								<Table.Cell class="align-middle font-medium">Parallel Slots</Table.Cell>
+								<Table.Cell class="align-middle font-medium">Параллельные слоты</Table.Cell>
 
 								<Table.Cell>{serverProps.total_slots}</Table.Cell>
 							</Table.Row>
@@ -221,7 +221,7 @@
 							<!-- Modalities -->
 							{#if modalities.length > 0}
 								<Table.Row>
-									<Table.Cell class="align-middle font-medium">Modalities</Table.Cell>
+									<Table.Cell class="align-middle font-medium">Модальности</Table.Cell>
 
 									<Table.Cell>
 										<div class="flex flex-wrap gap-1">
@@ -233,7 +233,7 @@
 
 							<!-- Build Info -->
 							<Table.Row>
-								<Table.Cell class="align-middle font-medium">Build Info</Table.Cell>
+								<Table.Cell class="align-middle font-medium">Информация о сборке</Table.Cell>
 
 								<Table.Cell class="align-middle font-mono text-xs"
 									>{serverProps.build_info}</Table.Cell
@@ -245,7 +245,7 @@
 								<Table.Row>
 									<Table.Cell class="py-4" colspan={2}>
 										<div class="flex flex-col gap-2">
-											<span class="font-medium">Chat Template</span>
+											<span class="font-medium">Шаблон чата</span>
 
 											<div class="overflow-x-auto rounded-md bg-muted p-4">
 												<pre
@@ -261,13 +261,13 @@
 					<!-- Mobile: stacked layout; long values wrap instead of scrolling the page -->
 					<div class="flex min-w-0 flex-col gap-4 md:hidden">
 						<div class="min-w-0 space-y-1">
-							<div class="text-xs font-medium text-muted-foreground">Model</div>
+							<div class="text-xs font-medium text-muted-foreground">Модель</div>
 
 							<div class="flex min-w-0 items-start gap-2">
 								<span class="min-w-0 flex-1 break-all font-mono text-xs">{modelName}</span>
 
 								<ActionIconCopyToClipboard
-									ariaLabel="Copy model name to clipboard"
+									ariaLabel="Копировать имя модели"
 									canCopy={!!modelName}
 									text={modelName || ''}
 								/>
@@ -275,7 +275,7 @@
 						</div>
 
 						<div class="min-w-0 space-y-1">
-							<div class="text-xs font-medium text-muted-foreground">File Path</div>
+							<div class="text-xs font-medium text-muted-foreground">Путь к файлу</div>
 
 							<div class="flex min-w-0 items-start gap-2">
 								<span class="min-w-0 flex-1 break-all font-mono text-xs"
@@ -283,7 +283,7 @@
 								>
 
 								<ActionIconCopyToClipboard
-									ariaLabel="Copy model path to clipboard"
+									ariaLabel="Копировать путь к модели"
 									text={serverProps.model_path}
 								/>
 							</div>
@@ -295,34 +295,34 @@
 								`${formatNumber(serverProps.default_generation_settings.n_ctx)} tokens`
 							)}
 						{:else}
-							{@render infoRow('Context Size', 'Not available', 'text-red-500')}
+							{@render infoRow('Размер контекста', 'Недоступно', 'text-red-500')}
 						{/if}
 
 						{#if modelMeta?.n_ctx_train}
-							{@render infoRow('Training Context', `${formatNumber(modelMeta.n_ctx_train)} tokens`)}
+							{@render infoRow('Контекст обучения', `${formatNumber(modelMeta.n_ctx_train)} tokens`)}
 						{/if}
 
 						{#if modelMeta?.size}
-							{@render infoRow('Model Size', formatFileSize(modelMeta.size))}
+							{@render infoRow('Размер модели', formatFileSize(modelMeta.size))}
 						{/if}
 
 						{#if modelMeta?.n_params}
-							{@render infoRow('Parameters', formatParameters(modelMeta.n_params))}
+							{@render infoRow('Параметры', formatParameters(modelMeta.n_params))}
 						{/if}
 
 						{#if modelMeta?.n_embd}
-							{@render infoRow('Embedding Size', formatNumber(modelMeta.n_embd))}
+							{@render infoRow('Размер эмбеддинга', formatNumber(modelMeta.n_embd))}
 						{/if}
 
 						{#if modelMeta?.n_vocab}
-							{@render infoRow('Vocabulary Size', `${formatNumber(modelMeta.n_vocab)} tokens`)}
+							{@render infoRow('Размер словаря', `${formatNumber(modelMeta.n_vocab)} tokens`)}
 						{/if}
 
 						{#if modelMeta?.vocab_type}
-							{@render infoRow('Vocabulary Type', modelMeta.vocab_type, 'capitalize')}
+							{@render infoRow('Тип словаря', modelMeta.vocab_type, 'capitalize')}
 						{/if}
 
-						{@render infoRow('Parallel Slots', `${serverProps.total_slots}`)}
+						{@render infoRow('Параллельные слоты', `${serverProps.total_slots}`)}
 
 						{#if modalities.length > 0}
 							<div class="min-w-0 space-y-1">
@@ -335,7 +335,7 @@
 						{/if}
 
 						<div class="min-w-0 space-y-1">
-							<div class="text-xs font-medium text-muted-foreground">Build Info</div>
+							<div class="text-xs font-medium text-muted-foreground">Информация о сборке</div>
 
 							<span class="block break-all font-mono text-xs">{serverProps.build_info}</span>
 						</div>

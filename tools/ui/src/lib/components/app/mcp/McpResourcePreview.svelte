@@ -95,7 +95,7 @@
 
 			<div class="flex items-center gap-1">
 				<ActionIconCopyToClipboard
-					ariaLabel="Copy content"
+					ariaLabel="Копировать содержимое"
 					canCopy={!isLoading && !!getResourceTextContent(content)}
 					text={getResourceTextContent(content)}
 				/>
