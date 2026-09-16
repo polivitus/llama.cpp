@@ -22,6 +22,7 @@ const APPLIED_MARKERS = {
   '48-model-info.patch':        ['Информация о модели', 'Копировать в буфер', 'Размер эмбеддинга'],
   '49-formatters-units.patch':  ['токенов', 'млрд', 'тыс.'],
   '50-vocab-type-boolean.patch': ["? 'Да' : 'Нет'"],
+  '51-copy-tooltip-side.patch':  ['tooltipSide: TooltipSide = TooltipSide.LEFT'],
 };
 
 function isAlreadyApplied(patchName, gitRoot) {
