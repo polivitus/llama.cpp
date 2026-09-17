@@ -33,13 +33,13 @@ while true; do
     echo "  $i) $name" >&2
     i=$((i+1))
   done
-  echo "  0) Выход" >&2
+  echo "  ..) Выход" >&2
   echo "" >&2
 
-  read -r -p "Выберите вариант [1-$((i-1))], 0 = выход: " DIR_CHOICE
+  read -r -p "Выберите вариант или .. = выход: " DIR_CHOICE
 
   # Выход
-  if [ "$DIR_CHOICE" = "0" ]; then
+  if [ "$DIR_CHOICE" = ".." ]; then
     echo "❌ Отменено пользователем" >&2
     exit 1
   fi
@@ -119,12 +119,12 @@ while true; do
       echo "  $j) $(basename "$m")  ($SIZE)" >&2
       j=$((j+1))
     done
-    echo "  0) Назад (к выбору папки)" >&2
+    echo "  ..) Назад (к выбору папки)" >&2
     echo "" >&2
 
-    read -r -p "Выберите модель [1-$((j-1))], 0 = назад: " MODEL_CHOICE
+    read -r -p "Выберите модель или .. = назад: " MODEL_CHOICE
 
-    if [ "$MODEL_CHOICE" = "0" ]; then
+    if [ "$MODEL_CHOICE" = ".." ]; then
       break
     fi
 

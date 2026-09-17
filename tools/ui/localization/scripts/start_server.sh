@@ -4,10 +4,27 @@ set -e
 
 ROOT="$(cd "$(dirname "$0")/../../../.." && pwd)"
 BIN="$ROOT/build/bin/llama-server"
+DIST="$ROOT/tools/ui/dist"
 
 if [ ! -x "$BIN" ]; then
   echo "❌ llama-server не собран. Запусти: bash $ROOT/set_russian.sh"
   exit 1
+fi
+
+# === Проверка UI: dist/ vs бинарник ===
+if [ -d "$DIST" ]; then
+  DIST_TIME=$(stat -c %Y "$DIST/index.html" 2>/dev/null || echo 0)
+  BIN_TIME=$(stat -c %Y "$BIN" 2>/dev/null || echo 0)
+
+  if [ "$DIST_TIME" -gt "$BIN_TIME" ]; then
+    echo "⚠ dist/ новее бинарника — изменения не вшиты"
+    echo "   Пересобери: bash $ROOT/set_russian.sh"
+    echo ""
+  else
+    echo "✅ UI актуален (вшит в бинарник)"
+  fi
+else
+  echo "⚠ dist/ не найден — UI может быть не вшит"
 fi
 
 is_yes() {
@@ -51,6 +68,35 @@ read -r -p "Размер контекста [4096]: " CTX
 CTX="${CTX:-4096}"
 
 echo ""
+# Параллельные слоты — цикл до корректного ввода
+while true; do
+  echo ""
+  echo "=== Параллельные слоты ==="
+  echo "  1) Один слот (--parallel 1) — быстрее для одного пользователя"
+  echo "  2) Несколько слотов"
+  echo "  ..) Назад"
+  read -r -p "Выберите [1-2] или ..: " PARALLEL_CHOICE
+
+  case "$PARALLEL_CHOICE" in
+    1)
+      PARALLEL_FLAG="--parallel 1"
+      break
+      ;;
+    2)
+      PARALLEL_FLAG=""
+      break
+      ;;
+    "..")
+      echo "❌ Отменено пользователем"
+      exit 0
+      ;;
+    *)
+      echo "❌ Неверная команда. Введите 1, 2 или .."
+      ;;
+  esac
+done
+
+echo ""
 read -r -p "Запустить сервер? [да/нет]: " RUN
 if is_no "$RUN"; then
   echo ""
@@ -61,7 +107,7 @@ if is_no "$RUN"; then
   echo "    --host $HOST --port $PORT \\"
   echo "    --n-gpu-layers $NGL \\"
   echo "    --temp $TEMP \\"
-  echo "    -c $CTX"
+  echo "    -c $CTX $PARALLEL_FLAG"
   exit 0
 fi
 
@@ -72,6 +118,7 @@ echo "  Хост:             $HOST:$PORT"
 echo "  GPU:              ngl=$NGL"
 echo "  Температура:      $TEMP"
 echo "  Размер контекста: $CTX"
+echo "  Параллельные:     ${PARALLEL_FLAG:-по умолчанию}"
 echo ""
 echo "Открой в браузере: http://localhost:$PORT"
 echo "Для остановки: Ctrl+C"
@@ -84,4 +131,5 @@ exec env LD_LIBRARY_PATH="$ROOT/build/bin" \
   --port "$PORT" \
   --n-gpu-layers "$NGL" \
   --temp "$TEMP" \
-  -c "$CTX"
+  -c "$CTX" \
+  $PARALLEL_FLAG
