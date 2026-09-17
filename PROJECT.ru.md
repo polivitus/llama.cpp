@@ -172,3 +172,84 @@ git merge master --ff-only
 git checkout master
 git push origin master
 git push origin ru-localization
+
+## Логика работы (ветки и режимы)
+
+### Ветки
+
+| Ветка | Назначение | Кто использует |
+|---|---|---|
+| `master` | Upstream llama.cpp + баннер (ссылка на ru_autolocale) | — |
+| `ru-localization` | Синхронизирована с master | — |
+| `ru_autolocale` | Полный русский WebUI (для админа) | Админ |
+| `ru_userinterface` | Минималистичный UI (для пользователей) | Пользователи |
+
+### Сценарий работы
+
+    ЭТАП 1: АДМИН (полный UI)
+
+    1. git clone -b ru_autolocale
+    2. bash set_russian.sh
+       -> сборка (47 патчей + npm build + cmake)
+       -> запуск llama-server (полный UI)
+    3. Открывает http://localhost:8081
+    4. Настраивает модель, параметры, тему
+    5. Ctrl+C — остановка
+
+                        |
+
+                        v
+
+    ЭТАП 2: ПОЛЬЗОВАТЕЛИ (минималистичный UI)
+
+    1. git clone -b ru_userinterface
+    2. bash set_russian_user.sh
+       -> сборка (47 патчей + 4 user-патча + build + cmake)
+       -> запуск llama-server-user
+    3. Открывают http://localhost:8081
+    4. Видят только: чат, sidebar, attach
+
+### Что скрыто в user-режиме
+
+| Элемент | Патч |
+|---|---|
+| Настройки (sidebar) | 01-hide-settings.patch |
+| Инструменты (меню +) | 02-hide-tools-mcp-system.patch |
+| MCP-серверы (меню +) | 02-hide-tools-mcp-system.patch |
+| Системное сообщение (меню +) | 02-hide-tools-mcp-system.patch |
+| Выбор модели | 03-hide-model-selector.patch |
+| PWA polling | 04-disable-pwa-polling.patch |
+
+### Механизм USER_MODE
+
+Файл tools/ui/src/lib/constants/user-mode.ts:
+
+    export const USER_MODE = true;   // в ru_userinterface
+    export const USER_MODE = false;  // в ru_autolocale
+
+В коде:
+
+    {#if !USER_MODE}
+      <SettingsButton />
+    {/if}
+
+### Команды
+
+| Задача | Команда |
+|---|---|
+| Полный UI (админ) | bash set_russian.sh |
+| User UI (пользователи) | bash set_russian_user.sh |
+| Только выбор модели | bash tools/ui/localization/scripts/choose_model.sh |
+| Запуск (полный) | bash tools/ui/localization/scripts/start_server.sh |
+| Запуск (user) | bash tools/ui/localization/scripts/start_server_user.sh |
+
+### Патчи
+
+- Основные (47) — tools/ui/localization/patches/
+- User (4) — tools/ui/localization/patches-user/
+
+### Бинарники
+
+- build/bin/llama-server — полный UI
+- build/bin/llama-server-user — user UI
+
