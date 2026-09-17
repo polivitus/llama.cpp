@@ -74,8 +74,7 @@ while true; do
   echo "=== Параллельные слоты ==="
   echo "  1) Один слот (--parallel 1) — быстрее для одного пользователя"
   echo "  2) Несколько слотов"
-  echo "  ..) Назад"
-  read -r -p "Выберите [1-2] или ..: " PARALLEL_CHOICE
+  read -r -p "Введите цифру или .. для возврата: " PARALLEL_CHOICE
 
   case "$PARALLEL_CHOICE" in
     1)
