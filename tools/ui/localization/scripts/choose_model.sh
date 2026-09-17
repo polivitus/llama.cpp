@@ -35,7 +35,7 @@ while true; do
   done
   echo "" >&2
 
-  read -r -p "Выберите вариант или .. = выход: " DIR_CHOICE
+  read -r -p "Введите цифру или .. для выхода: " DIR_CHOICE
 
   # Выход
   if [ "$DIR_CHOICE" = ".." ]; then
@@ -120,7 +120,7 @@ while true; do
     done
     echo "" >&2
 
-    read -r -p "Выберите модель или .. = назад: " MODEL_CHOICE
+    read -r -p "Введите цифру или .. для возврата: " MODEL_CHOICE
 
     if [ "$MODEL_CHOICE" = ".." ]; then
       break
