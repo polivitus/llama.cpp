@@ -1,0 +1,28 @@
+diff --git a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageAgenticContent.svelte b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageAgenticContent.svelte
+index ea9428e07..b415d0088 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageAgenticContent.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageAgenticContent.svelte
+@@ -16,6 +16,7 @@
+ 		DatabaseMessage
+ 	} from '$lib/types';
+ 	import { deriveAgenticSections } from '$lib/utils';
++	import { USER_MODE } from '$lib/constants';
+ 
+ 	interface Props {
+ 		message: DatabaseMessage;
+@@ -179,6 +180,7 @@
+ 			<MarkdownContent attachments={message?.extra} content={section.content} />
+ 		</div>
+ 	{:else if section.type === AgenticSectionType.REASONING || section.type === AgenticSectionType.REASONING_PENDING}
++		{#if !USER_MODE}
+ 		<ChatMessageReasoningBlock
+ 			attachments={message?.extra}
+ 			{hasReasoningError}
+@@ -187,6 +189,7 @@
+ 			open={isExpanded(index, section)}
+ 			{section}
+ 		/>
++		{/if}
+ 	{:else if section.type === AgenticSectionType.TOOL_CALL || section.type === AgenticSectionType.TOOL_CALL_PENDING || section.type === AgenticSectionType.TOOL_CALL_STREAMING}
+ 		<ChatMessageToolCallBlock
+ 			attachments={section.toolResultExtras}

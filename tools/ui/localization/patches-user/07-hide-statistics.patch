@@ -1,0 +1,20 @@
+diff --git a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistantStatistics.svelte b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistantStatistics.svelte
+index 0026c31c3..f928cc21f 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistantStatistics.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistantStatistics.svelte
+@@ -1,5 +1,6 @@
+ <script lang="ts">
+ 	import { ChatMessageStatistics } from '$lib/components/app';
++import { USER_MODE } from '$lib/constants';
+ 	import { ChatMessageStatisticsMode } from '$lib/enums';
+ 	import type { UseProcessingStateReturn } from '$lib/hooks/use-processing-state.svelte';
+ 	import { agenticStore } from '$lib/stores';
+@@ -22,7 +23,7 @@
+ 	);
+ </script>
+ 
+-{#if showMessageStats && isLiveFlowRoot && liveLlm}
++{#if showMessageStats && !USER_MODE && isLiveFlowRoot && liveLlm}
+ 	<ChatMessageStatistics
+ 		isLive
+ 		mode={ChatMessageStatisticsMode.GENERATION}
