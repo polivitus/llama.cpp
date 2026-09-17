@@ -33,7 +33,6 @@ while true; do
     echo "  $i) $name" >&2
     i=$((i+1))
   done
-  echo "  ..) Выход" >&2
   echo "" >&2
 
   read -r -p "Выберите вариант или .. = выход: " DIR_CHOICE
@@ -119,7 +118,6 @@ while true; do
       echo "  $j) $(basename "$m")  ($SIZE)" >&2
       j=$((j+1))
     done
-    echo "  ..) Назад (к выбору папки)" >&2
     echo "" >&2
 
     read -r -p "Выберите модель или .. = назад: " MODEL_CHOICE
