@@ -1,0 +1,20 @@
+diff --git a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte
+index dac55caff..68cd317c4 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte
+@@ -1,5 +1,6 @@
+ <script lang="ts">
+ 	import {
++	import { USER_MODE } from '$lib/constants';
+ 		ChatMessageActionIcons,
+ 		ChatMessageAgenticContent,
+ 		ChatMessageAssistantModel,
+@@ -174,7 +175,7 @@
+ 					isLoading={chatStore.isLoading}
+ 					{message}
+ 					{processingState}
+-					showMessageStats={currentConfig.showMessageStats}
++					showMessageStats={!USER_MODE && currentConfig.showMessageStats}
+ 				/>
+ 			</div>
+ 		</div>
