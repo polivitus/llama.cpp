@@ -3,7 +3,7 @@
 set -e
 
 ROOT="$(cd "$(dirname "$0")/../../../.." && pwd)"
-BIN="$ROOT/build/bin/llama-server-user"
+BIN="$ROOT/build-user/bin/llama-server-user"
 
 if [ ! -x "$BIN" ]; then
   echo "❌ llama-server-user не собран."

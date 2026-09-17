@@ -17,7 +17,7 @@ bash "$LOC/scripts/check_deps.sh"
 echo ""
 
 # 2. Сборка (если нужно)
-BIN_USER="$ROOT/build/bin/llama-server-user"
+BIN_USER="$ROOT/build-user/bin/llama-server-user"
 NEED_BUILD=0
 
 if [ ! -x "$BIN_USER" ]; then

@@ -51,7 +51,7 @@ echo ""
 echo "=== [6/6] Сборка llama-server ==="
 cmake --build build-user --target llama-server -j"$(nproc)" 2>&1 | tail -5
 
-# Копируем бинарник как llama-server-user
-cp "$ROOT/build-user/bin/llama-server" "$ROOT/build/bin/llama-server-user"
+# Копируем бинарник как llama-server-user (в build-user/)
+cp "$ROOT/build-user/bin/llama-server" "$ROOT/build-user/bin/llama-server-user"
 echo ""
-echo "✅ User-сборка: $ROOT/build/bin/llama-server-user"
+echo "✅ User-сборка: $ROOT/build-user/bin/llama-server-user"
