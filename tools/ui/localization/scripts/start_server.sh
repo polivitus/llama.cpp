@@ -10,13 +10,29 @@ if [ ! -x "$BIN" ]; then
   exit 1
 fi
 
+# Функция: проверить, что ответ = "ДА"
+is_yes() {
+  case "$1" in
+    д|Д|да|Да|дА|ДА|yes|Yes|YES|y|Y) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+# Функция: проверить, что ответ = "НЕТ"
+is_no() {
+  case "$1" in
+    н|Н|нет|Нет|нЕТ|НЕТ|no|No|NO|n|N) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
 MODEL=$(bash "$ROOT/tools/ui/localization/scripts/choose_model.sh")
 echo ""
 echo "✅ Модель: $MODEL"
 
 echo ""
-read -r -p "Использовать GPU? (если есть) [y/N]: " USE_GPU
-if [[ "$USE_GPU" =~ ^[Yy]$ ]]; then
+read -r -p "Использовать GPU? (если есть) [д/н]: " USE_GPU
+if is_yes "$USE_GPU"; then
   NGL=99
 else
   NGL=0
@@ -29,8 +45,8 @@ read -r -p "Хост [0.0.0.0]: " HOST
 HOST="${HOST:-0.0.0.0}"
 
 echo ""
-read -r -p "Запустить сервер? [Y/n]: " RUN
-if [[ "$RUN" =~ ^[Nn]$ ]]; then
+read -r -p "Запустить сервер? [д/н]: " RUN
+if is_no "$RUN"; then
   echo ""
   echo "Для запуска вручную:"
   echo "  LD_LIBRARY_PATH=$ROOT/build/bin \\"
