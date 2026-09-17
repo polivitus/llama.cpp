@@ -31,7 +31,7 @@ echo ""
 echo "✅ Модель: $MODEL"
 
 echo ""
-read -r -p "Использовать GPU? (если есть) [д/н]: " USE_GPU
+read -r -p "Использовать GPU? (если есть) [да/нет]: " USE_GPU
 if is_yes "$USE_GPU"; then
   NGL=99
 else
@@ -45,7 +45,7 @@ read -r -p "Хост [0.0.0.0]: " HOST
 HOST="${HOST:-0.0.0.0}"
 
 echo ""
-read -r -p "Запустить сервер? [д/н]: " RUN
+read -r -p "Запустить сервер? [да/нет]: " RUN
 if is_no "$RUN"; then
   echo ""
   echo "Для запуска вручную:"
