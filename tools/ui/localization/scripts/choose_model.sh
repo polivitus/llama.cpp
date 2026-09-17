@@ -1,81 +1,104 @@
 #!/usr/bin/env bash
-# Выбор .gguf-модели
+# Выбор .gguf-модели: 3 варианта (стандартный, ~/models, свой путь)
 set -e
 
 ROOT="$(cd "$(dirname "$0")/../../../.." && pwd)"
 
-SEARCH_DIRS=(
-  "$ROOT/models"
-  "$HOME/models"
-  "$HOME/.cache/llama.cpp"
-  "/usr/share/llama.cpp/models"
-  "/opt/models"
-  "$HOME/Downloads"
-)
+DIR_STANDARD="$ROOT/models"
+DIR_HOME="$HOME/models"
 
-declare -a MODELS=()
+declare -a DIR_OPTIONS=()
+declare -a DIR_NAMES=()
 
-for dir in "${SEARCH_DIRS[@]}"; do
-  if [ -d "$dir" ]; then
-    while IFS= read -r -d '' f; do
-      MODELS+=("$f")
-    done < <(find "$dir" -maxdepth 2 -type f -name "*.gguf" -print0 2>/dev/null)
-  fi
-done
-
-while IFS= read -r -d '' f; do
-  MODELS+=("$f")
-done < <(find "$HOME" -maxdepth 4 -type f -name "*.gguf" -print0 2>/dev/null)
-
-if [ ${#MODELS[@]} -gt 0 ]; then
-  mapfile -t MODELS < <(printf '%s\n' "${MODELS[@]}" | sort -u)
+# 1. Стандартный (llama.cpp/models)
+if [ -d "$DIR_STANDARD" ] && find "$DIR_STANDARD" -maxdepth 2 -type f -name "*.gguf" -print -quit 2>/dev/null | grep -q .; then
+  DIR_OPTIONS+=("$DIR_STANDARD")
+  DIR_NAMES+=("Стандартный ($DIR_STANDARD)")
 fi
 
-if [ ${#MODELS[@]} -eq 0 ]; then
-  echo "❌ Модели .gguf не найдены." >&2
-  echo "" >&2
-  echo "Скачай модель:" >&2
-  echo "  mkdir -p $ROOT/models" >&2
-  echo "  cd $ROOT/models" >&2
-  echo "  wget https://huggingface.co/bartowski/gemma-2-2b-it-GGUF/resolve/main/gemma-2-2b-it-Q4_K_M.gguf" >&2
-  echo "" >&2
-  read -r -p "Или укажи путь к .gguf: " CUSTOM
-  if [ -f "$CUSTOM" ]; then
-    echo "$CUSTOM"
-    exit 0
-  else
-    echo "❌ Файл не найден: $CUSTOM" >&2
-    exit 1
-  fi
+# 2. ~/models
+if [ -d "$DIR_HOME" ] && find "$DIR_HOME" -maxdepth 2 -type f -name "*.gguf" -print -quit 2>/dev/null | grep -q .; then
+  DIR_OPTIONS+=("$DIR_HOME")
+  DIR_NAMES+=("Домашняя (~/models)")
 fi
 
-echo "=== Доступные модели ===" >&2
+# 3. Свой путь (всегда доступен)
+DIR_OPTIONS+=("__CUSTOM__")
+DIR_NAMES+=("Свой путь (ввести вручную)")
+
+# Показываем меню
+echo "=== Откуда загрузить модель? ===" >&2
 i=1
-for m in "${MODELS[@]}"; do
-  SIZE=$(du -h "$m" 2>/dev/null | cut -f1)
-  echo "  $i) $(basename "$m")  ($SIZE)" >&2
-  echo "     $m" >&2
+for name in "${DIR_NAMES[@]}"; do
+  echo "  $i) $name" >&2
   i=$((i+1))
 done
-echo "  $i) Указать путь вручную" >&2
 echo "" >&2
 
-read -r -p "Выберите модель [1-$i]: " CHOICE
+read -r -p "Выберите вариант [1-$((i-1))]: " DIR_CHOICE
 
-if [ "$CHOICE" = "$i" ]; then
-  read -r -p "Путь к .gguf: " CUSTOM
-  if [ -f "$CUSTOM" ]; then
-    echo "$CUSTOM"
-    exit 0
-  else
-    echo "❌ Файл не найден" >&2
-    exit 1
-  fi
-fi
-
-if [ "$CHOICE" -ge 1 ] && [ "$CHOICE" -lt "$i" ]; then
-  echo "${MODELS[$((CHOICE-1))]}"
-else
+if ! [ "$DIR_CHOICE" -ge 1 ] 2>/dev/null || [ "$DIR_CHOICE" -ge "$i" ]; then
   echo "❌ Неверный выбор" >&2
   exit 1
 fi
+
+SELECTED_DIR="${DIR_OPTIONS[$((DIR_CHOICE-1))]}"
+
+# Свой путь
+if [ "$SELECTED_DIR" = "__CUSTOM__" ]; then
+  read -r -p "Путь к папке или .gguf-файлу: " CUSTOM_PATH
+
+  # Раскрываем ~ и переменные окружения
+  eval "CUSTOM_PATH=$CUSTOM_PATH"
+
+  # Если файл
+  if [ -f "$CUSTOM_PATH" ] && [[ "$CUSTOM_PATH" == *.gguf ]]; then
+    echo "$CUSTOM_PATH"
+    exit 0
+  fi
+
+  # Если папка
+  if [ -d "$CUSTOM_PATH" ]; then
+    SELECTED_DIR="$CUSTOM_PATH"
+  else
+    echo "❌ Не найдено: $CUSTOM_PATH" >&2
+    exit 1
+  fi
+fi
+
+# Показываем модели в выбранной папке
+echo "" >&2
+echo "=== Модели в $SELECTED_DIR ===" >&2
+
+declare -a MODELS=()
+while IFS= read -r -d '' f; do
+  MODELS+=("$f")
+done < <(find "$SELECTED_DIR" -maxdepth 2 -type f -name "*.gguf" -not -name "ggml-vocab-*" -print0 2>/dev/null | sort -z)
+
+if [ ${#MODELS[@]} -eq 0 ]; then
+  echo "❌ В папке нет моделей .gguf" >&2
+  read -r -p "Укажи путь к .gguf: " CUSTOM
+  if [ -f "$CUSTOM" ]; then
+    echo "$CUSTOM"
+    exit 0
+  fi
+  echo "❌ Файл не найден" >&2
+  exit 1
+fi
+
+j=1
+for m in "${MODELS[@]}"; do
+  SIZE=$(du -h "$m" 2>/dev/null | cut -f1)
+  echo "  $j) $(basename "$m")  ($SIZE)" >&2
+  j=$((j+1))
+done
+echo "" >&2
+
+read -r -p "Выберите модель [1-$((j-1))]: " MODEL_CHOICE
+
+if ! [ "$MODEL_CHOICE" -ge 1 ] 2>/dev/null || [ "$MODEL_CHOICE" -ge "$j" ]; then
+  echo "❌ Неверный выбор" >&2
+  exit 1
+fi
+
+echo "${MODELS[$((MODEL_CHOICE-1))]}"
