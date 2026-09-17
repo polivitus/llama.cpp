@@ -1,0 +1,30 @@
+diff --git a/tools/ui/src/lib/constants/ui.constants.ts b/tools/ui/src/lib/constants/ui.constants.ts
+index 712812da1..590c12f5c 100644
+--- a/tools/ui/src/lib/constants/ui.constants.ts
++++ b/tools/ui/src/lib/constants/ui.constants.ts
+@@ -1,6 +1,7 @@
+ import { Package, Search, Settings, SquarePen } from '@lucide/svelte';
+ import { SidebarAction, ToolSource } from '$lib/enums';
+ import type { DesktopIconStripItem } from '$lib/types';
++import { USER_MODE } from './user-mode';
+ 
+ export const FORK_TREE_DEPTH_PADDING = 8;
+ export const SYSTEM_MESSAGE_PLACEHOLDER = 'Системное сообщение';
+@@ -53,7 +54,7 @@ export const ICON_STRIP_TRANSITION_DELAY_MULTIPLIER = 50;
+ /** Max height for tool-result code blocks (json / source / diff / streaming code). */
+ export const MAX_HEIGHT_CODE_BLOCK = '22rem';
+ 
+-export const SIDEBAR_ACTIONS_ITEMS: DesktopIconStripItem[] = [
++export const SIDEBAR_ACTIONS_ITEMS: DesktopIconStripItem[] = ([
+ 	{
+ 		action: SidebarAction.NEW_CHAT,
+ 		icon: SquarePen,
+@@ -66,4 +67,6 @@ export const SIDEBAR_ACTIONS_ITEMS: DesktopIconStripItem[] = [
+ 		icon: Settings,
+ 		tooltip: 'Настройки'
+ 	}
+-];
++] as DesktopIconStripItem[]).filter(
++	(item) => !(USER_MODE && item.action === SidebarAction.SETTINGS)
++);
+\ No newline at end of file
