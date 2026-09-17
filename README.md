@@ -1,5 +1,9 @@
 # llama.cpp
 
+> 🇷🇺 **Русская версия с автосборкой:** [ветка `ru_autolocale`](../../tree/ru_autolocale)
+> Запуск одной командой: `bash set_russian.sh`
+> Подробности: [README_ru_autolocale.md](../../blob/ru_autolocale/README_ru_autolocale.md)
+
 ![llama](https://raw.githubusercontent.com/ggml-org/llama.brand/refs/heads/master/cover/llama-cpp/cover-llama-cpp-dark.svg)
 
 <div align="center">
