@@ -12,8 +12,10 @@
 
 ## Требования
 
-- Linux (Ubuntu 20.04+, Debian 11+)
-- Node.js >= 18, npm, CMake, Python 3, git, make
+- Linux (Ubuntu 20.04+, Debian 11+, RHEL 8+, Fedora, Arch, Alpine)
+- **bash >= 4.0**
+- Node.js >= 18
+- npm, CMake >= 3.14, Python 3, git, make
 - ~10 GB свободного места
 - RAM: от 4 GB (в зависимости от модели)
 

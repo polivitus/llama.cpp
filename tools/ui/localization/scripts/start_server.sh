@@ -10,7 +10,6 @@ if [ ! -x "$BIN" ]; then
   exit 1
 fi
 
-# Функция: проверить, что ответ = "ДА"
 is_yes() {
   case "$1" in
     д|Д|да|Да|дА|ДА|yes|Yes|YES|y|Y) return 0 ;;
@@ -18,7 +17,6 @@ is_yes() {
   esac
 }
 
-# Функция: проверить, что ответ = "НЕТ"
 is_no() {
   case "$1" in
     н|Н|нет|Нет|нЕТ|НЕТ|no|No|NO|n|N) return 0 ;;
@@ -45,6 +43,14 @@ read -r -p "Хост [0.0.0.0]: " HOST
 HOST="${HOST:-0.0.0.0}"
 
 echo ""
+echo "=== Параметры запуска ==="
+read -r -p "Температура [0.8]: " TEMP
+TEMP="${TEMP:-0.8}"
+
+read -r -p "Размер контекста [4096]: " CTX
+CTX="${CTX:-4096}"
+
+echo ""
 read -r -p "Запустить сервер? [да/нет]: " RUN
 if is_no "$RUN"; then
   echo ""
@@ -53,15 +59,19 @@ if is_no "$RUN"; then
   echo "  $BIN \\"
   echo "    -m $MODEL \\"
   echo "    --host $HOST --port $PORT \\"
-  echo "    --n-gpu-layers $NGL"
+  echo "    --n-gpu-layers $NGL \\"
+  echo "    --temp $TEMP \\"
+  echo "    -c $CTX"
   exit 0
 fi
 
 echo ""
 echo "=== Запуск llama-server ==="
-echo "  Модель: $MODEL"
-echo "  Хост:   $HOST:$PORT"
-echo "  GPU:    ngl=$NGL"
+echo "  Модель:           $MODEL"
+echo "  Хост:             $HOST:$PORT"
+echo "  GPU:              ngl=$NGL"
+echo "  Температура:      $TEMP"
+echo "  Размер контекста: $CTX"
 echo ""
 echo "Открой в браузере: http://localhost:$PORT"
 echo "Для остановки: Ctrl+C"
@@ -72,4 +82,6 @@ exec env LD_LIBRARY_PATH="$ROOT/build/bin" \
   -m "$MODEL" \
   --host "$HOST" \
   --port "$PORT" \
-  --n-gpu-layers "$NGL"
+  --n-gpu-layers "$NGL" \
+  --temp "$TEMP" \
+  -c "$CTX"
