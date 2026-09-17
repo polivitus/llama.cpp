@@ -87,7 +87,7 @@ while true; do
       break
       ;;
     "..")
-      echo "❌ Отменено пользователем"
+      echo "Пока..."
       exit 0
       ;;
     *)

@@ -39,7 +39,7 @@ while true; do
 
   # Выход
   if [ "$DIR_CHOICE" = ".." ]; then
-    echo "❌ Отменено пользователем" >&2
+    echo "Пока..." >&2
     exit 1
   fi
 
