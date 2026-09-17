@@ -23,6 +23,10 @@ const APPLIED_MARKERS = {
   '49-formatters-units.patch':  ['токенов', 'млрд', 'тыс.'],
   '50-vocab-type-boolean.patch': ["? 'Да' : 'Нет'"],
   '51-copy-tooltip-side.patch':  ['tooltipSide: TooltipSide = TooltipSide.LEFT'],
+  // Добавлены для ru_userinterface (конфликты с user-патчами 01-03):
+  'chat-form-placeholder.patch':  ['Введите сообщение...'],
+  'tool-sheet.patch':             ['Добавить в чат', 'Добавить файлы'],
+  'ui-constants.patch':           ['SYSTEM_MESSAGE_PLACEHOLDER', 'Инструменты браузера'],
 };
 
 function isAlreadyApplied(patchName, gitRoot) {
