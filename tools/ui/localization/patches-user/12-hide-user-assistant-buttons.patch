@@ -1,0 +1,61 @@
+diff --git a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte
+index d2ca537c3..73d110d32 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte
+@@ -12,6 +12,7 @@
+ 	import { getChatMessageActionsContext, getChatMessageEditContext } from '$lib/contexts';
+ 	import { MessageRole } from '$lib/enums';
+ 	import { conversationsStore } from '$lib/stores';
++	import { USER_MODE } from '$lib/constants';
+ 
+ 	interface Props {
+ 		role: MessageRole.USER | MessageRole.ASSISTANT;
+@@ -38,6 +39,16 @@
+ 	const messageActions = getChatMessageActionsContext();
+ 	const editCtx = getChatMessageEditContext();
+ 
++	// === User-mode: единая логика видимости кнопок ===
++	const isUser = $derived(role === MessageRole.USER);
++	const isAssistant = $derived(role === MessageRole.ASSISTANT);
++
++	const showEdit = $derived(!USER_MODE || isUser);
++	const showRegenerate = $derived(isAssistant && !!onRegenerate);
++	const showContinue = $derived(isAssistant && !!onContinue && !USER_MODE);
++	const showFork = $derived(!!messageActions.forkConversation && !USER_MODE);
++	const showDelete = $derived(!USER_MODE);
++
+ 	let showForkDialog = $state(false);
+ 	let forkName = $state('');
+ 	let forkIncludeAttachments = $state(true);
+@@ -79,21 +90,25 @@
+ 		>
+ 			<ActionIcon icon={Copy} onclick={messageActions.copy} tooltip="Копировать" />
+ 
+-			<ActionIcon icon={Edit} onclick={editCtx.startEdit} tooltip="Редактировать" />
++			{#if showEdit}
++				<ActionIcon icon={Edit} onclick={editCtx.startEdit} tooltip="Редактировать" />
++			{/if}
+ 
+-			{#if role === MessageRole.ASSISTANT && onRegenerate}
+-				<ActionIcon icon={RefreshCw} onclick={() => onRegenerate()} tooltip="Перегенерировать" />
++			{#if showRegenerate}
++				<ActionIcon icon={RefreshCw} onclick={() => onRegenerate?.()} tooltip="Перегенерировать" />
+ 			{/if}
+ 
+-			{#if role === MessageRole.ASSISTANT && onContinue}
++			{#if showContinue}
+ 				<ActionIcon icon={ArrowRight} onclick={onContinue} tooltip="Продолжить" />
+ 			{/if}
+ 
+-			{#if messageActions.forkConversation}
++			{#if showFork}
+ 				<ActionIcon icon={GitBranch} onclick={handleOpenForkDialog} tooltip="Разветвить беседу" />
+ 			{/if}
+ 
+-			<ActionIcon icon={Trash2} onclick={messageActions.requestDelete} tooltip="Удалить" />
++			{#if showDelete}
++				<ActionIcon icon={Trash2} onclick={messageActions.requestDelete} tooltip="Удалить" />
++			{/if}
+ 		</div>
+ 	</div>
+ 
