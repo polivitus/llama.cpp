@@ -1,0 +1,30 @@
+diff --git a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageUser/ChatMessageUser.svelte b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageUser/ChatMessageUser.svelte
+index 8be39f892..97263a2d5 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageUser/ChatMessageUser.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageUser/ChatMessageUser.svelte
+@@ -9,6 +9,7 @@
+ 	import { ChatMessageStatisticsMode, MessageRole } from '$lib/enums';
+ 	import { useProcessingState } from '$lib/hooks/use-processing-state.svelte';
+ 	import { chatStore, settingsStore } from '$lib/stores';
++	import { USER_MODE } from '$lib/constants';
+ 
+ 	interface Props {
+ 		class?: string;
+@@ -74,7 +75,7 @@
+ 			renderMarkdown={true}
+ 		/>
+ 
+-		{#if showStoredReadingStats}
++		{#if showStoredReadingStats && !USER_MODE}
+ 			<!-- Reading stats sourced from the assistant message that followed this turn -->
+ 			<div class="info my-2 grid w-full justify-items-end gap-4 tabular-nums">
+ 				<div
+@@ -87,7 +88,7 @@
+ 					/>
+ 				</div>
+ 			</div>
+-		{:else if showLiveReadingStats}
++		{:else if showLiveReadingStats && !USER_MODE}
+ 			{@const liveStats = processingState.getLiveProcessingStats()}
+ 			{#if liveStats}
+ 				<div class="info my-2 grid w-full justify-items-end gap-4 tabular-nums">
