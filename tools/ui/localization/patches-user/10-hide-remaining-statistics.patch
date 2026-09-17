@@ -1,14 +1,15 @@
 diff --git a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte
-index dac55caff..68cd317c4 100644
+index dac55caff..433d31f90 100644
 --- a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte
 +++ b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte
-@@ -1,5 +1,6 @@
- <script lang="ts">
- 	import {
+@@ -14,6 +14,7 @@
+ 	import { chatStore, modelsStore, serverStore, settingsStore } from '$lib/stores';
+ 	import { modelLoadProgressText } from '$lib/utils';
+ 	import { hasAgenticContent } from '$lib/utils';
 +	import { USER_MODE } from '$lib/constants';
- 		ChatMessageActionIcons,
- 		ChatMessageAgenticContent,
- 		ChatMessageAssistantModel,
+ 
+ 	interface Props {
+ 		class?: string;
 @@ -174,7 +175,7 @@
  					isLoading={chatStore.isLoading}
  					{message}
