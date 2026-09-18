@@ -252,5 +252,7 @@
   "Close": "Закрыть",
   "Discard": "Отменить",
   "Discard changes": "Отменить изменения",
-  "Continue editing": "Продолжить редактирование"
+  "Continue editing": "Продолжить редактирование",
+  "Previous version": "Предыдущая версия",
+  "Next version": "Следующая версия"
 }
