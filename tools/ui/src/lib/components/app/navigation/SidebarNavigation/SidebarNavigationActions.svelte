@@ -9,7 +9,8 @@
 		ICON_STRIP_TRANSITION_DELAY_MULTIPLIER,
 		ICON_STRIP_TRANSITION_DURATION,
 		ROUTES,
-		SIDEBAR_ACTIONS_ITEMS
+		SIDEBAR_ACTIONS_ITEMS,
+		USER_MODE
 	} from '$lib/constants';
 	import { SidebarAction, TooltipSide } from '$lib/enums';
 	import { conversationsStore, deviceStore } from '$lib/stores';
@@ -28,6 +29,12 @@
 		onNewChat?: () => void;
 		onSettingsClick?: () => void;
 	}
+
+	const visibleSidebarActions = $derived(
+		USER_MODE
+			? SIDEBAR_ACTIONS_ITEMS.filter((it) => it.action !== SidebarAction.SETTINGS)
+			: SIDEBAR_ACTIONS_ITEMS
+	);
 
 	let {
 		class: className,
@@ -107,7 +114,7 @@
 			? 'hidden pointer-events-none'
 			: ''}"
 	>
-		{#each SIDEBAR_ACTIONS_ITEMS as item, i (item.tooltip)}
+		{#each visibleSidebarActions as item, i (item.tooltip)}
 			{@const isActive = isItemActive(item)}
 			{@const isSearchOnMobile = item.icon === Search && deviceStore.isMobile}
 			{@const itemHref = isSearchOnMobile ? ROUTES.SEARCH : item.route}
@@ -164,7 +171,7 @@
 	</div>
 {:else}
 	<div class="{className} flex-col gap-1 hidden md:flex">
-		{#each SIDEBAR_ACTIONS_ITEMS as item, i (item.tooltip)}
+		{#each visibleSidebarActions as item, i (item.tooltip)}
 			{@const isActive = isItemActive(item)}
 			{@const isSearchOnMobile = item.icon === Search && deviceStore.isMobile}
 			{@const itemOnClick =

@@ -185,6 +185,7 @@
 		<ChatMessageActionIcons
 			actionsPosition="left"
 			justify="start"
+			message={message}
 			onContinue={currentConfig.enableContinueGeneration ? onContinue : undefined}
 			onRawOutputToggle={(enabled) => (showRawOutput = enabled)}
 			{onRegenerate}
