@@ -1,25 +1,8 @@
 diff --git a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte
-index dac55caff..df85fd5d9 100644
+index dac55caff..a9abb3270 100644
 --- a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte
 +++ b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte
-@@ -14,6 +14,7 @@
- 	import { chatStore, modelsStore, serverStore, settingsStore } from '$lib/stores';
- 	import { modelLoadProgressText } from '$lib/utils';
- 	import { hasAgenticContent } from '$lib/utils';
-+	import { USER_MODE } from '$lib/constants';
- 
- 	interface Props {
- 		class?: string;
-@@ -174,7 +175,7 @@
- 					isLoading={chatStore.isLoading}
- 					{message}
- 					{processingState}
--					showMessageStats={currentConfig.showMessageStats}
-+					showMessageStats={!USER_MODE && currentConfig.showMessageStats}
- 				/>
- 			</div>
- 		</div>
-@@ -183,6 +184,7 @@
+@@ -183,6 +183,7 @@
  	{#if message.timestamp && !editCtx.isEditing}
  		<ChatMessageActionIcons
  			actionsPosition="left"
@@ -28,7 +11,7 @@ index dac55caff..df85fd5d9 100644
  			onContinue={currentConfig.enableContinueGeneration ? onContinue : undefined}
  			onRawOutputToggle={(enabled) => (showRawOutput = enabled)}
 diff --git a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte
-index d2ca537c3..6a5ba3b01 100644
+index d2ca537c3..e6d736f96 100644
 --- a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte
 +++ b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte
 @@ -1,5 +1,5 @@
@@ -57,11 +40,10 @@ index d2ca537c3..6a5ba3b01 100644
  		onContinue,
  		onRawOutputToggle,
  		onRegenerate,
-@@ -38,10 +41,50 @@
+@@ -38,10 +41,43 @@
  	const messageActions = getChatMessageActionsContext();
  	const editCtx = getChatMessageEditContext();
  
-+	// === User-mode: единая логика видимости кнопок ===
 +	const isUser = $derived(role === MessageRole.USER);
 +	const isAssistant = $derived(role === MessageRole.ASSISTANT);
 +
@@ -77,25 +59,19 @@ index d2ca537c3..6a5ba3b01 100644
  
 +	function handleDownload() {
 +		if (!message) return;
-+
 +		const now = new Date();
 +		const ts = now.toISOString().slice(0, 16).replace('T', '-').replace(':', '-');
-+
 +		let text = `Ответ ассистента\n${'='.repeat(30)}\n\n`;
 +		text += `Модель: ${message.model ?? 'неизвестно'}\n`;
 +		text += `Дата: ${now.toLocaleString()}\n`;
-+
 +		if (message.timings) {
 +			text += `Токенов: ${message.timings.predicted_n ?? '?'}\n`;
 +			text += `Время: ${message.timings.predicted_ms ?? '?'} мс\n`;
 +		}
-+
 +		text += `\nКонтент\n${'-'.repeat(30)}\n\n${message.content ?? ''}\n`;
-+
 +		if (message.reasoningContent) {
 +			text += `\nReasoning\n${'-'.repeat(30)}\n\n${message.reasoningContent}\n`;
 +		}
-+
 +		const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
 +		const url = URL.createObjectURL(blob);
 +		const a = document.createElement('a');
@@ -108,7 +84,7 @@ index d2ca537c3..6a5ba3b01 100644
  	function handleConfirmDelete() {
  		messageActions.confirmDelete();
  		messageActions.setShowDeleteDialog(false);
-@@ -79,21 +122,29 @@
+@@ -79,21 +115,29 @@
  		>
  			<ActionIcon icon={Copy} onclick={messageActions.copy} tooltip="Копировать" />
  
@@ -116,18 +92,18 @@ index d2ca537c3..6a5ba3b01 100644
 +			{#if showEdit}
 +				<ActionIcon icon={Edit} onclick={editCtx.startEdit} tooltip="Редактировать" />
 +			{/if}
++
++			{#if showRegenerate}
++				<ActionIcon icon={RefreshCw} onclick={() => onRegenerate?.()} tooltip="Перегенерировать" />
++			{/if}
  
 -			{#if role === MessageRole.ASSISTANT && onRegenerate}
 -				<ActionIcon icon={RefreshCw} onclick={() => onRegenerate()} tooltip="Перегенерировать" />
-+			{#if showRegenerate}
-+				<ActionIcon icon={RefreshCw} onclick={() => onRegenerate?.()} tooltip="Перегенерировать" />
++			{#if USER_MODE && isAssistant && message}
++				<ActionIcon icon={Download} onclick={handleDownload} tooltip="Скачать ответ" />
  			{/if}
  
 -			{#if role === MessageRole.ASSISTANT && onContinue}
-+			{#if USER_MODE && isAssistant && message}
-+				<ActionIcon icon={Download} onclick={handleDownload} tooltip="Скачать ответ" />
-+			{/if}
-+
 +			{#if showContinue}
  				<ActionIcon icon={ArrowRight} onclick={onContinue} tooltip="Продолжить" />
  			{/if}
