@@ -1,5 +1,5 @@
 diff --git a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte
-index dac55caff..6c1d67b17 100644
+index dac55caff..df85fd5d9 100644
 --- a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte
 +++ b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte
 @@ -14,6 +14,7 @@
@@ -19,16 +19,16 @@ index dac55caff..6c1d67b17 100644
  				/>
  			</div>
  		</div>
-@@ -184,6 +185,7 @@
+@@ -183,6 +184,7 @@
+ 	{#if message.timestamp && !editCtx.isEditing}
  		<ChatMessageActionIcons
  			actionsPosition="left"
- 			justify="start"
 +			{message}
+ 			justify="start"
  			onContinue={currentConfig.enableContinueGeneration ? onContinue : undefined}
  			onRawOutputToggle={(enabled) => (showRawOutput = enabled)}
- 			{onRegenerate}
 diff --git a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte
-index d2ca537c3..dad663338 100644
+index d2ca537c3..6a5ba3b01 100644
 --- a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte
 +++ b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessageActions/ChatMessageActionIcons/ChatMessageActionIcons.svelte
 @@ -1,5 +1,5 @@
@@ -38,19 +38,18 @@ index d2ca537c3..dad663338 100644
  	import {
  		ActionIcon,
  		ChatMessageActionIconsBranchingControls,
-@@ -12,8 +12,11 @@
+@@ -12,8 +12,10 @@
  	import { getChatMessageActionsContext, getChatMessageEditContext } from '$lib/contexts';
  	import { MessageRole } from '$lib/enums';
  	import { conversationsStore } from '$lib/stores';
 +	import type { DatabaseMessage } from '$lib/types';
-+	import { USER_MODE } from '$lib/constants';
  
  	interface Props {
 +		message?: DatabaseMessage;
  		role: MessageRole.USER | MessageRole.ASSISTANT;
  		justify: 'start' | 'end';
  		actionsPosition: 'left' | 'right';
-@@ -27,6 +30,7 @@
+@@ -27,6 +29,7 @@
  	let {
  		actionsPosition,
  		justify,
@@ -58,7 +57,7 @@ index d2ca537c3..dad663338 100644
  		onContinue,
  		onRawOutputToggle,
  		onRegenerate,
-@@ -38,10 +42,50 @@
+@@ -38,10 +41,50 @@
  	const messageActions = getChatMessageActionsContext();
  	const editCtx = getChatMessageEditContext();
  
@@ -109,7 +108,7 @@ index d2ca537c3..dad663338 100644
  	function handleConfirmDelete() {
  		messageActions.confirmDelete();
  		messageActions.setShowDeleteDialog(false);
-@@ -79,21 +123,29 @@
+@@ -79,21 +122,29 @@
  		>
  			<ActionIcon icon={Copy} onclick={messageActions.copy} tooltip="Копировать" />
  
