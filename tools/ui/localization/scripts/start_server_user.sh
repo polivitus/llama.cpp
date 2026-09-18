@@ -56,7 +56,7 @@ case "$RUN" in
   н|Н|нет|Нет|n|N|no|No)
     echo ""
     echo "Для запуска вручную:"
-    echo "  LD_LIBRARY_PATH=$ROOT/build/bin \\"
+    echo "  LD_LIBRARY_PATH=$ROOT/build-user/bin \\"
     echo "  $BIN -m $MODEL \\"
     echo "    --host $HOST --port $PORT \\"
     echo "    --n-gpu-layers $NGL --temp $TEMP -c $CTX $PARALLEL_FLAG"
@@ -75,7 +75,7 @@ echo "Открой: http://localhost:$PORT"
 echo "Ctrl+C — остановка"
 echo ""
 
-exec env LD_LIBRARY_PATH="$ROOT/build/bin" \
+exec env LD_LIBRARY_PATH="$ROOT/build-user/bin" \
   "$BIN" \
   -m "$MODEL" \
   --host "$HOST" \
