@@ -1,0 +1,12 @@
+diff --git a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte
+index dac55caff..a9abb3270 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistant.svelte
+@@ -183,6 +183,7 @@
+ 	{#if message.timestamp && !editCtx.isEditing}
+ 		<ChatMessageActionIcons
+ 			actionsPosition="left"
++			{message}
+ 			justify="start"
+ 			onContinue={currentConfig.enableContinueGeneration ? onContinue : undefined}
+ 			onRawOutputToggle={(enabled) => (showRawOutput = enabled)}
