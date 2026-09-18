@@ -16,8 +16,7 @@
 		INITIAL_FILE_SIZE,
 		INPUT_CLASSES,
 		PROMPT_CONTENT_SEPARATOR,
-		SETTING_CONFIG_DEFAULT
-	} from '$lib/constants';
+		SETTING_CONFIG_DEFAULT, USER_MODE } from '$lib/constants';
 	import {
 		ContentPartType,
 		FileExtensionText,
@@ -103,7 +102,7 @@
 		onValueChange,
 		placeholder = 'Введите сообщение...',
 		showAddButton = true,
-		showModelSelector = true,
+		showModelSelector = !USER_MODE,
 		uploadedFiles = $bindable([]),
 		value = $bindable('')
 	}: Props = $props();

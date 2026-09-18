@@ -1,0 +1,23 @@
+diff --git a/tools/ui/src/lib/components/app/chat/ChatForm/ChatForm.svelte b/tools/ui/src/lib/components/app/chat/ChatForm/ChatForm.svelte
+index 958f5d8ac..38e1844c1 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatForm/ChatForm.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatForm/ChatForm.svelte
+@@ -16,8 +16,7 @@
+ 		INITIAL_FILE_SIZE,
+ 		INPUT_CLASSES,
+ 		PROMPT_CONTENT_SEPARATOR,
+-		SETTING_CONFIG_DEFAULT
+-	} from '$lib/constants';
++		SETTING_CONFIG_DEFAULT, USER_MODE } from '$lib/constants';
+ 	import {
+ 		ContentPartType,
+ 		FileExtensionText,
+@@ -103,7 +102,7 @@
+ 		onValueChange,
+ 		placeholder = 'Введите сообщение...',
+ 		showAddButton = true,
+-		showModelSelector = true,
++		showModelSelector = !USER_MODE,
+ 		uploadedFiles = $bindable([]),
+ 		value = $bindable('')
+ 	}: Props = $props();

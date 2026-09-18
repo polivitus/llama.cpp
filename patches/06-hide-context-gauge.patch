@@ -1,0 +1,22 @@
+diff --git a/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormActions/ChatFormActions.svelte b/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormActions/ChatFormActions.svelte
+index 395f2cfbe..2c4718930 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormActions/ChatFormActions.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatForm/ChatFormActions/ChatFormActions.svelte
+@@ -9,7 +9,7 @@
+ 	ChatFormContextGauge
+ } from '$lib/components/app';
+ import { Button } from '$lib/components/ui/button';
+-import { ICON_CLASS_DEFAULT } from '$lib/constants';
++import { ICON_CLASS_DEFAULT, USER_MODE } from '$lib/constants';
+ import { setChatFormActionsContext } from '$lib/contexts';
+ import { FileTypeCategory, MessageRole } from '$lib/enums';
+ import { ChatService } from '$lib/services';
+@@ -155,7 +155,7 @@
+ {/if}
+ 
+ <div class="flex items-center gap-1.5">
+-	{#if hasProcessedTokens}
++	{#if hasProcessedTokens && !USER_MODE}
+ 		<ChatFormContextGauge />
+ 	{/if}
+ 

@@ -17,8 +17,7 @@
 	import {
 		ATTACHMENT_FILE_ITEMS,
 		ICON_CLASS_DEFAULT,
-		TOOLTIP_DELAY_DURATION
-	} from '$lib/constants';
+		TOOLTIP_DELAY_DURATION, USER_MODE } from '$lib/constants';
 	import { getChatFormActionsContext } from '$lib/contexts';
 	import { AttachmentAction } from '$lib/enums/attachment.enums';
 	import { useAttachmentMenu } from '$lib/hooks/use-attachment-menu.svelte';
@@ -186,6 +185,7 @@
 					</Collapsible.Content>
 				</Collapsible.Root>
 
+				{#if !USER_MODE}
 				<button
 					class={sheetItemClass}
 					onclick={() => attachmentMenu.callbacks[AttachmentAction.SYSTEM_PROMPT_CLICK]()}
@@ -195,8 +195,9 @@
 
 					<span>Системное сообщение</span>
 				</button>
+				{/if}
 
-				{#if toolsPanel.totalToolCount > 0}
+				{#if !USER_MODE && toolsPanel.totalToolCount > 0}
 					<Collapsible.Root onOpenChange={(open) => (toolsExpanded = open)} open={toolsExpanded}>
 						<Collapsible.Trigger class={sheetItemClass}>
 							{#if toolsExpanded}
@@ -228,6 +229,7 @@
 					</Collapsible.Root>
 				{/if}
 
+				{#if !USER_MODE}
 				<button
 					class={sheetItemClass}
 					onclick={() => {
@@ -240,6 +242,7 @@
 
 					<span>MCP-серверы</span>
 				</button>
+				{/if}
 			</div>
 		</Sheet.Content>
 	</Sheet.Root>

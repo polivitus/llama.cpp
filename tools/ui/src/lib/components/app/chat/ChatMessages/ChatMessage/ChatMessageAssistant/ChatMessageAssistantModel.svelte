@@ -3,6 +3,7 @@
 	import { ServerModelStatus } from '$lib/enums';
 	import { modelsStore } from '$lib/stores';
 	import { copyToClipboard } from '$lib/utils';
+	import { USER_MODE } from '$lib/constants';
 
 	interface Props {
 		displayedModel: string | null;
@@ -43,5 +44,9 @@
 		}}
 	/>
 {:else}
-	<ModelBadge model={displayedModel || undefined} onclick={handleCopyModel} />
+	{#if USER_MODE}
+		<span class="text-sm font-medium">ИИ ассистент</span>
+	{:else}
+		<ModelBadge model={displayedModel || undefined} onclick={handleCopyModel} />
+	{/if}
 {/if}

@@ -9,7 +9,7 @@
 		ChatFormContextGauge
 	} from '$lib/components/app';
 	import { Button } from '$lib/components/ui/button';
-	import { ICON_CLASS_DEFAULT } from '$lib/constants';
+	import { ICON_CLASS_DEFAULT, USER_MODE } from '$lib/constants';
 	import { setChatFormActionsContext } from '$lib/contexts';
 	import { FileTypeCategory, MessageRole } from '$lib/enums';
 	import { ChatService } from '$lib/services';
@@ -155,7 +155,7 @@
 	{/if}
 
 	<div class="flex items-center gap-1.5">
-		{#if hasProcessedTokens}
+	{#if hasProcessedTokens && !USER_MODE}
 			<ChatFormContextGauge />
 		{/if}
 

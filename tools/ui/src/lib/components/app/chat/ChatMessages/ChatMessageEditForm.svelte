@@ -6,6 +6,7 @@
 	import { getChatMessageEditContext } from '$lib/contexts';
 	import { KeyboardKey, MessageRole } from '$lib/enums';
 	import { chatStore } from '$lib/stores';
+	import { USER_MODE } from '$lib/constants';
 	import { processFilesToChatUploaded } from '$lib/utils/browser-only';
 
 	const editCtx = getChatMessageEditContext();
@@ -111,7 +112,7 @@
 		onValueChange={editCtx.setContent}
 		placeholder="Edit your message..."
 		showAddButton={editCtx.messageRole === MessageRole.USER}
-		showModelSelector={editCtx.messageRole === MessageRole.USER}
+		showModelSelector={editCtx.messageRole === MessageRole.USER && !USER_MODE}
 		value={editCtx.editedContent}
 	/>
 </div>

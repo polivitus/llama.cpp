@@ -14,6 +14,7 @@
 	import { chatStore, modelsStore, serverStore, settingsStore } from '$lib/stores';
 	import { modelLoadProgressText } from '$lib/utils';
 	import { hasAgenticContent } from '$lib/utils';
+	import { USER_MODE } from '$lib/constants';
 
 	interface Props {
 		class?: string;
@@ -174,7 +175,7 @@
 					isLoading={chatStore.isLoading}
 					{message}
 					{processingState}
-					showMessageStats={currentConfig.showMessageStats}
+					showMessageStats={!USER_MODE && currentConfig.showMessageStats}
 				/>
 			</div>
 		</div>

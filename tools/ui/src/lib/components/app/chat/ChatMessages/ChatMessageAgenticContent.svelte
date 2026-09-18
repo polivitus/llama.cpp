@@ -16,6 +16,7 @@
 		DatabaseMessage
 	} from '$lib/types';
 	import { deriveAgenticSections } from '$lib/utils';
+	import { USER_MODE } from '$lib/constants';
 
 	interface Props {
 		message: DatabaseMessage;
@@ -179,6 +180,7 @@
 			<MarkdownContent attachments={message?.extra} content={section.content} />
 		</div>
 	{:else if section.type === AgenticSectionType.REASONING || section.type === AgenticSectionType.REASONING_PENDING}
+		{#if !USER_MODE}
 		<ChatMessageReasoningBlock
 			attachments={message?.extra}
 			{hasReasoningError}
@@ -187,6 +189,7 @@
 			open={isExpanded(index, section)}
 			{section}
 		/>
+		{/if}
 	{:else if section.type === AgenticSectionType.TOOL_CALL || section.type === AgenticSectionType.TOOL_CALL_PENDING || section.type === AgenticSectionType.TOOL_CALL_STREAMING}
 		<ChatMessageToolCallBlock
 			attachments={section.toolResultExtras}

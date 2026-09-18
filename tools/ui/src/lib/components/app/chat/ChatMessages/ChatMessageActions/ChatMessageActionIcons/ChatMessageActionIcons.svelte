@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowRight, Copy, Edit, GitBranch, RefreshCw, Trash2 } from '@lucide/svelte';
+	import { ArrowRight, Copy, Download, Edit, GitBranch, RefreshCw, Trash2 } from '@lucide/svelte';
 	import {
 		ActionIcon,
 		ChatMessageActionIconsBranchingControls,
@@ -12,8 +12,11 @@
 	import { getChatMessageActionsContext, getChatMessageEditContext } from '$lib/contexts';
 	import { MessageRole } from '$lib/enums';
 	import { conversationsStore } from '$lib/stores';
+	import type { DatabaseMessage } from '$lib/types';
+	import { USER_MODE } from '$lib/constants';
 
 	interface Props {
+		message?: DatabaseMessage;
 		role: MessageRole.USER | MessageRole.ASSISTANT;
 		justify: 'start' | 'end';
 		actionsPosition: 'left' | 'right';
@@ -27,6 +30,7 @@
 	let {
 		actionsPosition,
 		justify,
+		message,
 		onContinue,
 		onRawOutputToggle,
 		onRegenerate,
@@ -38,9 +42,42 @@
 	const messageActions = getChatMessageActionsContext();
 	const editCtx = getChatMessageEditContext();
 
+	const isUser = $derived(role === MessageRole.USER);
+	const isAssistant = $derived(role === MessageRole.ASSISTANT);
+
+	const showEdit = $derived(!USER_MODE || isUser);
+	const showRegenerate = $derived(isAssistant && !!onRegenerate);
+	const showContinue = $derived(isAssistant && !!onContinue && !USER_MODE);
+	const showFork = $derived(!!messageActions.forkConversation && !USER_MODE);
+	const showDelete = $derived(!USER_MODE);
+
 	let showForkDialog = $state(false);
 	let forkName = $state('');
 	let forkIncludeAttachments = $state(true);
+
+	function handleDownload() {
+		if (!message) return;
+		const now = new Date();
+		const ts = now.toISOString().slice(0, 16).replace('T', '-').replace(':', '-');
+		let text = `Ответ ассистента\n${'='.repeat(30)}\n\n`;
+		text += `Модель: ${message.model ?? 'неизвестно'}\n`;
+		text += `Дата: ${now.toLocaleString()}\n`;
+		if (message.timings) {
+			text += `Токенов: ${message.timings.predicted_n ?? '?'}\n`;
+			text += `Время: ${message.timings.predicted_ms ?? '?'} мс\n`;
+		}
+		text += `\nКонтент\n${'-'.repeat(30)}\n\n${message.content ?? ''}\n`;
+		if (message.reasoningContent) {
+			text += `\nReasoning\n${'-'.repeat(30)}\n\n${message.reasoningContent}\n`;
+		}
+		const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = `ответ-${ts}.txt`;
+		a.click();
+		URL.revokeObjectURL(url);
+	}
 
 	function handleConfirmDelete() {
 		messageActions.confirmDelete();
@@ -79,21 +116,29 @@
 		>
 			<ActionIcon icon={Copy} onclick={messageActions.copy} tooltip="Копировать" />
 
-			<ActionIcon icon={Edit} onclick={editCtx.startEdit} tooltip="Редактировать" />
-
-			{#if role === MessageRole.ASSISTANT && onRegenerate}
-				<ActionIcon icon={RefreshCw} onclick={() => onRegenerate()} tooltip="Перегенерировать" />
+			{#if showEdit}
+				<ActionIcon icon={Edit} onclick={editCtx.startEdit} tooltip="Редактировать" />
 			{/if}
 
-			{#if role === MessageRole.ASSISTANT && onContinue}
+			{#if showRegenerate}
+				<ActionIcon icon={RefreshCw} onclick={() => onRegenerate?.()} tooltip="Перегенерировать" />
+			{/if}
+
+			{#if USER_MODE && isAssistant && message}
+				<ActionIcon icon={Download} onclick={handleDownload} tooltip="Скачать ответ" />
+			{/if}
+
+			{#if showContinue}
 				<ActionIcon icon={ArrowRight} onclick={onContinue} tooltip="Продолжить" />
 			{/if}
 
-			{#if messageActions.forkConversation}
+			{#if showFork}
 				<ActionIcon icon={GitBranch} onclick={handleOpenForkDialog} tooltip="Разветвить беседу" />
 			{/if}
 
-			<ActionIcon icon={Trash2} onclick={messageActions.requestDelete} tooltip="Удалить" />
+			{#if showDelete}
+				<ActionIcon icon={Trash2} onclick={messageActions.requestDelete} tooltip="Удалить" />
+			{/if}
 		</div>
 	</div>
 

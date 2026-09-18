@@ -1,4 +1,5 @@
 import { browser } from '$app/environment';
+import { USER_MODE } from '$lib/constants';
 import { BUILD_VERSION_LOCALSTORAGE_KEY, SW_CONFIG } from '$lib/constants';
 import { versionStore } from '$lib/stores';
 import { useRegisterSW } from 'virtual:pwa-register/svelte';
@@ -24,6 +25,7 @@ export function usePwa() {
 				clearInterval(swCheckInterval);
 			}
 
+			if (USER_MODE) return;
 			swCheckInterval = setInterval(async () => {
 				if (!r || r.installing || !navigator?.onLine) return;
 

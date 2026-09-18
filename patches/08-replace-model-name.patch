@@ -1,0 +1,23 @@
+diff --git a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistantModel.svelte b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistantModel.svelte
+index c5b80f156..1cf6519f4 100644
+--- a/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistantModel.svelte
++++ b/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageAssistant/ChatMessageAssistantModel.svelte
+@@ -3,6 +3,7 @@
+ 	import { ServerModelStatus } from '$lib/enums';
+ 	import { modelsStore } from '$lib/stores';
+ 	import { copyToClipboard } from '$lib/utils';
++	import { USER_MODE } from '$lib/constants';
+ 
+ 	interface Props {
+ 		displayedModel: string | null;
+@@ -43,5 +44,9 @@
+ 		}}
+ 	/>
+ {:else}
+-	<ModelBadge model={displayedModel || undefined} onclick={handleCopyModel} />
++	{#if USER_MODE}
++		<span class="text-sm font-medium">ИИ ассистент</span>
++	{:else}
++		<ModelBadge model={displayedModel || undefined} onclick={handleCopyModel} />
++	{/if}
+ {/if}
