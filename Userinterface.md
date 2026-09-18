@@ -102,3 +102,15 @@
 - 45: `git push origin ru_userinterface` → OK (`8007e0453..ca57f8643`).
 
 Статус: HEAD = `ca57f8643` на `origin/ru_userinterface`. Рабочее дерево чистое.
+
+## [ЖУРНАЛ] Шаг 82 — найдена причина пустого/английского UI
+Симптомы: браузер отдаёт старый/англ. UI; на `:8081` никто не слушает.
+Причина: `~/.bashrc:130` экспортирует
+  `LD_LIBRARY_PATH=/home/it/llama.cpp/build/bin:$LD_LIBRARY_PATH`
+что указывает на **другой** чекаут (`/home/it/llama.cpp/`, HEAD a61f59e53, 16 сен)
+и перебивает RUNPATH нашего `build-user/bin/llama-server-user`.
+Плюс `start_server_user.sh` (строки 59, 78) сам указывает `$ROOT/build/bin`.
+Итог: подгружается чужой `libllama-server-impl.so` с обычным UI (без USER_MODE).
+
+План фикса (отдельным коммитом):
+- в start_server_user.sh заменить `$ROOT/build/bin` → `$ROOT/build-user/bin` (строки 59, 78).
