@@ -114,3 +114,34 @@
 
 План фикса (отдельным коммитом):
 - в start_server_user.sh заменить `$ROOT/build/bin` → `$ROOT/build-user/bin` (строки 59, 78).
+
+## [ЖУРНАЛ] Этап 1 завершён — USER_MODE работает
+Коммиты в `ru_userinterface`:
+- `1431a0e1a` — скрыта иконка Настройки в USER_MODE (visibleSidebarActions),
+  + проброс `message={message}` в ChatMessageActionIcons (Download-кнопка заработала).
+- `ed9d2bf00` — `start_server_user.sh`: LD_LIBRARY_PATH на `build-user/bin`
+  (был на чужой чекаут `/home/it/llama.cpp/build/bin`).
+- Проверено в браузере: Download, скрытие Настроек, отсутствие статистики и т.д.
+
+## [ЖУРНАЛ] Этап 2 завершён — локализация
+Коммит `98cf60c64` в `ru_userinterface`:
+- `apply.mjs`: `reFn` расширен до `\w{1,3}\(...\)` — ловит `gr("...")` и обёртки Svelte.
+- `ru.json`: +2 фразы — `Previous version`, `Next version` (всего 256).
+- Переведены: `Show system message in conversations`, `Save settings`,
+  `Previous version`, `Next version`.
+- Проверено: 181 замена (было 172).
+
+## [ДЛЯ АГЕНТА] ПРОДОЛЖИТЬ С ЭТАПА 3
+Цель: распространить правки локализации (коммит `98cf60c64`) на:
+- `origin/master` (= `origin/ru-localization`) — основной релиз,
+- `origin/ru_autolocale` — через merge `origin/master`.
+
+План:
+1. `git fetch origin`
+2. `git checkout -b l10n-fixes origin/master`
+3. Cherry-pick `98cf60c64` (только `apply.mjs` + `ru.json`).
+4. Push в `origin/master` (или `origin/ru-localization`).
+5. `git checkout ru_autolocale && git merge origin/master && git push`.
+6. В `ru_userinterface`: `git merge origin/master` (на случай конфликтов) + push.
+
+После — Этап 4: финальная проверка и обновление документации.
