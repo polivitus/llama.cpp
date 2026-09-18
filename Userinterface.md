@@ -173,3 +173,31 @@
 - Обновить документацию (PROJECT.ru.md, README_user.md).
 - Финальное тестирование всех трёх веток в браузере.
 - Опционально: тег `b11087` на актуальном master.
+
+## [ЖУРНАЛ] Этап 3 завершён — правки локализации во всех ветках
+Состояние origin после push:
+- `origin/master`      = `bdba559c6` (l10n-фикс)
+- `origin/ru-localization` = `bdba559c6` (синхронизирован с master)
+- `origin/ru_autolocale`   = `e3dc8fe6d` (merge origin/master)
+- `origin/ru_userinterface` = `ed34b0ee1` (merge origin/master)
+
+Все три ветки содержат `ru.json` = 256 фраз, `Previous version` = 1.
+
+Правки локализации:
+- `apply.mjs`: reFn расширен до `\w{1,3}\(...\)` — покрывает `gr("...")`.
+- `ru.json`: +2 фразы (`Previous version`, `Next version`).
+- Переведены: `Show system message in conversations`, `Save settings`.
+
+Стратегия синхронизации (запомнить для будущих правок локализации):
+1. Правим `ru.json` / `apply.mjs` в **master** (основной релиз).
+2. `git push origin master`.
+3. `git push origin <commit>:ru-localization` (alias).
+4. `git checkout ru_autolocale && git merge origin/master && git push`.
+5. `git checkout ru_userinterface && git merge origin/master && git push`.
+
+## [ДЛЯ АГЕНТА] ПРОДОЛЖИТЬ С ЭТАПА 4
+Что осталось:
+- Пересобрать бинарники в остальных чекаутах (/home/it/llama.cpp/, и т.д.).
+- Обновить документацию (PROJECT.ru.md, README_user.md).
+- Финальное тестирование всех трёх веток в браузере.
+- Опционально: тег `b11087` на актуальном master.
